@@ -9,45 +9,67 @@ from typing import Any, Callable
 from collections import defaultdict
 
 json_world = {
-     "regions": ["Menu", "main"],
+    "regions": ["Menu", "main", "red room", "green room", "blue room", "yellow room", "white room", "victory room"],
     "region_map": {
-        "Menu": {
-            "main": None
-        },
         "main": {
-            "dusty": [[""]],
-            "damp": [[""]],
-            "cursed": [[""]]
+            "red room": ["red key"],
+            "blue room": ["blue key"],
+            "green room": ["green key"],
+        },
+        "red room": {
+            "yellow room": ["yellow key"],
+        },
+        "green room": {
+            "yellow room": ["yellow key"],
+            "white room": ["white key"],
+        },
+        "blue room": {
+            "white room": ["white key"],
+        },
+        "yellow room": {
+            "victory room": ["bombs"],
+        },
+        "white room": {
+            "victory room": ["bombs"],
         },
     },
+
     "location_map": {
         "main": {
-            "": [[""]],  
+            "freebie": None,
         },
-
-        "dusty": {
-            "": [[""]],
+        "red room": {
+            "red room chest": None,
         },
-
-        "damp": {
-            "": [[""]],
+        "blue room": {
+            "blue room chest": None,
         },
-
-        "cursed": {
-            "victory": [""],
-        }
+        "green room": {
+            "green room chest": None,
+        },
+        "yellow room": {
+            "yellow room chest": None,
+        },
+        "white room": {
+            "white room chest": None,
+        },
+        "victory room": {
+            "victory chest": None,
+        },
     },
     "items": {
         "prog_items": [
-            "anvil",
+            "red key",
+            "blue key",
+            "green key",
+            "yellow key",
+            "white key",
+            "bombs",
         ],
-        "filler_items": [
-            "nothing"
-        ]
     },
-    "base_id": 123456789, # Need correct base_id
+    "base_id": 123456789,
     "game_name": "Forged Curse",
-    "filler_name": "nothing",
+    "filler_name": "nothing?",
 }
 
 # def open_page(url):
@@ -72,16 +94,16 @@ class TemplateLocation(Location):
     game = json_world["game_name"]
 
 
-# class FCWeb(WebWorld):
-#    setup_en = Tutorial(
-#        "setup",
-#        "A guide for setting up Air Delivery for AP",
-#        "en",
-#        "docs/setup_en.md",
-#        "setup/en",
-#        ["qwint"]
-#    )
-#    tutorials = [setup_en]
+class FCWeb(WebWorld):
+    """setup_en = Tutorial(
+       "setup",
+        "A guide for setting up Forged Curse for AP",
+        "en",
+        "docs/setup_en.md",
+        "setup/en",
+        ["chairodactyl, cheesepak"]
+    )
+    tutorials = [setup_en]"""
 
 
 # flatten lists of locations and items so they are indexed for name_to_id
@@ -107,7 +129,7 @@ class FCWorld(World):
     item_name_to_id = {name: json_world["base_id"]+item_list.index(name) for name in item_list}
     item_name_groups = {name: set(items) for name, items in json_world["item_name_groups"].items()}
 
-    ut_can_gen_without_yaml = True
+    # ut_can_gen_without_yaml = True
 
 # basic getters for json_world data, any option based modifications can be done here; may cache these later
 # expect authors to modify the return of super() per options, or fully override if their format is different
