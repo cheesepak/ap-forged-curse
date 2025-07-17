@@ -629,7 +629,7 @@
 
 		}
 		e.type = "application/javascript";
-		e.src = "index.js";
+		e.src = "forged-curse.js";
 		e.id = "e_script";
 		
 		document.body.appendChild(e); // load and run
