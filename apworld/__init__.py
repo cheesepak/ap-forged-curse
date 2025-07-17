@@ -11,6 +11,9 @@ from collections import defaultdict
 json_world = {
     "regions": ["Menu", "main", "red room", "green room", "blue room", "yellow room", "white room", "victory room"],
     "region_map": {
+        "Menu": {
+            "main": None
+        },
         "main": {
             "red room": ["red key"],
             "blue room": ["blue key"],
