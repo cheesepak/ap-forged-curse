@@ -15,7 +15,7 @@ json_world = {
             "main": None
         },
         "main": {
-            "red room": ["red key"], 
+            "red room": ["red key"],
             "blue room": ["blue key"],
             "green room": ["green key"],
         },
@@ -188,16 +188,11 @@ class FCWorld(World):
         # currently finds victory location, adds locked victory event, and requires victory event for completion
 
     def create_rule(self, rule: Any) -> Callable[[CollectionState], bool]:
-        """
-        current black box to convert json_world rule format to an access_rule lambda
-        Falsy rules will be ignored and left default
-        """
-        if len(rule) > 1:
-            rules = [lambda state: state.has_all(sub, self.player) for sub in rule]
-            return lambda state: any(r(state) for r in rules)
-        # optimize for the more common one route rules
-        return lambda state: state.has_all(rule[0], self.player)
-        # currently all my rule objects are None or a list of potential routes with each having a list of required items
+        #current black box to convert json_world rule format to an access_rule lambda
+        #if rule == "springboards OR double jump":
+            #return lambda state: state.has_any(["springboards", "double jump"], self.player)
+        return lambda state: state.has_all(rule, self.player)
+        #currently all my rule objects are None or a list of required items
 
     def get_item_list(self) -> list[str]:
         """
