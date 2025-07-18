@@ -70,7 +70,7 @@ json_world = {
             "bombs",
         ],
     },
-    "base_id": 123456789,
+    "base_id": 99117114115101,
     "game_name": "Forged Curse",
     "filler_name": "nothing?",
 }
