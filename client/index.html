@@ -20,9 +20,9 @@
     </div>
 
     <nav>
-      <!--<a href="https://chairodactyl.itch.io/the-forged-curse" target="_blank">itch.io</a>
-      <a href="https://github.com/cheesepak/ssj2025-party" target="_blank">Github</a>-->
-      <span>settings</span>
+      <a href="https://chairodactyl.itch.io/the-forged-curse" target="_blank">itch.io<sup><sup>▞</sup></sup></a>
+      <!--<a href="https://github.com/cheesepak/ssj2025-party" target="_blank">Github</a>
+      <span>settings</span>-->
     </nav>
   </header>
   <main>
@@ -286,12 +286,12 @@
           let item = packet.items[i];
           if (item.item === base_id+9) {
             if (item.player === thisPlayer) {
-              message_pico8("found counterfeit medal :(");
+              message_pico8("found loot");
             } else {
               if (players[item.player].alias === ""){
-                message_pico8(`got counterfeit medal from ${players[item.player].name} :(`.toLowerCase())
+                message_pico8(`got loot from ${players[item.player].name} :(`.toLowerCase())
               } else {
-                message_pico8(`got counterfeit medal from ${players[item.player].alias} :(`.toLowerCase())
+                message_pico8(`got loot from ${players[item.player].alias} :(`.toLowerCase())
               }
             }
           }
@@ -506,29 +506,39 @@
 
   </main>
   <footer>
-    <section class="footer-column">
-      <h2>The Forged Curse</h2>
-      <p>A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long forgotten, ancient forge. Once sealed away by unknown magic, the outer barrier is weak enough to enter and explore.</p> 
-      <p>Fight strange creatures and discover the mystery of the Forged Curse in this Rogue inspired game made in Pico-8 with <a href="https://archipelago.gg/" target="_blank">Archipelago.gg</a> implementation.</p>
+    <section class="footer-main">
+      <section class="footer-section">
+        <h2>The Forged Curse</h2>
+        <p>A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long forgotten, ancient forge. Once sealed away by unknown magic, the outer barrier is weak enough to enter and explore.</p> 
+        <p>Fight strange creatures and discover the mystery of the Forged Curse in this Rogue inspired game made in Pico-8 with <a href="https://archipelago.gg/" target="_blank">Archipelago.gg</a> implementation.</p>
+      </section>
+      <section class="footer-section">
+        <h2>About Us</h2>
+        <ul>
+          <li><a href="https://cheesepak.itch.io/" target="_blank">cheesepak</a> - game design, art, ap integration and client, additional music</li>
+          <li><a href="https://chairodactyl.itch.io/" target="_blank">chairodactyl</a> - code, additional art and design, additional music</li>
+          <li><a href="https://bsky.app/profile/enthuseconfuse.bsky.social" target="_blank">EC</a> - music</li>
+          <li><a href="https://www.twitch.tv/lokoklouse" target="_blank">Lokoklouse</a>, Butters - playtesting</li>
+        </ul>
+        <h3>Special Thanks</h3>
+        <p>Thanks to qwint and Amazia for their work on other Pico-8 integrations.</p>
+      </section>
+      <section class="footer-section">
+        <h2>Links</h2>
+        <ul>
+          <li><a href="https://archipelago.gg/" target="_blank">Archipelago.gg</a></li>
+          <li><a href="https://chairodactyl.itch.io/the-forged-curse" target="_blank">Find us on itch.io</a></li>
+          <li><a href="https://github.com/cheesepak/ap-forged-curse" target="_blank">AP Forged Curse Github</a></li>
+          <li><a href="https://itch.io/jam/ssjparty/entries" target="_blank">Originally created for PIGSquad Summer Slow Jams - July 2025</a></li>
+        </ul>
+        <h3>Find a bug?</h3>
+        <ul>
+          <li><a href="https://github.com/cheesepak/ap-forged-curse/issues" target="_blank">Report on Github</a></li>
+        </ul>
+      </section>
     </section>
-    <section class="footer-column">
-      <h2>Links</h2>
-      <ul>
-        <li><a href="https://archipelago.gg/" target="_blank">Archipelago.gg</a></li>
-        <li><a href="https://chairodactyl.itch.io/the-forged-curse" target="_blank">Find us on itch.io</a></li>
-        <li><a href="https://github.com/cheesepak/ssj2025-party" target="_blank">The Forged Curse Github</a></li>
-      </ul>
-      <h3>Find a bug?</h3>
-      <ul>
-        <li><a href="https://github.com/cheesepak/ssj2025-party/issues" target="_blank">Report on Github</a></li>
-      </ul>
-    </section>
-    <section class="footer-column">
-      <h2>About Us</h2>
-      <ul>
-        <li><a href="https://cheesepak.itch.io/">cheesepak</a> - game design and art</li>
-        <li><a href="https://chairodactyl.itch.io/">chairodactyl</a> - code, additional art and design</li>
-      </ul>
+    <section class="footer-sub">
+      <p>Built with ❤️ by <a href="https://hauntedmachine.dev/" target="_blank">Haunted Machine</a></p>
     </section>
   </footer>
 </body>
