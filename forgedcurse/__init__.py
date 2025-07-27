@@ -39,7 +39,6 @@ json_world = {
             "waxing moon rotunda": ["orange key"],
             "pigcube den": ["blue key"],
             "kobold village": ["orange key", "grappling hook", "crowbar"],
-            "forge storage": ["push rod"],
             "sealed halls": ["crossbow", "arrows", "cricket", "white key"]
         },
         "dwarven halls": {
