@@ -100,16 +100,16 @@ json_world = {
             "anvil chest": None,
             "forge check": ["crowbar", "anvil", "hammer", "bellows"],
             "spider storage chest": ["crowbar"],
-            "slime island": ["boat"],
-            "secret ingredient room": ["boat"],
+            "slime island chest": ["boat"],
+            "secret ingredient mimic": ["boat"],
             "gold armor chest": ["bombs"],
             "mushroom cave": ["bombs"],
         },
         "dwarven halls": {
             "orange key chest": None,
-            "NMR left chest": ["grappling hook OR boat"],
-            "NMR right chest": ["grappling hook OR boat"],
-            "pigcube hideaway": ["push rod"]
+            "nmr left chest": ["grappling hook OR boat"],
+            "nmr right chest": ["grappling hook OR boat"],
+            "pigcube hideaway chest": ["push rod"]
         },
         "new moon rotunda": {
             "blink chest": ["bombs", "blink rod"]
@@ -124,12 +124,12 @@ json_world = {
             "gibbous cleric grave chest": ["green key"],
         },
         "forge storage": {
-            "iron sword chest": None,
             "iron armor chest": None,
+            "iron sword chest": None,
         },
         "pigcube den": {
             "pigcube hall chest": None,
-            "pigcube closet": ["bombs"]
+            "pigcube closet chest": ["bombs"]
         },
         "kobold village": {
             "map": None,
@@ -137,14 +137,15 @@ json_world = {
             "kobold cave south chest": None,
             "shed chest": ["crowbar"],
             "kobold home chest": ["bombs OR skeleton key OR blink rod"],
-            "pig pen": ["blue key OR blink rod"],
+            "pig pen chest": ["blue key OR blink rod"],
         },   
         "temple": {
-            "inside temple chest north": None,
-            "unknown priest grave": ["bombs", "blink rod"],
+            "temple north chest": None,
+            "temple south chest": None,           
+            "unknown priest grave chest": ["bombs", "blink rod"],
         },     
         "fortress grounds": {
-            "slime island": ["boat"],
+            "slime island chest": ["boat"],
         },
         "riverbank": {
             "lower riverbank chest": None,
