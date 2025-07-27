@@ -9,75 +9,219 @@ from typing import Any, Callable
 from collections import defaultdict
 
 json_world = {
-    "regions": ["Menu", "main", "red room", "green room", "blue room", "yellow room", "white room", "victory room"],
+    "regions": [
+        "Menu", 
+        "main", # Starting area, caverns, mushroom hall
+        "dwarven halls",
+        "new moon rotunda", 
+        "grapple closet", 
+        "waxing moon rotunda", 
+        "forge storage", 
+        "pigcube den", 
+        "kobold village",
+        "temple",
+        "fortress grounds",
+        "riverbank",
+        "river fortress",
+        "full moon rotunda",
+        "secret storage",
+        "sealed halls",
+        "grappling hook room",
+        "sealed depths",
+        "waning moon rotunda" # victory
+        ],
     "region_map": {
         "Menu": {
             "main": None
         },
         "main": {
-            "red room": ["red key"],
-            "blue room": ["blue key"],
-            "green room": ["green key"],
+            "dwarven halls": ["red key OR crowbar"],
+            "waxing moon rotunda": ["orange key"],
+            "pigcube den": ["blue key"],
+            "kobold village": ["orange key", "grappling hook", "crowbar"],
+            "forge storage": ["push rod"],
+            "sealed halls": ["crossbow", "arrows", "cricket", "white key"]
         },
-        "red room": {
-            "yellow room": ["yellow key"],
+        "dwarven halls": {
+            "new moon rotunda": ["red key"],
+            "pigcube den": ["blue key", "crowbar"]
         },
-        "green room": {
-            "yellow room": ["yellow key"],
-            "white room": ["white key"],
+        "new moon rotunda": {
+            "grapple closet": ["crowbar"],
         },
-        "blue room": {
-            "white room": ["white key"],
+        "grapple closet": {},
+        "waxing moon rotunda": {},
+        "forge storage": {
+            "pigcube den": ["crowbar"], 
         },
-        "yellow room": {
-            "victory room": ["bombs"],
+        "pigcube den": {},
+        "kobold village": {
+            "temple": ["push rod OR grappling hook OR boat"],
+            "fortress grounds": ["boat OR grappling hook"],
+        },   
+        "temple": {},     
+        "fortress grounds": {
+            "river fortress": ["crowbar", "grappling hook"],
+            "riverbank": ["boat OR grappling hook"],
         },
-        "white room": {
-            "victory room": ["bombs"],
+        "riverbank": {
+            "secret storage": ["bombs"],
+            "river fortress": ["boat", "grappling hook"]
+        },     
+        "river fortress": {
+            "full moon rotunda": ["blue key"],
         },
+        "full moon rotunda": {},
+        "secret storage": {
+            "sealed depths": ["white key"],
+            "riverbank": ["bombs"]
+        },
+        "sealed halls": {
+            "grappling hook room": ["grappling hook"]
+        },
+        "grappling hook room": {
+            "sealed depths": ["red key", "orange key", "green key", "blue key", "white key", "crowbar"] # OR blink rod
+        },
+        "sealed depths": {
+            "grappling hook room": ["red key", "orange key", "green key", "blue key", "white key", "crowbar", "grappling hook"],
+            "waning moon rotunda": ["green key", "white key"],
+            "secret storage": ["white key"]
+        },
+        "waning moon rotunda": {},
     },
 
     "location_map": {
         "main": {
-            "freebie": None,
-            "freebie2": None,
-            "freebie3": None,
+            "riverside chest": None,
+            "kikku chest": None,
+            "wooden sword chest": None,
+            "leather armor chest": None,
+            "red key chest": None,
+            "anvil chest": None,
+            "forge check": ["crowbar", "anvil", "hammer", "bellows"],
+            "spider storage chest": ["crowbar"],
+            "slime island": ["boat"],
+            "secret ingredient room": ["boat"],
+            "gold armor chest": ["bombs"],
+            "mushroom cave": ["bombs"],
         },
-        "red room": {
-            "red room chest": None,
+        "dwarven halls": {
+            "orange key chest": None,
+            "NMR left chest": ["grappling hook OR boat"],
+            "NMR right chest": ["grappling hook OR boat"],
+            "pigcube hideaway": ["push rod"]
         },
-        "blue room": {
-            "blue room chest": None,
+        "new moon rotunda": {
+            "blink chest": ["bombs", "blink rod"]
         },
-        "green room": {
-            "green room chest": None,
+        "grapple closet": {
+            "grappling hook chest": None,
+            "eclipse knight sanctuary chest": ["boat", "push rod"] # or blink
         },
-        "yellow room": {
-            "yellow room chest": None,
+        "waxing moon rotunda": {
+            "waxing moon mimic": None,
+            "waxing moon chest": None,
+            "gibbous cleric grave chest": ["green key"],
         },
-        "white room": {
-            "white room chest": None,
+        "forge storage": {
+            "iron sword chest": None,
+            "iron armor chest": None,
         },
-        "victory room": {
-            "victory": None,
+        "pigcube den": {
+            "pigcube hall chest": None,
+            "pigcube closet": ["bombs"]
+        },
+        "kobold village": {
+            "map": None,
+            "kobold cave north chest": None,
+            "kobold cave south chest": None,
+            "shed chest": ["crowbar"],
+            "kobold home chest": ["bombs OR skeleton key OR blink rod"],
+            "pig pen": ["blue key OR blink rod"],
+        },   
+        "temple": {
+            "inside temple chest north": None,
+            "unknown priest grave": ["bombs", "blink rod"],
+        },     
+        "fortress grounds": {
+            "slime island": ["boat"],
+        },
+        "riverbank": {
+            "lower riverbank chest": None,
+            "fortress exit chest": ["boat"],
+        },     
+        "river fortress": {
+            "fortress lionsmane chest": None,
+            "fortress gnoglic chest": None,
+            "fortress amanita chest": None,
+            "fortress browncap chest": None,
+            "fortress exit chest": None,
+            "fortress blocked chest": ["push rod"],
+            "fortress closet chest": ["crowbar"],
+        },
+        "full moon rotunda": {
+            "apogee mage grave chest": ["grappling hook"]
+        },
+        "secret storage": {
+            "secret storage left chest": None,
+            "secret storage center chest": None,
+            "secret storage right chest": None,
+        },
+        "sealed halls": {
+            "pot maze left chest": None,
+            "pot maze right chest": None,
+        },
+        "grappling hook room": {
+            "ghr center chest": None,
+            "ghr north chest": None,
+        },
+        "sealed depths": {
+            "mini maze center": None,
+            "mini maze right": None, 
+            "monty hall door chest": ["white key"],          
+        },
+        "waning moon rotunda": {
+            "victory": ["grappling hook OR boat"], # crescent artificer grave chest
         },
     },
     "items": {
         "prog_items": [
+            "anvil",
+            "bellows",
+            "hammer",
+            "crowbar",
+            "grappling hook",
+            "boat",
+            "push rod",
+            "blink rod",
+            "bombs",
+            "crossbow",
+            "arrows",
             "red key",
             "blue key",
             "green key",
             "yellow key",
             "white key",
-            "bombs",
+            "skeleton key",
+            "cricket"
+        ],
+        "useful_items": [
+            "wooden sword",
+            "iron sword",
+            "gold sword",
+            "leather armor",
+            "iron armor",
+            "gold armor",
+            "health up",
+            "map",
         ],
         "filler_items": [
-            "filler item",
+            "loot",
         ],
     },
     "base_id": 99117114115101, # "curse" in decimal (99 117 114 115 101)
     "game_name": "Forged Curse",
-    "filler_name": "filler item",
+    "filler_name": "loot",
 }
 
 # def open_page(url):
@@ -121,7 +265,7 @@ item_list = [item for item_lists in json_world["items"].values() for item in ite
 # for my particular get_item_classification
 classification_lookup = defaultdict(lambda: ItemClassification.useful, {
     **{n: ItemClassification.progression for n in json_world["items"]["prog_items"]},
-    # **{n: ItemClassification.filler for n in json_world["items"]["filler_items"]}
+    **{n: ItemClassification.filler for n in json_world["items"]["filler_items"]}
 })
 
 
@@ -187,10 +331,11 @@ class FCWorld(World):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("victory", self.player)
         # currently finds victory location, adds locked victory event, and requires victory event for completion
 
+    # TO DO: make this more flexible by parsing the rule coming in
     def create_rule(self, rule: Any) -> Callable[[CollectionState], bool]:
         #current black box to convert json_world rule format to an access_rule lambda
-        #if rule == "springboards OR double jump":
-            #return lambda state: state.has_any(["springboards", "double jump"], self.player)
+        if rule == "boat OR grappling hook":
+            return lambda state: state.has_any(["boat", "grappling hook"], self.player)
         return lambda state: state.has_all(rule, self.player)
         #currently all my rule objects are None or a list of required items
 
