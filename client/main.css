@@ -12,6 +12,8 @@ html, body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    overflow-x: hidden;
 }
 
 h1 {
@@ -162,23 +164,40 @@ main {
 footer {
     background-color: #1D2B53;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     width: 100vw;
-    padding: 20px;
-
 }
 
-.footer-column {
+.footer-main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:flex-start;
+}
+
+.footer-section {
   flex: 1;
-  margin: 0 15px;
+  margin: 20px 15px;
   max-width: 380px;
 }
 
-.footer-column ul {
+.footer-section ul {
   list-style: none;
   padding: 0;
 }
-
+.footer-section ul li {
+    margin-bottom: 10px;
+}
+.footer-sub {
+    background-color: #00000050;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px 10px 10px 10px;
+    
+}
 
 #pico-cart {
     display: flex;
@@ -216,3 +235,28 @@ footer {
     }
 }
 
+@media screen and (max-width:1100px) {
+    .footer-main {  
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:center;
+    }
+}
+
+/*modified bootstrap crap*/
+
+.form-control {
+    font-family: monospace;    
+}
+.form-control:focus {
+
+}
+
+.btn-primary {
+    background-color: #008751;
+    border:0;
+}
+
+.btn-primary:hover {
+    background-color: #FFA300;
+}
