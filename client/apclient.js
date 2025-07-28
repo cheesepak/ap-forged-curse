@@ -1,4 +1,4 @@
-   import {
+     import {
         Client,
         ITEMS_HANDLING_FLAGS,
         SERVER_PACKET_TYPE,
@@ -213,7 +213,7 @@
             }
           }
           for (let flag in item_flags) {
-            if (base_id + item_flags[flag][1] === item.item) {
+            if (base_id + item_flags[flag] === item.item) {
               let byte = Math.floor(item_flags[flag] / 8) + 10; // + 10 starts at byte 10 | item_flags[flag][0]
               let item_bit = 2 ** (item_flags[flag] % 8); // item_flags[flag][0]
               if (gpio[byte] & item_bit) {//yes this is supposed to be bitwise and
@@ -339,7 +339,7 @@
               }
         }
         for (let loc in loc_flags) {
-          if ((gpio[Math.floor(loc_flags[loc][0] / 8)] & 2 ** (loc_flags[loc] % 8)) !== 0) { // loc_flags[loc][0]
+          if ((gpio[Math.floor(loc_flags[loc] / 8)] & 2 ** (loc_flags[loc] % 8)) !== 0) { // loc_flags[loc][0]
             if (loc === "victory") {
               client.updateStatus(CLIENT_STATUS.GOAL);
             } else {
