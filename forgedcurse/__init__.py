@@ -10,16 +10,16 @@ from collections import defaultdict
 
 json_world = {
     "regions": [
-        "Menu", 
+        "Menu",
         "main", # Starting area, caverns, mushroom hall
         "dwarven halls",
-        "new moon rotunda", 
+        "new moon rotunda",
         "eclipse knight sanctuary",
-        "grapple closet", 
-        "waxing moon rotunda", 
+        "grapple closet",
+        "waxing moon rotunda",
         "gibbous cleric grave",
-        "forge storage", 
-        "pigcube den", 
+        "forge storage",
+        "pigcube den",
         "kobold village",
         "temple",
         "fortress grounds",
@@ -126,12 +126,12 @@ json_world = {
             "forge storage": [
                 ["crowbar"],
                 ["blink rod"],
-            ], 
+            ],
         },
         "kobold village": {
             "temple": [
-                ["push rod"], 
-                ["grappling hook"], 
+                ["push rod"],
+                ["grappling hook"],
                 ["boat"],
                 ["blink rod"],
             ],
@@ -147,19 +147,19 @@ json_world = {
                 ["bombs"],
                 ["blink rod"],
             ]
-        },   
+        },
         "temple": {
             "fortress grounds": [
                 ["grappling hook"],
                 ["boat"],
                 ["blink rod"],
             ],
-            "kobold village": [                
-                ["push rod"], 
+            "kobold village": [
+                ["push rod"],
                 ["boat"],
                 ["blink rod"],
             ] # imagine if this happened...
-        },     
+        },
         "fortress grounds": {
             "river fortress": [
                 ["crowbar", "grappling hook"],
@@ -170,10 +170,10 @@ json_world = {
                 ["boat"]
             ],
             "temple": [
-                ["grappling hook"], 
+                ["grappling hook"],
                 ["boat"],
-                ["blink rod"],                
-            ]           
+                ["blink rod"],
+            ]
         },
         "riverbank": {
             "secret storage": [["bombs"]],
@@ -182,7 +182,7 @@ json_world = {
                 ["boat"],
                 ["blink rod"],
             ]
-        },     
+        },
         "river fortress": {
             "full moon rotunda": [
                 ["blue key", "boat"],
@@ -294,7 +294,7 @@ json_world = {
                     ["bombs"],
                     ["blink rod"],
                 ],
-            "mushroom cave": [                    
+            "mushroom cave": [
                 ["bombs"],
                 ["blink rod"],
             ],
@@ -352,26 +352,27 @@ json_world = {
                 ["bombs"]
             ],
             "kobold home chest": [
-                ["bombs"], 
-                ["skeleton key"], 
+                ["bombs"],
+                ["skeleton key"],
                 ["blink rod"]
             ],
             "pig pen chest": [
-                ["blue key"], 
+                ["blue key"],
                 ["blink rod"]
             ],
-        },   
+        },
         "temple": {
             "temple north chest": None,
-            "temple south chest": None,           
+            "temple south chest": None,
             "unknown priest grave chest": [["bombs", "push rod", "blink rod"]],
-        },     
+        },
         "fortress grounds": {
-            "slime island chest": [["boat"]],
+            # already listed under main
+            #"slime island chest": [["boat"]],
         },
         "riverbank": {
             "lower riverbank chest": None,
-        },     
+        },
         "river fortress": {
             "fortress lionsmane chest": None,
             "fortress gnoglic chest": None,
@@ -409,11 +410,11 @@ json_world = {
         },
         "sealed depths": {
             "mini maze center": None,
-            "mini maze right": None, 
+            "mini maze right": None,
             "monty hall door chest": [
                 ["white key"],
                 ["blink rod"],
-            ],          
+            ],
         },
         "waning moon rotunda": {
             "victory": [ # crescent artificer grave chest
@@ -439,7 +440,7 @@ json_world = {
             "red key",
             "blue key",
             "green key",
-            "yellow key",
+            "orange key",
             "white key",
             "skeleton key",
             "cricket"
@@ -451,10 +452,35 @@ json_world = {
             "leather armor",
             "iron armor",
             "gold armor",
-            "health up",
+            "heart gem",
             "map",
         ],
         "filler_items": [
+            "kobold's loot",
+            "nmr left loot",
+            "nmr right loot",
+            "kobold cave loot",
+            "pig pen loot",
+            "hideaway loot",
+            "lionsmane loot",
+            "gnoglic loot",
+            "amanita loot",
+            "browncap loot",
+            "spider's loot",
+            "snake's loot",
+            "mimic's loot",
+            "fort exit loot",
+            "hallway loot",
+            "ghr top loot",
+            "pot maze loot",
+            "winner's loot",
+            "ghr left loot",
+            "riverside loot",
+            "minimaze top loot",
+            "minimaze right loot",
+            "storage left loot",
+            "storage right loot",
+            # filler loot
             "loot",
         ],
     },
@@ -510,8 +536,8 @@ classification_lookup = defaultdict(lambda: ItemClassification.useful, {
 
 class FCWorld(World):
     """
-    A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long 
-    forgotten, ancient forge. Find the anvil, bellows, and hammer and use silver to forge silver bolts for the 
+    A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long
+    forgotten, ancient forge. Find the anvil, bellows, and hammer and use silver to forge silver bolts for the
     magic crossbow to destroy the barrier to the sealed hall and defeat Big Wizard.
     """
     game = json_world["game_name"]
@@ -579,7 +605,7 @@ class FCWorld(World):
         #       ["blink rod", "crowbar"]
         #   ]
         return lambda state: any(
-            state.has_all(option, self.player) for option in rule 
+            state.has_all(option, self.player) for option in rule
         )
 
     def get_item_list(self) -> list[str]:
