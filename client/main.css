@@ -3,11 +3,24 @@
   src: url(pico-8.woff2);
 }
 
+:root {
+    --primary-color: #1D2B53;
+    --bg-color: #000000;
+    --text-color: #FFF1E8;
+    --dark-blue: #1D2B53;
+    --dark-purple: #7E2553;
+    --dark-green: #008751;
+    --brown: #AB5236;
+    --dark-grey: #5F574F;
+    --lavender: #83769C;
+    --white: #FFF1E8;
+}
+
 html, body {
     font-family: Pico-8, monospace;
     text-transform: lowercase;
-    background-color:#000000; 
-    color:#FFF1E8;
+    background-color:var(--bg-color); 
+    color: var(--text-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -123,7 +136,7 @@ canvas {
 /* --- */
 
 header {
-    background-color: #1D2B53;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -161,8 +174,14 @@ main {
     margin: 20px;
 }
 
+select {
+    background-color: var(--white);
+    padding: 10px;
+    border: 0;
+}
+
 footer {
-    background-color: #1D2B53;
+    background-color: var(--primary-color);
     display: flex;
     flex-direction: column;
     justify-content: center;
