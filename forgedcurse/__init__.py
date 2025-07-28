@@ -14,8 +14,10 @@ json_world = {
         "main", # Starting area, caverns, mushroom hall
         "dwarven halls",
         "new moon rotunda", 
+        "eclipse knight sanctuary",
         "grapple closet", 
         "waxing moon rotunda", 
+        "gibbous cleric grave",
         "forge storage", 
         "pigcube den", 
         "kobold village",
@@ -24,9 +26,11 @@ json_world = {
         "riverbank",
         "river fortress",
         "full moon rotunda",
+        "apogee mage grave",
         "secret storage",
         "sealed halls",
         "grappling hook room",
+        "mini maze",
         "sealed depths",
         "waning moon rotunda" # victory
         ],
@@ -35,56 +39,229 @@ json_world = {
             "main": None
         },
         "main": {
-            "dwarven halls": ["red key OR crowbar"],
-            "waxing moon rotunda": ["orange key"],
-            "pigcube den": ["blue key"],
-            "kobold village": ["orange key", "grappling hook", "crowbar"],
-            "sealed halls": ["crossbow", "arrows", "cricket", "white key"]
+            "dwarven halls": [
+                ["red key"],
+                ["crowbar"],
+                ["blink rod"],
+            ],
+            "waxing moon rotunda": [
+                ["orange key"],
+                ["blink rod"],
+            ],
+            "pigcube den": [
+                ["blue key"],
+                ["blink rod"],
+            ],
+            "kobold village": [
+                ["orange key", "grappling hook", "crowbar"],
+                ["blink rod"],
+            ],
+            "forge storage": [["blink rod"]],
+            "sealed halls": [["crossbow", "arrows", "cricket", "white key"]],
         },
         "dwarven halls": {
-            "new moon rotunda": ["red key"],
-            "pigcube den": ["blue key", "crowbar"]
+            "new moon rotunda": [
+                ["red key"],
+                ["blink rod"],
+            ],
+            "grapple closet": [
+                ["boat", "blink rod"],
+            ],
+            "pigcube den": [
+                ["blue key", "crowbar"],
+                ["blink rod", "crowbar"]
+            ],
+            "kobold village": [
+                ["green key"],
+                ["blink rod"],
+            ],
+            "waxing moon rotunda": [
+                ["blink rod"],
+            ],
+            "gibbous cleric grave": [
+                ["blink rod"],
+            ],
         },
         "new moon rotunda": {
-            "grapple closet": ["crowbar"],
+            "grapple closet": [
+                ["crowbar"],
+                ["blink rod"],
+            ],
+            "eclipse knight sanctuary": [
+                ["blink rod", "boat"],
+            ]
         },
-        "grapple closet": {},
-        "waxing moon rotunda": {},
-        "forge storage": {
-            "pigcube den": ["crowbar"], 
+        "grapple closet": {
+            "eclipse knight sanctuary": [
+                ["push rod", "boat"],
+                ["blink rod", "boat"],
+            ],
+            "new moon rotunda": [
+                ["crowbar"],
+                ["blink rod"],
+            ],
+            "dwarven halls": [["blink rod", "boat"]]
         },
-        "pigcube den": {},
+         "eclipse knight sanctuary": {
+            "grapple closet":[
+                ["boat"],
+            ]
+         },
+        "waxing moon rotunda": {
+            "gibbous cleric grave": [
+                ["green key"],
+                ["blink rod"],
+            ]
+        },
+        "gibbous cleric grave": {
+            "dwarven halls": [["blink rod"]],
+            "waxing moon rotunda": [
+                ["green key"],
+                ["blink rod"],
+            ]
+        },
+        "forge storage": {},
+        "pigcube den": {
+            "forge storage": [
+                ["crowbar"],
+                ["blink rod"],
+            ], 
+        },
         "kobold village": {
-            "temple": ["push rod OR grappling hook OR boat"],
-            "fortress grounds": ["boat OR grappling hook"],
+            "temple": [
+                ["push rod"], 
+                ["grappling hook"], 
+                ["boat"],
+                ["blink rod"],
+            ],
+            "fortress grounds": [
+                ["grappling hook"],
+                ["boat"]
+            ],
+            "dwarven halls": [
+                ["green key"],
+                ["blink rod"],
+            ],
+            "eclipse knight sanctuary": [
+                ["bombs"],
+                ["blink rod"],
+            ]
         },   
-        "temple": {},     
+        "temple": {
+            "fortress grounds": [
+                ["grappling hook"],
+                ["boat"],
+                ["blink rod"],
+            ],
+            "kobold village": [                
+                ["push rod"], 
+                ["boat"],
+                ["blink rod"],
+            ] # imagine if this happened...
+        },     
         "fortress grounds": {
-            "river fortress": ["crowbar", "grappling hook"],
-            "riverbank": ["boat OR grappling hook"],
+            "river fortress": [
+                ["crowbar", "grappling hook"],
+                ["blink rod"],
+            ],
+            "riverbank": [
+                ["grappling hook"],
+                ["boat"]
+            ],
+            "temple": [
+                ["grappling hook"], 
+                ["boat"],
+                ["blink rod"],                
+            ]           
         },
         "riverbank": {
-            "secret storage": ["bombs"],
-            "river fortress": ["boat", "grappling hook"]
+            "secret storage": [["bombs"]],
+            "river fortress": [["boat", "grappling hook"]],
+            "fortress exit": [
+                ["boat"],
+                ["blink rod"],
+            ]
         },     
         "river fortress": {
-            "full moon rotunda": ["blue key"],
+            "full moon rotunda": [
+                ["blue key", "boat"],
+                ["blue key", "grappling hook"],
+                ["blue key", "blink rod"],
+                ["boat", "blink rod"]
+            ],
+            "apogee mage grave": [
+                ["boat", "blink rod"]
+            ],
+            "river fortress exit": [
+                ["grappling hook"],
+                ["boat"]
+            ]
         },
-        "full moon rotunda": {},
+        "full moon rotunda": {
+            "apogee mage grave": [
+                ["grappling hook"],
+                ["boat"]
+            ],
+            "riverbank": [
+                ["boat", "blink rod"]
+            ]
+        },
+        "fortress exit": {
+            "river fortress": [
+                ["boat"],
+                ["grappling hook"]
+            ],
+            "riverbank": [
+                ["boat"],
+                ["blink rod"]
+            ],
+        },
         "secret storage": {
-            "sealed depths": ["white key"],
-            "riverbank": ["bombs"]
+            "sealed depths": [
+                ["white key"],
+                ["blink rod"]
+            ],
+            "riverbank": [["bombs"]],
         },
         "sealed halls": {
-            "grappling hook room": ["grappling hook"]
+            "grappling hook room": [["grappling hook"]],
+            "mini maze": [
+                ["blink rod"]
+            ]
         },
         "grappling hook room": {
-            "sealed depths": ["red key", "orange key", "green key", "blue key", "white key", "crowbar"] # OR blink rod
+            "mini maze": [
+                ["red key", "orange key", "green key", "blue key", "crowbar"],
+                ["blink rod"]
+            ],
+        },
+        "mini maze": {
+            "grappling hook room":[
+                ["red key", "orange key", "green key", "blue key", "crowbar"],
+                ["blink rod"]
+            ],
+            "sealed depths": [
+                ["white key"],
+                ["blink rod"]
+            ],
+            "sealed halls": [
+                ["blink rod"]
+            ]
         },
         "sealed depths": {
-            "grappling hook room": ["red key", "orange key", "green key", "blue key", "white key", "crowbar", "grappling hook"],
-            "waning moon rotunda": ["green key", "white key"],
-            "secret storage": ["white key"]
+            "grappling hook room": [
+                ["white key"],
+                ["blink rod"]
+            ],
+            "waning moon rotunda": [
+                ["green key", "white key"],
+                ["green key", "blink rod"],
+                ["blue key", "blink rod"],
+                ["red key", "blink rod"]
+            ],
+            "secret storage": [
+                ["white key"],
+                ["blink rod"]],
         },
         "waning moon rotunda": {},
     },
@@ -97,30 +274,41 @@ json_world = {
             "leather armor chest": None,
             "red key chest": None,
             "anvil chest": None,
-            "forge check": ["crowbar", "anvil", "hammer", "bellows"],
-            "spider storage chest": ["crowbar"],
-            "slime island chest": ["boat"],
-            "secret ingredient mimic": ["boat"],
-            "gold armor chest": ["bombs"],
-            "mushroom cave": ["bombs"],
+            "forge check": [["crowbar", "anvil", "hammer", "bellows"]],
+            "spider storage chest": [["crowbar"]],
+            "slime island chest": [["boat"]],
+            "secret ingredient mimic": [["boat"]],
+            "gold armor chest": [["bombs"]],
+            "mushroom cave": [["bombs"]],
         },
         "dwarven halls": {
             "orange key chest": None,
-            "nmr left chest": ["grappling hook OR boat"],
-            "nmr right chest": ["grappling hook OR boat"],
-            "pigcube hideaway chest": ["push rod"]
+            "nmr left chest": [
+                    ["grappling hook"],
+                    ["boat"]
+                ],
+            "nmr right chest": [
+                    ["grappling hook"],
+                    ["boat"]
+                ],
+            "pigcube hideaway chest": [["push rod"]],
         },
         "new moon rotunda": {
-            "blink chest": ["bombs", "blink rod"]
+            "blink chest": [["bombs", "blink rod"]],
         },
         "grapple closet": {
             "grappling hook chest": None,
-            "eclipse knight sanctuary chest": ["boat", "push rod"] # or blink
+            "eclipse knight sanctuary chest": [
+                ["boat", "push rod"], 
+                ["boat", "blink rod"]
+            ]
         },
         "waxing moon rotunda": {
             "waxing moon mimic": None,
             "waxing moon chest": None,
-            "gibbous cleric grave chest": ["green key"],
+        },
+        "gibbous cleric grave": {
+            "gibbous cleric grave chest": None,
         },
         "forge storage": {
             "iron armor chest": None,
@@ -128,27 +316,34 @@ json_world = {
         },
         "pigcube den": {
             "pigcube hall chest": None,
-            "pigcube closet chest": ["bombs"]
+            "pigcube closet chest": [["bombs"]]
         },
         "kobold village": {
             "map": None,
             "kobold cave north chest": None,
             "kobold cave south chest": None,
             "shed chest": ["crowbar"],
-            "kobold home chest": ["bombs OR skeleton key OR blink rod"],
-            "pig pen chest": ["blue key OR blink rod"],
+            "kobold home chest": [
+                ["bombs"], 
+                ["skeleton key"], 
+                ["blink rod"]
+            ],
+            "pig pen chest": [
+                ["blue key"], 
+                ["blink rod"]
+            ],
         },   
         "temple": {
             "temple north chest": None,
             "temple south chest": None,           
-            "unknown priest grave chest": ["bombs", "blink rod"],
+            "unknown priest grave chest": [["bombs", "blink rod"]],
         },     
         "fortress grounds": {
-            "slime island chest": ["boat"],
+            "slime island chest": [["boat"]],
         },
         "riverbank": {
             "lower riverbank chest": None,
-            "fortress exit chest": ["boat"],
+            "fortress exit chest": [["boat"]],
         },     
         "river fortress": {
             "fortress lionsmane chest": None,
@@ -156,11 +351,11 @@ json_world = {
             "fortress amanita chest": None,
             "fortress browncap chest": None,
             "fortress exit chest": None,
-            "fortress blocked chest": ["push rod"],
-            "fortress closet chest": ["crowbar"],
+            "fortress blocked chest": [["push rod"]],
+            "fortress closet chest": [["crowbar"]],
         },
         "full moon rotunda": {
-            "apogee mage grave chest": ["grappling hook"]
+            "apogee mage grave chest": [["grappling hook"]]
         },
         "secret storage": {
             "secret storage left chest": None,
@@ -178,10 +373,13 @@ json_world = {
         "sealed depths": {
             "mini maze center": None,
             "mini maze right": None, 
-            "monty hall door chest": ["white key"],          
+            "monty hall door chest": [["white key"]],          
         },
         "waning moon rotunda": {
-            "victory": ["grappling hook OR boat"], # crescent artificer grave chest
+            "victory": [ # crescent artificer grave chest
+                    ["grappling hook"],
+                    ["boat"]
+                ],
         },
     },
     "items": {
@@ -271,6 +469,10 @@ classification_lookup = defaultdict(lambda: ItemClassification.useful, {
 
 class FCWorld(World):
     """
+    A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long 
+    forgotten, ancient forge. Find the anvil, bellows, and hammer and use silver to forge silver bolts for the 
+    magic crossbow to destroy the barrier to the sealed hall and defeat Big Wizard.
+    
     You’re a sky-island delivery worker delivering mail to all the nearby islands. Everything runs smoothly until the
     letters suddenly aren’t being delivered. Find all of the letters and deliver them to their recipients.
     Maybe they’ll give you something as a thank you.
@@ -331,13 +533,18 @@ class FCWorld(World):
         self.multiworld.completion_condition[self.player] = lambda state: state.has("victory", self.player)
         # currently finds victory location, adds locked victory event, and requires victory event for completion
 
-    # TO DO: make this more flexible by parsing the rule coming in
     def create_rule(self, rule: Any) -> Callable[[CollectionState], bool]:
         #current black box to convert json_world rule format to an access_rule lambda
-        if rule == "boat OR grappling hook":
-            return lambda state: state.has_any(["boat", "grappling hook"], self.player)
-        return lambda state: state.has_all(rule, self.player)
-        #currently all my rule objects are None or a list of required items
+        #if every entry in rule is a list, returns true if all requirements of any of the lists has been met
+        # EX:
+        #   "pigcube den": [
+        #       ["blue key", "crowbar"],
+        #       ["blink rod", "crowbar"]
+        #   ]
+        #if all(isinstance(option, list) for option in rule): 
+        return lambda state: any(
+            state.has_all(option, self.player) for option in rule 
+        )
 
     def get_item_list(self) -> list[str]:
         """
