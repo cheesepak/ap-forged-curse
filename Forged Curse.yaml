@@ -73,7 +73,7 @@ Forged Curse:
 
   start_inventory:
     # Start with these items.
-    {}
+    []
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
@@ -94,3 +94,9 @@ Forged Curse:
   item_links:
     # Share part of your item pool with other players.
     []
+  
+  forced_locations:
+    # Forces the blink rod into the only check that requires the blink rod
+    # Not a friendly item for new players so disabled by default
+    # Throw into the pool at your own risk
+    "blink chest": "blink rod"
