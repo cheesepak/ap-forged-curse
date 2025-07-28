@@ -26,6 +26,7 @@ json_world = {
         "riverbank",
         "river fortress",
         "full moon rotunda",
+        "fortress exit",
         "apogee mage grave",
         "secret storage",
         "sealed halls",
@@ -274,34 +275,55 @@ json_world = {
             "leather armor chest": None,
             "red key chest": None,
             "anvil chest": None,
-            "forge check": [["crowbar", "anvil", "hammer", "bellows"]],
-            "spider storage chest": [["crowbar"]],
+            "forge check": [
+                    ["crowbar", "anvil", "hammer", "bellows"],
+                    ["blink rod", "anvil", "hammer", "bellows"],
+                    ["bombs", "anvil", "hammer", "bellows"],
+                ],
+            "spider storage chest": [
+                ["crowbar"],
+                ["bombs"],
+                ["blink rod"],
+                ],
             "slime island chest": [["boat"]],
-            "secret ingredient mimic": [["boat"]],
-            "gold armor chest": [["bombs"]],
-            "mushroom cave": [["bombs"]],
+            "secret ingredient mimic": [
+                    ["boat"],
+                    ["bombs", "blink rod"]
+                ],
+            "gold armor chest": [
+                    ["bombs"],
+                    ["blink rod"],
+                ],
+            "mushroom cave": [                    
+                ["bombs"],
+                ["blink rod"],
+            ],
         },
         "dwarven halls": {
             "orange key chest": None,
             "nmr left chest": [
                     ["grappling hook"],
-                    ["boat"]
+                    ["boat"],
+                    ["blink rod"]
                 ],
             "nmr right chest": [
                     ["grappling hook"],
-                    ["boat"]
+                    ["boat"],
+                    ["blink rod"]
                 ],
-            "pigcube hideaway chest": [["push rod"]],
+            "pigcube hideaway chest": [
+                ["push rod"],
+                ["blink rod"]
+            ],
         },
         "new moon rotunda": {
             "blink chest": [["bombs", "blink rod"]],
         },
         "grapple closet": {
             "grappling hook chest": None,
-            "eclipse knight sanctuary chest": [
-                ["boat", "push rod"], 
-                ["boat", "blink rod"]
-            ]
+        },
+        "eclipse knight sanctuary": {
+            "eclipse knight sanctuary chest": None,
         },
         "waxing moon rotunda": {
             "waxing moon mimic": None,
@@ -316,13 +338,19 @@ json_world = {
         },
         "pigcube den": {
             "pigcube hall chest": None,
-            "pigcube closet chest": [["bombs"]]
+            "pigcube closet chest": [
+                ["bombs"],
+                ["blink rod"],
+            ]
         },
         "kobold village": {
             "map": None,
             "kobold cave north chest": None,
             "kobold cave south chest": None,
-            "shed chest": ["crowbar"],
+            "shed chest": [
+                ["crowbar"],
+                ["bombs"]
+            ],
             "kobold home chest": [
                 ["bombs"], 
                 ["skeleton key"], 
@@ -336,26 +364,35 @@ json_world = {
         "temple": {
             "temple north chest": None,
             "temple south chest": None,           
-            "unknown priest grave chest": [["bombs", "blink rod"]],
+            "unknown priest grave chest": [["bombs", "push rod", "blink rod"]],
         },     
         "fortress grounds": {
             "slime island chest": [["boat"]],
         },
         "riverbank": {
             "lower riverbank chest": None,
-            "fortress exit chest": [["boat"]],
         },     
         "river fortress": {
             "fortress lionsmane chest": None,
             "fortress gnoglic chest": None,
             "fortress amanita chest": None,
             "fortress browncap chest": None,
-            "fortress exit chest": None,
-            "fortress blocked chest": [["push rod"]],
-            "fortress closet chest": [["crowbar"]],
+            "fortress blocked chest": [
+                ["push rod"],
+                ["blink rod"]
+            ],
+            "fortress closet chest": [
+                ["crowbar"],
+                ["bombs"],
+                ["blink rod"]
+            ],
         },
-        "full moon rotunda": {
-            "apogee mage grave chest": [["grappling hook"]]
+        "fortress exit": {
+            "fortress exit chest": None,
+        },
+        "full moon rotunda": {},
+        "apogee mage grave": {
+            "apogee mage grave chest": None,
         },
         "secret storage": {
             "secret storage left chest": None,
@@ -373,12 +410,16 @@ json_world = {
         "sealed depths": {
             "mini maze center": None,
             "mini maze right": None, 
-            "monty hall door chest": [["white key"]],          
+            "monty hall door chest": [
+                ["white key"],
+                ["blink rod"],
+            ],          
         },
         "waning moon rotunda": {
             "victory": [ # crescent artificer grave chest
                     ["grappling hook"],
-                    ["boat"]
+                    ["boat"],
+                    ["blink rod"],
                 ],
         },
     },
@@ -472,10 +513,6 @@ class FCWorld(World):
     A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long 
     forgotten, ancient forge. Find the anvil, bellows, and hammer and use silver to forge silver bolts for the 
     magic crossbow to destroy the barrier to the sealed hall and defeat Big Wizard.
-    
-    You’re a sky-island delivery worker delivering mail to all the nearby islands. Everything runs smoothly until the
-    letters suddenly aren’t being delivered. Find all of the letters and deliver them to their recipients.
-    Maybe they’ll give you something as a thank you.
     """
     game = json_world["game_name"]
     # web = FCWeb()
@@ -534,14 +571,13 @@ class FCWorld(World):
         # currently finds victory location, adds locked victory event, and requires victory event for completion
 
     def create_rule(self, rule: Any) -> Callable[[CollectionState], bool]:
-        #current black box to convert json_world rule format to an access_rule lambda
-        #if every entry in rule is a list, returns true if all requirements of any of the lists has been met
+        # current black box to convert json_world rule format to an access_rule lambda
+        # returns true if all requirements of any of the lists has been met
         # EX:
         #   "pigcube den": [
         #       ["blue key", "crowbar"],
         #       ["blink rod", "crowbar"]
         #   ]
-        #if all(isinstance(option, list) for option in rule): 
         return lambda state: any(
             state.has_all(option, self.player) for option in rule 
         )
