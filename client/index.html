@@ -175,7 +175,7 @@
       <!-- end login form -->
     <!-- chat <div id="chat" style="width: 400px;"></div>-->
     </section>
-    
+
     <script src="pico8-gpio-listener.js"></script>
     <script type="module">
       import {
@@ -393,7 +393,7 @@
             }
           }
           for (let flag in item_flags) {
-            if (base_id + item_flags[flag][1] === item.item) {
+            if (base_id + item_flags[flag] === item.item) {
               let byte = Math.floor(item_flags[flag] / 8) + 10; // + 10 starts at byte 10 | item_flags[flag][0]
               let item_bit = 2 ** (item_flags[flag] % 8); // item_flags[flag][0]
               if (gpio[byte] & item_bit) {//yes this is supposed to be bitwise and
@@ -519,7 +519,7 @@
               }
         }
         for (let loc in loc_flags) {
-          if ((gpio[Math.floor(loc_flags[loc][0] / 8)] & 2 ** (loc_flags[loc] % 8)) !== 0) { // loc_flags[loc][0]
+          if ((gpio[Math.floor(loc_flags[loc] / 8)] & 2 ** (loc_flags[loc] % 8)) !== 0) { // loc_flags[loc][0]
             if (loc === "victory") {
               client.updateStatus(CLIENT_STATUS.GOAL);
             } else {
@@ -614,7 +614,7 @@
     <section class="footer-main">
       <section class="footer-section">
         <h2>The Forged Curse</h2>
-        <p>A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long forgotten, ancient forge. Once sealed away by unknown magic, the outer barrier is weak enough to enter and explore.</p> 
+        <p>A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles upon the entrance to a long forgotten, ancient forge. Once sealed away by unknown magic, the outer barrier is weak enough to enter and explore.</p>
         <p>Fight strange creatures and discover the mystery of the Forged Curse in this Rogue inspired game made in Pico-8 with <a href="https://archipelago.gg/" target="_blank">Archipelago.gg</a> implementation.</p>
       </section>
       <section class="footer-section">
@@ -641,7 +641,7 @@
           <li><a href="https://github.com/cheesepak/ap-forged-curse/issues" target="_blank">Report on Github</a></li>
         </ul>
         <h2>Client Theme</h2>
-        
+
         <select id="select-theme" onchange="updateColor(this.value)">
           <option value="">-- select theme --</option>
           <option value="--dark-blue">dark-blue</option>
