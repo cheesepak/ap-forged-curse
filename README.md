@@ -6,6 +6,3 @@ PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam
 
 - GPIO implementation and AP web client based on [AP Air Delivery by qwint](https://github.com/qwint/ap-air-delivery) and [AP MetroCUBEvania](https://github.com/ap-metrocubevania)
 - [pico8-gpio-listener](https://github.com/benwiley4000/pico8-gpio-listener) | [archipelago.js](https://www.npmjs.com/package/archipelago.js) 
-
-
-
