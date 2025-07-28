@@ -214,8 +214,8 @@
           }
           for (let flag in item_flags) {
             if (base_id + item_flags[flag][1] === item.item) {
-              let byte = Math.floor(item_flags[flag][0] / 8) + 10; // + 10 starts at byte 10
-              let item_bit = 2 ** (item_flags[flag][0] % 8);
+              let byte = Math.floor(item_flags[flag] / 8) + 10; // + 10 starts at byte 10 | item_flags[flag][0]
+              let item_bit = 2 ** (item_flags[flag] % 8); // item_flags[flag][0]
               if (gpio[byte] & item_bit) {//yes this is supposed to be bitwise and
                 console.log(`${flag} has already been received`);
               } else {
@@ -321,6 +321,7 @@
           });
       });
 
+      // TO DO: Get this working
       // add location handler for gpio layer
       // sending information to the pico8 will trigger this function sending all checks to ap again
       // if you always send information to the pico8 when the gpio updates, that can cause an infinite loop
@@ -338,21 +339,22 @@
               }
         }
         for (let loc in loc_flags) {
-          if ((gpio[Math.floor(loc_flags[loc][0] / 8)] & 2 ** (loc_flags[loc][0] % 8)) !== 0) {
+          if ((gpio[Math.floor(loc_flags[loc][0] / 8)] & 2 ** (loc_flags[loc] % 8)) !== 0) { // loc_flags[loc][0]
             if (loc === "victory") {
               client.updateStatus(CLIENT_STATUS.GOAL);
             } else {
-              console.log(`Checking location id: ${base_id + loc_flags[loc][1]}`)
-              client.locations.check(base_id + loc_flags[loc][1]);
-              if (!checked_locations.includes(base_id + loc_flags[loc][1], 0)){
-                client.locations.scout(CREATE_AS_HINT_MODE.NO_HINT, base_id + loc_flags[loc][1]);
+              console.log(`Checking location id: ${base_id + loc_flags[loc]}`) // loc_flags[loc][1]
+              client.locations.check(base_id + loc_flags[loc]); // loc_flags[loc][1]
+              if (!checked_locations.includes(base_id + loc_flags[loc], 0)){ // loc_flags[loc][1]
+                client.locations.scout(CREATE_AS_HINT_MODE.NO_HINT, base_id + loc_flags[loc]); // loc_flags[loc][1]
               }
-              checked_locations.push(base_id + loc_flags[loc][1]);
+              checked_locations.push(base_id + loc_flags[loc]); // loc_flags[loc][1]
             }
           }
         }
       });
 
+      // TO DO: Get this working
       //** start chat from phar
       client.messages.on("message", onMessage);
 
