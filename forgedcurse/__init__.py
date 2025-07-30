@@ -442,7 +442,11 @@ json_world = {
             "leather armor",
             "iron armor",
             "gold armor",
-            "heart gem",
+            "blink heart gem",
+            "riverside heart gem",
+            "pigcube heart gem",
+            "storage heart gem",
+            "fortress closet heart gem",
             "map",
         ],
         "filler_items": [
