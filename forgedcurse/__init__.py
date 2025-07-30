@@ -175,16 +175,10 @@ json_world = {
             ]
         },
         "river fortress": {
-            "full moon rotunda": [
-                ["blue key", "boat"],
-                ["blue key", "grappling hook"],
-                ["blue key", "blink rod"],
-                #["boat", "blink rod"]
-            ],
             #"apogee mage grave": [["boat", "blink rod"]],
             "river fortress exit": [
-                ["grappling hook"],
-                ["boat"]
+                ["push rod", "grappling hook"],
+                ["push rod", "boat"]
             ]
         },
         "full moon rotunda": {
@@ -199,7 +193,12 @@ json_world = {
         "fortress exit": {
             "river fortress": [
                 ["boat"],
-                ["grappling hook"]
+            ],
+            "full moon rotunda": [
+                ["blue key", "boat"],
+                ["blue key", "grappling hook"],
+                ["blue key", "blink rod"],
+                #["boat", "blink rod"]
             ],
             "riverbank": [
                 ["boat"],
