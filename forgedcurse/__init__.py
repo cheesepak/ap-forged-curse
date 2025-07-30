@@ -46,8 +46,8 @@ json_world = {
                 ["blink rod"],
             ],
             "waxing moon rotunda": [
-                ["orange key"],
-                ["blink rod"],
+                ["crowbar", "orange key"],
+                ["crowbar", "blink rod"],
             ],
             "pigcube den": [
                 ["blue key"],
@@ -55,7 +55,7 @@ json_world = {
             ],
             "kobold village": [
                 ["orange key", "grappling hook", "crowbar"],
-                ["blink rod"],
+                #["blink rod"],
             ],
             "forge storage": [["blink rod"]],
             "sealed halls": [["crossbow", "arrows", "cricket", "white key"]],
@@ -65,32 +65,24 @@ json_world = {
                 ["red key"],
                 ["blink rod"],
             ],
-            "grapple closet": [
-                ["boat", "blink rod"],
-            ],
+            #"grapple closet": [["boat", "blink rod"],],
             "pigcube den": [
                 ["blue key", "crowbar"],
                 ["blink rod", "crowbar"]
             ],
             "kobold village": [
-                ["green key"],
-                ["blink rod"],
+                ["green key", "crowbar"],
+                ["blink rod", "crowbar"]
             ],
-            "waxing moon rotunda": [
-                ["blink rod"],
-            ],
-            "gibbous cleric grave": [
-                ["blink rod"],
-            ],
+            #"waxing moon rotunda": [["blink rod"],],
+            #"gibbous cleric grave": [["blink rod"],],
         },
         "new moon rotunda": {
             "grapple closet": [
                 ["crowbar"],
                 ["blink rod"],
             ],
-            "eclipse knight sanctuary": [
-                ["blink rod", "boat"],
-            ]
+            #"eclipse knight sanctuary": [["blink rod", "boat"],]
         },
         "grapple closet": {
             "eclipse knight sanctuary": [
@@ -115,11 +107,11 @@ json_world = {
             ]
         },
         "gibbous cleric grave": {
-            "dwarven halls": [["blink rod"]],
-            "waxing moon rotunda": [
-                ["green key"],
-                ["blink rod"],
-            ]
+            #"dwarven halls": [["blink rod"]],
+            #"waxing moon rotunda": [
+            #    ["green key"],
+            #    ["blink rod"],
+            #]
         },
         "forge storage": {},
         "pigcube den": {
@@ -133,19 +125,18 @@ json_world = {
                 ["push rod"],
                 ["grappling hook"],
                 ["boat"],
-                ["blink rod"],
+                #["blink rod"],
             ],
             "fortress grounds": [
-                ["grappling hook"],
+                #["grappling hook"],
                 ["boat"]
             ],
             "dwarven halls": [
-                ["green key"],
-                ["blink rod"],
+                ["green key", "crowbar"],
+                ["green key", "blink rod"],
             ],
             "eclipse knight sanctuary": [
-                ["bombs"],
-                ["blink rod"],
+                ["bombs", "blink rod"],
             ]
         },
         "temple": {
@@ -155,15 +146,15 @@ json_world = {
                 ["blink rod"],
             ],
             "kobold village": [
-                ["push rod"],
+                #["push rod"],
                 ["boat"],
-                ["blink rod"],
+                #["blink rod"],
             ] # imagine if this happened...
         },
         "fortress grounds": {
             "river fortress": [
                 ["crowbar", "grappling hook"],
-                ["blink rod"],
+                #["blink rod"],
             ],
             "riverbank": [
                 ["grappling hook"],
@@ -177,7 +168,7 @@ json_world = {
         },
         "riverbank": {
             "secret storage": [["bombs"]],
-            "river fortress": [["boat", "grappling hook"]],
+            "river fortress": [["boat"]],#, "grappling hook"]],
             "fortress exit": [
                 ["boat"],
                 ["blink rod"],
@@ -188,11 +179,9 @@ json_world = {
                 ["blue key", "boat"],
                 ["blue key", "grappling hook"],
                 ["blue key", "blink rod"],
-                ["boat", "blink rod"]
+                #["boat", "blink rod"]
             ],
-            "apogee mage grave": [
-                ["boat", "blink rod"]
-            ],
+            #"apogee mage grave": [["boat", "blink rod"]],
             "river fortress exit": [
                 ["grappling hook"],
                 ["boat"]
@@ -219,8 +208,8 @@ json_world = {
         },
         "secret storage": {
             "sealed depths": [
-                ["white key"],
-                ["blink rod"]
+                ["white key", "boat"],
+                #["blink rod"]
             ],
             "riverbank": [["bombs"]],
         },
@@ -250,7 +239,7 @@ json_world = {
             ]
         },
         "sealed depths": {
-            "grappling hook room": [
+            "mini maze": [
                 ["white key"],
                 ["blink rod"]
             ],
@@ -261,8 +250,9 @@ json_world = {
                 ["red key", "blink rod"]
             ],
             "secret storage": [
-                ["white key"],
-                ["blink rod"]],
+                ["boat","white key"],
+                ["boat","blink rod"]
+            ],
         },
         "waning moon rotunda": {},
     },
@@ -276,24 +266,24 @@ json_world = {
             "red key chest": None,
             "anvil chest": None,
             "forge check": [
-                    ["crowbar", "anvil", "hammer", "bellows"],
-                    ["blink rod", "anvil", "hammer", "bellows"],
-                    ["bombs", "anvil", "hammer", "bellows"],
-                ],
+                ["crowbar", "anvil", "hammer", "bellows"],
+                ["blink rod", "anvil", "hammer", "bellows"],
+                ["bombs", "anvil", "hammer", "bellows"],
+            ],
             "spider storage chest": [
                 ["crowbar"],
                 ["bombs"],
                 ["blink rod"],
-                ],
+            ],
             "slime island chest": [["boat"]],
             "secret ingredient mimic": [
-                    ["boat"],
-                    ["bombs", "blink rod"]
-                ],
+                ["boat"],
+                ["bombs", "blink rod"]
+            ],
             "gold armor chest": [
-                    ["bombs"],
-                    ["blink rod"],
-                ],
+                ["bombs"],
+                #["blink rod"],
+            ],
             "mushroom cave": [
                 ["bombs"],
                 ["blink rod"],
@@ -302,15 +292,15 @@ json_world = {
         "dwarven halls": {
             "orange key chest": None,
             "nmr left chest": [
-                    ["grappling hook"],
-                    ["boat"],
-                    ["blink rod"]
-                ],
+                ["grappling hook"],
+                ["boat"],
+                #["blink rod"]
+            ],
             "nmr right chest": [
-                    ["grappling hook"],
-                    ["boat"],
-                    ["blink rod"]
-                ],
+                ["grappling hook"],
+                ["boat"],
+                #["blink rod"]
+            ],
             "pigcube hideaway chest": [
                 ["push rod"],
                 ["blink rod"]
@@ -413,15 +403,15 @@ json_world = {
             "mini maze right": None,
             "monty hall door chest": [
                 ["white key"],
-                ["blink rod"],
+                #["blink rod"],
             ],
         },
         "waning moon rotunda": {
             "victory": [ # crescent artificer grave chest
-                    ["grappling hook"],
-                    ["boat"],
-                    ["blink rod"],
-                ],
+                ["grappling hook"],
+                ["boat"],
+                ["blink rod"],
+            ],
         },
     },
     "items": {
