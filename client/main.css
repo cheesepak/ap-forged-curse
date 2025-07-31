@@ -145,7 +145,7 @@ header {
     padding: 20px;
 }
 
-header div h1:hover {
+header div h1 a:hover {
     animation: color-fade 1500ms infinite;
 }
 
@@ -218,6 +218,10 @@ footer {
     
 }
 
+.center-text {
+    text-align: center;
+}
+
 #pico-cart {
     display: flex;
     flex-direction: column;
@@ -254,14 +258,6 @@ footer {
     }
 }
 
-@media screen and (max-width:1100px) {
-    .footer-main {  
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items:center;
-    }
-}
-
 /*modified bootstrap crap*/
 
 .form-control {
@@ -275,4 +271,57 @@ footer {
 
 .btn-primary:hover {
     background-color: #FFA300;
+}
+
+/*compendium page crap*/
+
+.info-section {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    max-width: 1200px;
+}
+
+.info-section h3 {
+    color: #FF004D;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 380px;
+    margin: 10px;
+}
+
+.info-card div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.info-card img {
+    padding-right: 10px;
+    max-width: 100%; 
+    height: auto; 
+}
+
+@media screen and (max-width:1100px) {
+    header {
+        flex-direction: column;
+    }
+
+    .info-section {
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .footer-main {  
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items:center;
+    }
 }
