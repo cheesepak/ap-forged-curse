@@ -82,13 +82,13 @@ function _init()
 			ed=10,
 		},
 		--cricket
-		{makenpc},
+		makenpc,
 		--cat
-		{makenpc},
+		makenpc,
 		--dog
-		{makenpc},
+		makenpc,
 		--pig
-		{makenpc},--spd=.5,isnpc=true},
+		makenpc,--spd=.5,isnpc=true},
 		--snake
 		{et="poison",dmg=5},
 		
@@ -126,7 +126,7 @@ function _init()
 		--big wiz
 		makebigwiz,--{hp=50,dp=3,ap=10},
 		--kobold
-		{makenpc},--spd=.5,isnpc=true},
+		makenpc,--spd=.5,isnpc=true},
 		
 		--kikku
 		{hp=7,ap=4,
@@ -228,6 +228,7 @@ function _init()
 	keys[56]=boltunlock
 	
 	
+	loadsd()
 	--removed stuff was here
 	
 	
@@ -1471,9 +1472,11 @@ function makenpc(xin,yin,spin)
 	local npc={
 		x=xin,
 		y=yin,
+		hp=1,
 		sp=spin,
 		up=upnpc,
 		dr=drent,
+		stun=0,
 		isnpc=true,
 		hx=xin,
 		hy=yin,
