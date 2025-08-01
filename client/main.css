@@ -145,7 +145,11 @@ header {
     padding: 20px;
 }
 
-header div h1 a:hover {
+header div a {
+    font-size: 48px;
+}
+
+header div a:hover {
     animation: color-fade 1500ms infinite;
 }
 
@@ -218,9 +222,47 @@ footer {
     
 }
 
+/* info cards */
+
+.info-section {
+    display: flex;
+    flex-direction: row;
+
+
+    flex-wrap: wrap;
+    margin: 20px 0;
+    max-width: 1200px;
+}
+
+.info-section h3 {
+    color: #FF004D;
+}
+
+.info-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 380px;
+    margin: 10px;
+}
+
+.info-card div {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.info-card img {
+    padding-right: 10px;
+    max-width: 100%; 
+    height: auto; 
+}
+
 .center-text {
     text-align: center;
 }
+
+/* pico-8 specific */
 
 #pico-cart {
     display: flex;
@@ -258,7 +300,7 @@ footer {
     }
 }
 
-/*modified bootstrap crap*/
+/* modify bootstrap */
 
 .form-control {
     font-family: monospace;    
@@ -273,45 +315,13 @@ footer {
     background-color: #FFA300;
 }
 
-/*compendium page crap*/
-
-.info-section {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 20px 0;
-    max-width: 1200px;
-}
-
-.info-section h3 {
-    color: #FF004D;
-}
-
-.info-card {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    max-width: 380px;
-    margin: 10px;
-}
-
-.info-card div {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
-}
-
-.info-card img {
-    padding-right: 10px;
-    max-width: 100%; 
-    height: auto; 
-}
-
 @media screen and (max-width:1100px) {
     header {
         flex-direction: column;
+    }
+
+    header div a {
+        font-size: 36px;
     }
 
     .info-section {

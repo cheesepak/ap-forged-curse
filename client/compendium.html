@@ -15,7 +15,7 @@
 <body>
   <header>
     <div>
-      <h1><a href="index.html">The Forged Curse</a></h1>
+      <a href="index.html">The Forged Curse</a>
       <p>Pico-8 Archipelago Client</p>
     </div>
 
@@ -29,7 +29,7 @@
   <main>
     <section class="center-text">
     <h1>The Forged Curse Compendium</h1>
-    <p>Lists of enemies and items you may encounter in The Forged Curse</p>
+    <p>Lists of items, enemies, and guides you may encounter in The Forged Curse</p>
     <p><a href="#items">Jump to items</a> · <a href="#enemies">Jump to Enemies</a> · <a href="#maps">Jump to maps</a></p>
     </section>
     <section id="items">
@@ -37,74 +37,255 @@
         <div class="info-section">
             <div class="info-card">
                 <div>
-                    <img src="img/hourglass.png">
+                    <img src="img/hourglass.png" loading="lazy" alt="">
                     <h3>Hourglass</h3>
                 </div>
                 <p>Use to rest, allowing for time to pass without an action. You can heal over time by resting.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/red-key.png">
+                    <img src="img/cheese.png" loading="lazy" alt="">
+                    <h3>Cheese</h3>
+                </div>
+                <p>Eat to heal 20 points and increase rate of additional healing for a set amount of time. Found in both chests and loot drops.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/red-key.png" loading="lazy" alt="">
                     <h3>Keys</h3>
-                    <img src="img/orange-key.png"><img src="img/green-key.png"><img src="img/blue-key.png"><img src="img/white-key.png">
+                    <img src="img/orange-key.png" loading="lazy" alt="">
+                    <img src="img/green-key.png" loading="lazy" alt="">
+                    <img src="img/blue-key.png" loading="lazy" alt="">
+                    <img src="img/white-key.png" loading="lazy" alt="">
                 </div>
                 <p>Color coded keys that open doors of matching color.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/crowbar.png">
+                    <img src="img/crowbar.png" loading="lazy" alt="">
                     <h3>Crowbar</h3>                    
                 </div>
                 <p>Destroys barricaded doorways. Does not destroy barrels.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/grappling-hook.png">
+                    <img src="img/grappling-hook.png" loading="lazy" alt="">
                     <h3>Grappling Hook</h3>                    
                 </div>
                 <p>Hooks onto wooden objects and pulls you to them.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/push-rod.png">
+                    <img src="img/push-rod.png" loading="lazy" alt="">
                     <h3>Push Rod</h3>                    
                 </div>
                 <p>A magic rod that pushes heavy rocks.</p>
             </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/anvil.png" loading="lazy" alt="">
+                    <h3>Anvil</h3>                    
+                </div>
+                <p>Part of the forge. Place the anvil on its pedastal.</p>
+            </div>  
+            <div class="info-card">
+                <div>
+                    <img src="img/hammer.png" loading="lazy" alt="hammer sprite">
+                    <h3>Hammer</h3>                    
+                </div>
+                <p>Use on anvil with a rekindled flame to craft arrows.</p>
+            </div>       
+            <div class="info-card">
+                <div>
+                    <img src="img/bellows.png" loading="lazy" alt="">
+                    <h3>Bellows</h3>                    
+                </div>
+                <p>Pushes enemies away. Use to rekindle the forge flame.</p>
+            </div>   
+            <div class="info-card">
+                <div>
+                    <img src="img/crossbow.png" loading="lazy" alt="">
+                    <h3>Magic Crossbow</h3>                    
+                </div>
+                <p>Shoot enemies and cursed barriers at range. Requires silver arrows.</p>
+            </div>  
+            <div class="info-card">
+                <div>
+                    <img src="img/arrow.png" loading="lazy" alt="">
+                    <h3>Silver arrows</h3>                    
+                </div>
+                <p>Fire from crossbow. Restock at forge once reconstructed.</p>
+            </div>      
+            <div class="info-card">
+                <div>
+                    <img src="img/cricket.png" loading="lazy" alt="">
+                    <h3>cricket</h3>                    
+                </div>
+                <p>Stuns enemies and cursed barriers on screen. Long cooldown.</p>
+            </div>     
+            <div class="info-card">
+                <div>
+                    <img src="img/bombs.png" loading="lazy" alt="">
+                    <h3>Bombs</h3>                    
+                </div>
+                <p>Blow up cracked walls and barricaded doorways. Damages enemies (and you, watch out).</p>
+            </div>     
+            <div class="info-card">
+                <div>
+                    <img src="img/blink-rod.png" loading="lazy" alt="">
+                    <h3>Blink Rod</h3>                    
+                </div>
+                <p>Teleport over two spaces in cardinal directions. Take damage if teleport lands in something solid (watch out).</p>
+            </div>  
+            <div class="info-card">
+                <div>
+                    <img src="img/heart-gem.png" loading="lazy" alt="">
+                    <h3>heart gem</h3>                    
+                </div>
+                <p>Permanently increases health points by 10. There are five to find.</p>
+            </div>  
+            <div class="info-card">
+                <div>
+                    <img src="img/wooden-sword.png" loading="lazy" alt="">
+                    <h3>sword</h3> 
+                    <img src="img/wooden-sword.png" loading="lazy" alt="">
+                    <img src="img/wooden-sword.png" loading="lazy" alt="">                   
+                </div>
+                <p>Equip to increase attack power. wooden -> iron -> gold</p>
+            </div>  
+            <div class="info-card">
+                <div>
+                    <img src="img/leather-armor.png" loading="lazy" alt="">
+                    <h3>armor</h3>    
+                    <img src="img/leather-armor.png" loading="lazy" alt="">
+                    <img src="img/leather-armor.png" loading="lazy" alt="">                
+                </div>
+                <p>Equip to increase defense points. leather -> iron -> gold</p>
+            </div>   
+            <div class="info-card">
+                <div>
+                    <img src="img/silver.png" loading="lazy" alt="">
+                    <h3>silver</h3>                    
+                </div>
+                <p>Required to forge silver arrows and place bombs. Found in both chests and loot drops.</p>
+            </div>  
         </div>
     </section>
     <section id="enemies">
-        <h2>Enemies</h2>
+        <h2>Enemies (wip)</h2>
         <div class="info-section">
             <div class="info-card">
                 <div>
-                    <img src="img/amanita-mushroom.gif">
-                    <h3>Amanita Mushroom</h3>
+                    <img src="img/spider.gif" loading="lazy" alt="">
+                    <h3>Cave Spider</h3>
                 </div>
-                <p>Red, spotted mushroom that releases confusion spores. Confusion messes with your controls.</p>
+                <p>Regular cave spider. Doesn't do anything special, just attacks.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/browncap-mushroom.gif">
+                    <img src="img/snake.gif" loading="lazy" alt="">
+                    <h3>Snake</h3>
+                </div>
+                <p>Green snake, will attack and has a chance to poison on hit.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/bat.gif" loading="lazy" alt="">
+                    <h3>Bat</h3>
+                </div>
+                <p>Bats will awaken and attack if walking too fast.</p>
+                <p><img src="img/bat-sleep.png" loading="lazy" alt=""> <- Sleeping bat</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/kikku.gif" loading="lazy" alt="">
+                    <h3>Kikku</h3>
+                </div>
+                <p>Kikku is just a li'l guy. And watch out, Kikku kick you.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/amanita-mushroom.gif" loading="lazy" alt="">
+                    <h3>Amanita</h3>
+                </div>
+                <p>Red, spotted mushroom that releases confusion spores. Confusion messes with your controls. Rest to remove effect faster.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/browncap-mushroom.gif" loading="lazy" alt="">
                     <h3>Browncap</h3>
                 </div>
-                <p>Brown mushroom that releases slow spores. Slow lowers your speed, allows enemies to take multiple turns before your next turn.</p>
+                <p>Brown mushroom that releases slow spores. Slow lowers your speed, allows enemies to take multiple turns before your next turn. Rest to remove effect faster.</p>
             </div>
             <div class="info-card">
                 <div>
-                    <img src="img/lionsmane-mushroom.gif">
+                    <img src="img/lionsmane-mushroom.gif" loading="lazy" alt="">
                     <h3>Lionsmane</h3>
                 </div>
-                <p>Large mushroom that releases weak spores. Weak lowers your attack.</p>
+                <p>Large mushroom that releases weak spores. Weak lowers your attack. Rest to remove effect faster.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/gnoglic-mushroom.gif" loading="lazy" alt="">
+                    <h3>Gnoglic</h3>
+                </div>
+                <p>Strange mushroom that releases poison spores. Poison hurts you for a set amount of time. Rest to remove effect faster.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/cubepig.gif" loading="lazy" alt="">
+                    <h3>Cubepig</h3>
+                </div>
+                <p>PIGsquad mascot. How could we not include them for the game jam?</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/snail.gif" loading="lazy" alt="">
+                    <h3>Snail</h3>
+                </div>
+                <p>High defense, probably need a weapon of some kind to overcome the shell.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/slug.gif" loading="lazy" alt="">
+                    <h3>banana slug</h3>
+                </div>
+                <p>How did a banana slug end up in a cave?</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/crab.gif" loading="lazy" alt="">
+                    <h3>Battle Crab</h3>
+                </div>
+                <p>Large claw and tough shell makes for a dangerous foe.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/axolotl.gif" loading="lazy" alt="">
+                    <h3>Axolotl</h3>
+                </div>
+                <p>Its jet spray can hit you from far away.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/shrimp.gif" loading="lazy" alt="">
+                    <h3>shrimp</h3>
+                </div>
+                <p>A meager shrimp. Just attacks, nothing more.</p>
             </div>
         </div>
-    </section>    
+    </section> 
+    <section>
+        <h2>NPCs (coming soon)</h2>
+        <div class="info-section"></div>
+    </section>   
     <section id="maps">
         <h2>Maps and Guides</h2>
         <div class="info-section">
+            <h3>Original Game</h3>
             <div >
                 <img src="img/outdated-map.png" loading="lazy">
-                <p class="center-text">Map that displays the vanilla location of items and area names</p>
+                <aside class="center-text">Map displays the vanilla location of items and area names</aside>
             </div>
             <ul>
                 <li>White: Progression items</li>
@@ -115,8 +296,12 @@
                 <li>Peach: Non-chest progression items</li>
             </ul>
         </div>
+        <div class="info-section">
+            <h3>Randomizer / Archipelago (coming soon)</h3>
+        </div>
     </section>
   </main>
+
   <footer>
     <section class="footer-main">
       <section class="footer-section">
