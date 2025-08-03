@@ -15,12 +15,12 @@
 <body>
   <header>
     <div>
-      <a href="index.html">The Forged Curse</a>
-      <p>Pico-8 Archipelago Client</p>
+        <a href="index.html">The Forged Curse</a>
+        <p><img src="img/ap-logo.png" loading="lazy"> Pico-8 Archipelago Client</p>
     </div>
 
     <nav>
-      <a href="compendium.html" target="_blank">Compendium</a>
+      <a href="compendium.html">Compendium</a>
       <a href="https://chairodactyl.itch.io/the-forged-curse" target="_blank">itch.io<sup><sup>▞</sup></sup></a>
       <!--<a href="https://github.com/cheesepak/ssj2025-party" target="_blank">Github</a>
       <span>settings</span>-->
@@ -28,9 +28,9 @@
   </header>
   <main>
     <section class="center-text">
-    <h1>The Forged Curse Compendium</h1>
-    <p>Lists of items, enemies, and guides you may encounter in The Forged Curse</p>
-    <p><a href="#items">Jump to items</a> · <a href="#enemies">Jump to Enemies</a> · <a href="#maps">Jump to maps</a></p>
+        <h1>The Forged Curse Compendium</h1>
+        <p>List of items, enemies you may encounter, and guides for The Forged Curse</p>
+        <p><a href="#items">Jump to items</a> · <a href="#enemies">Jump to Enemies</a> · <a href="#maps">Jump to maps</a></p>
     </section>
     <section id="items">
         <h2>Items</h2>
@@ -148,8 +148,8 @@
                 <div>
                     <img src="img/wooden-sword.png" loading="lazy" alt="">
                     <h3>sword</h3> 
-                    <img src="img/wooden-sword.png" loading="lazy" alt="">
-                    <img src="img/wooden-sword.png" loading="lazy" alt="">                   
+                    <img src="img/iron-sword.png" loading="lazy" alt="">
+                    <img src="img/gold-sword.png" loading="lazy" alt="">                   
                 </div>
                 <p>Equip to increase attack power. wooden -> iron -> gold</p>
             </div>  
@@ -157,8 +157,8 @@
                 <div>
                     <img src="img/leather-armor.png" loading="lazy" alt="">
                     <h3>armor</h3>    
-                    <img src="img/leather-armor.png" loading="lazy" alt="">
-                    <img src="img/leather-armor.png" loading="lazy" alt="">                
+                    <img src="img/iron-armor.png" loading="lazy" alt="">
+                    <img src="img/gold-armor.png" loading="lazy" alt="">                
                 </div>
                 <p>Equip to increase defense points. leather -> iron -> gold</p>
             </div>   
@@ -172,7 +172,7 @@
         </div>
     </section>
     <section id="enemies">
-        <h2>Enemies (wip)</h2>
+        <h2>Enemies</h2>
         <div class="info-section">
             <div class="info-card">
                 <div>
@@ -240,6 +240,21 @@
             </div>
             <div class="info-card">
                 <div>
+                    <img src="img/shadow.gif" loading="lazy" alt="">
+                    <h3>Shadow</h3>
+                </div>
+                <p>It's a spooky shadow monster and does spooky shadow monster stuff?</p>
+                <p><img src="img/shadow-sleep.png" loading="lazy" alt=""> <- Sleeping shadow</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/monstera.gif" loading="lazy" alt="">
+                    <h3>Monstera</h3>
+                </div>
+                <p>Will attack if you destroy its home so don't do that.</p>
+            </div>
+            <div class="info-card">
+                <div>
                     <img src="img/snail.gif" loading="lazy" alt="">
                     <h3>Snail</h3>
                 </div>
@@ -273,19 +288,70 @@
                 </div>
                 <p>A meager shrimp. Just attacks, nothing more.</p>
             </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/big-slime.gif" loading="lazy" alt="">
+                    <h3>Slime</h3>
+                    <img src="img/slime.gif" loading="lazy" alt="">
+                    <img src="img/slime.gif" loading="lazy" alt="">
+                    <img src="img/small-slime.gif" loading="lazy" alt="">
+                    <img src="img/small-slime.gif" loading="lazy" alt="">
+                    <img src="img/small-slime.gif" loading="lazy" alt="">
+                </div>
+                <p>Does the classic slime thing of splitting into smaller slimes.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/corrupted-kobold.gif" loading="lazy" alt="">
+                    <h3>Corrupted Kobold</h3>
+                </div>
+                <p>Its hand can attack at a distance but its home is fragile.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/eyebat.gif" loading="lazy" alt="">
+                    <h3>Eyebat</h3>
+                </div>
+                <p>Like the regular bats but somehow tougher.</p>
+                <p><img src="img/eyebat-sleep.png" loading="lazy" alt=""> <- Sleeping bat</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/hand.gif" loading="lazy" alt="">
+                    <h3>Reecher</h3>
+                </div>
+                <p>Its hand can attack at a distance but its home is fragile.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/mimic.gif" loading="lazy" alt="">
+                    <h3>Mimic</h3>
+                </div>
+                <p>Beware of chests. One could be a mimic and you don't want do deal with that.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/potmimic.gif" loading="lazy" alt="">
+                    <h3>Potmimic</h3>
+                </div>
+                <p>Beware of pots as well. One could be a pot mimic and you don't want do deal with that either.</p>
+            </div>
+            <div class="info-card">
+                <div>
+                    <img src="img/lil-wiz.gif" loading="lazy" alt="">
+                    <h3>Li'l Wiz</h3>
+                </div>
+                <p>They may be little but they've got big eyebrows.</p>
+            </div>
         </div>
     </section> 
-    <section>
-        <h2>NPCs (coming soon)</h2>
-        <div class="info-section"></div>
-    </section>   
     <section id="maps">
         <h2>Maps and Guides</h2>
         <div class="info-section">
             <h3>Original Game</h3>
-            <div >
-                <img src="img/outdated-map.png" loading="lazy">
-                <aside class="center-text">Map displays the vanilla location of items and area names</aside>
+            <div>
+                <img src="img/vanilla-chest-map.png" loading="lazy">
+                <aside class="center-text">Map displays the vanilla location of chests, other checks, and the area names</aside>
             </div>
             <ul>
                 <li>White: Progression items</li>
@@ -312,13 +378,13 @@
       <section class="footer-section">
         <h2>About Us</h2>
         <ul>
-          <li><a href="https://cheesepak.itch.io/" target="_blank">cheesepak</a> - game design, art, ap integration and client, additional music</li>
+          <li><a href="https://cheesepak.itch.io/" target="_blank">cheesepak</a> - game design, art, ap integration and client updates, additional music</li>
           <li><a href="https://chairodactyl.itch.io/" target="_blank">chairodactyl</a> - code, additional art and design, additional music</li>
           <li><a href="https://bsky.app/profile/enthuseconfuse.bsky.social" target="_blank">EC</a> - music</li>
           <li><a href="https://www.twitch.tv/lokoklouse" target="_blank">Lokoklouse</a>, Butters - playtesting</li>
         </ul>
         <h3>Special Thanks</h3>
-        <p>Thanks to qwint and Amazia for their work on other Pico-8 integrations.</p>
+  <p>Thanks to <a href="https://github.com/qwint/ap-air-delivery" target="_blank">qwint</a> and <a href="https://github.com/ap-metrocubevania/ap-metrocubevania" target="_blank">Amazia</a> for their work on other Pico-8 integrations.</p>
       </section>
       <section class="footer-section">
         <h2>Links</h2>
