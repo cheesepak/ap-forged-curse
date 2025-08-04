@@ -28,16 +28,16 @@ PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam
 ## Project Structure
 - `client/`
     - `img/` Images for the client and compendium
-    - `vanilla/` Exported files of vanilla game
+    - `vanilla/` Exported files of vanilla version of the game
         - `vanillaforged.html` web player
         - `vanillaforged.js` cart data
-        - `vanillaforged.p8` Pico-8 file of vanilla game
+        - `vanillaforged.p8` Pico-8 file of vanilla version of the game
     - `compendium.html` Compendium of items, enemies, and maps
     - `forged-curse.js` cartdata
     - `index.html` Pico-8 Archipelago client / web player
 - `forgedcurse/`
     - `__init__.py` Archipelago integration
-- `Forged Curse.yaml`
-- `forgedcurse.apworld` Apworld file for game generation
-- `forgedcurserando.p8` Pico-8 file of the Archipelago integrated version of the game
+- `Forged Curse.yaml` Default Forged Curse .yaml template 
+- `forgedcurse.apworld` .apworld file for game generation
+- `forgedcurserando.p8` Pico-8 file of Archipelago integrated version of the game
 - `ForgedCurseRandomizer.zip` zipped files of everything needed to play the rando
