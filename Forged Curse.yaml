@@ -33,6 +33,8 @@ description: Default Forged Curse Template
 game: Forged Curse
 requires:
   version: 0.6.1 # Version of Archipelago required for this yaml to work as expected.
+  # Enable if you want disabled blink rod plando (see plando_items)
+  # plando: items 
 
 Forged Curse:
   # Game Options
@@ -60,7 +62,23 @@ Forged Curse:
     locations: 0
     items: 50
     minimal: 0
+    # Minimal must be the only option set (everything else 0) for Disabled Blink Rod plando (see plando_items)
 
+  # Item & Location Options
+  plando_items:
+  # **Disable Blink Rod**
+  # Forces blink rod and some loot into the two checks that require the blink rod.
+  # Enable if you don't want blink rod in logic (e.g. you are unfamiliar with the map and having difficulty).
+  # You must also enable plando (in requires) and minimal must be the only option set (in accessibility)
+  #
+  #  - items:
+  #      blink rod: 1
+  #      mimic's loot: 1
+  #    locations:
+  #      - blink chest
+  #      - unknown priest grave chest
+  # 
+  # More about plando: https://archipelago.gg/tutorial/Archipelago/plando/en
 
   # Item & Location Options
   local_items:
@@ -71,9 +89,11 @@ Forged Curse:
     # Forces these items to be outside their native world.
     []
 
-  start_inventory:
+  # Commented out because it throws an error with seed generation if plando is enabled. 
+  # Uncomment if you want to use start_inventory.
+  # start_inventory:
     # Start with these items.
-    []
+    # []
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
@@ -94,9 +114,3 @@ Forged Curse:
   item_links:
     # Share part of your item pool with other players.
     []
-  
-  forced_locations:
-    # Forces the blink rod into the only check that requires the blink rod
-    # Not a friendly item for new players so disabled by default
-    # Throw into the pool at your own risk
-    "blink chest": "blink rod"
