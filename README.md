@@ -31,7 +31,7 @@ PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam
     - `vanilla/` Exported files of vanilla game
         - `vanillaforged.html` web player
         - `vanillaforged.js` cart data
-        - `vanillaforged.p8` cart data
+        - `vanillaforged.p8` Pico-8 file of vanilla game
     - `compendium.html` Compendium of items, enemies, and maps
     - `forged-curse.js` cartdata
     - `index.html` Pico-8 Archipelago client / web player
