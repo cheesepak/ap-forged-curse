@@ -1109,7 +1109,7 @@ function pcup()
 							local made=min(
 								20-pc.bolts,pc.g
 							)
-							pc.bolts=made
+							pc.bolts+=made
 							pc.g-=made
 							sfx(51)
 						end

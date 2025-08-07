@@ -1123,7 +1123,7 @@ function pcup()
 						local made=min(
 							20-pc.bolts,pc.g
 						)
-						pc.bolts=made
+						pc.bolts+=made
 						pc.g-=made
 						pc.gotbolts=true
 						pc.gotitm={sp=123}
