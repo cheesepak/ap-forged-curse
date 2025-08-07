@@ -4,6 +4,7 @@ __lua__
 
 cartdata("ssj072025_the_forged_curse_vanilla")
 
+
 function _init()
 	frame=0
 	
@@ -38,9 +39,9 @@ function _init()
 			1+typ
 		)
 		eq.p=split(p)
-		eq.pow=2^(1+pi-typ*3)--(2+typ)^(pi-typ*3)
+		eq.pow=2^(1+pi-typ*3)
 		local id=eqids[pi]
-		eq.id=id--#keys+1
+		eq.id=id
 		keys[id]=eq
 	end
 	--record length of keys table
@@ -56,117 +57,27 @@ function _init()
 	)
 	barr.up=noup
 	
+	--summon the boss
+	makebigwiz()
+	
+	quips=split(
+		"forge bolts of silver,blessed by cricket song,break the barrier;meow,mya;bark,wruf;snort;hi!,hello,whoa!,hey,watch out;thank you!,i'm saved!",
+		";"
+	)
+	
 	--entity data
-	enttyps={
-		--amanita
-		{spd=.25,ap=2,rng=6,
-			aspd=2,
-			atk=projatk,
-			fire=makespore,
-			et="confused",
-			ed=12,
-		},
-		--browncap
-		{hp=4,ap=2,rng=3,
-			aspd=3,
-			atk=projatk,
-			fire=makespore,
-			et="slow",
-		},
-		--lionsmane
-		{hp=8,ap=10,spd=.75,rng=2,
-			atk=projatk,
-			aspd=8,
-			fire=makespore,
-			et="weak",
-			ed=10,
-		},
-		--cricket
-		makenpc,
-		--cat
-		makenpc,
-		--dog
-		makenpc,
-		--pig
-		makenpc,--spd=.5,isnpc=true},
-		--snake
-		{et="poison",dmg=5},
-		
-		--spider
-		{},
-		--crab
-		{hp=3,spd=2,ap=10,dp=3,aspd=4},
-		--bananaslug
-		{hp=7,spd=.25},
-		--snail
-		{hp=5,dp=3,spd=.25,ap=1},
-		--axolotl
-		{spd=.5,rng=7,ap=4,
-			dr=draxolotl
-		},
-		--shimp
-		{spd=3,agr=2},
-		--small slime
-		{hp=6,spd=.5,up=upslime},
-		--slime
-		{hp=12,spd=.8,up=upslime},
-		
-		--big slime
-		{hp=24,up=upslime},
-		--chest
-		makechest,
-		--pot
-		{up=noup},
-		--shadow
-		{hp=12,dp=3,ap=6,spd=.8,slp=120},
-		--bat
-		{slp=120},
-		--eyebat
-		{slp=80},
-		--big wiz
-		makebigwiz,--{hp=50,dp=3,ap=10},
-		--kobold
-		makenpc,--spd=.5,isnpc=true},
-		
-		--kikku
-		{hp=7,ap=4,
-			atk=kickatk,
-			dr=drkikku,
-			aspd=3
-		},
-		--monstera
-		makeleaf,
-		--gnoglic mushroom
-		{atk=projatk,
-			fire=makespore,
-			et="poison",
-			aspd=3,
-			ed=20
-		},
-		--potted hand
-		makepothand,
-		--ember
-		{},
-		--lilwiz
-		{hp=5,ap=10},
-		--monster kobold
-		{hp=25,dp=5,spd=.5,ap=12},
-		--dragon skull
-		{hp=9999,
-			dp=100,
-			rng=10,
-			aspd=6,
-			mov=noup,
-			atk=dsklatk,
-		},
-		
-		--cubepig
-		{hp=10,},
-		--mimic
-		makemimic,
-		--mimic pot
-		makemimpot,
-	}
+	enttyps=split(
+		"3,2,0,6,0.25,2,0,12,0,confused,upent,drent,movent,projatk,makespore◆4,2,0,3,1,3,0,10,0,slow,upent,drent,movent,projatk,makespore◆8,10,0,2,0.75,8,0,10,0,weak,upent,drent,movent,projatk,makespore◆makenpc◆makenpc◆makenpc◆makenpc◆makenpc◆3,2,0,0,1,1,0,2,6,slow,upent,drent,movent,entatk,noup◆3,10,3,0,2,4,0,0,0,,upent,drent,movent,entatk,noup◆7,2,0,0,0.25,1,0,20,10,confused,upent,drent,movent,entatk,noup◆5,1,3,0,0.25,1,0,0,0,,upent,drent,movent,entatk,noup◆3,4,0,7,0.5,1,0,0,0,,upent,draxolotl,movent,entatk,noup◆3,2,0,0,3,1,0,0,0,,upent,drent,movent,entatk,noup◆6,4,0,0,0.5,1,0,0,0,,upslime,drent,movent,entatk,noup◆12,6,0,0,0.8,2,0,0,0,,upslime,drent,movent,entatk,noup◆24,12,0,0,1,3,0,0,0,,upslime,drent,movent,entatk,noup◆makechest◆3,2,0,0,1,1,0,0,0,,noup,drent,movent,entatk,noup◆12,6,3,0,0.8,1,120,0,0,,upent,drent,movent,entatk,noup◆7,2,0,0,1,1,120,0,0,,upent,drent,movent,entatk,noup◆15,14,0,0,1,1,80,0,0,,upent,drent,movent,entatk,noup◆makebigwiz◆3,2,0,0,1,1,0,10,5,poison,upent,drent,movent,entatk,noup◆7,4,0,0,1,3,0,0,0,,upent,drkikku,movent,kickatk,noup◆makeleaf◆3,2,0,0,1,3,0,20,0,poison,upent,drent,movent,projatk,makespore◆makepothand◆3,2,0,0,1,1,0,0,0,,upent,drent,movent,entatk,noup◆19,2,0,5,1,2.5,0,0,0,,upent,drent,movent,lwizatk,noup◆33,12,5,0,0.5,1,0,0,0,,upent,drent,movent,entatk,noup◆9999,2,100,10,1,6,0,0,0,,upent,drent,noup,dsklatk,noup◆10,6,0,0,1,1,0,0,0,,upent,drent,movent,entatk,noup◆makemimic◆makemimpot◆",
+		"◆"
+	)
+	for ei,e in ipairs(enttyps) do
+		e=split(e)
+		if #e==1 then
+			enttyps[ei]=_ENV[e[1] ]
+		else
+			enttyps[ei]=e
+		end
+	end
 	
 	--sight map
 	sm={}
@@ -198,7 +109,7 @@ function _init()
 						sx=ci,sy=ri,
 						ssp=made.sp
 					})
-					--]]
+					
 				end
 				if (t!=81)	mset(ci,ri,0)
 			end
@@ -208,13 +119,11 @@ function _init()
 	
 	loot=split("49,49,49,49,49,49,49,52")
 	
-	---[[
 	for ci,c in ipairs(chsts) do
 		if not c.item then
 			c.item=makeitem(49)
 		end
 	end
-	--]]
 	
 	local keymap=makeitem(26)
 	keymap.id=55
@@ -226,10 +135,6 @@ function _init()
 	local boltunlock=makeitem(122)
 	boltunlock.id=56
 	keys[56]=boltunlock
-	
-	
-	--removed stuff was here
-	
 	
 	--seen palettes
 	spal={	
@@ -260,8 +165,7 @@ function _init()
 	mode="title"
 	
 	--debug
-	test=""
-	--testd=0
+	
 end--_init()
 
 
@@ -302,7 +206,6 @@ function _update()
 			end
 			ticks+=nticks
 			tott+=nticks
-			--vx,vy=pc.x,pc.y
 		end
 		if ticks>=1 then
 			if tt<=0 then
@@ -316,7 +219,7 @@ function _update()
 			end
 		end
 		vx,vy=pc.x,pc.y
-		---[[debugd-----------------
+		
 		if pc.hp<=0 then
 			if pc.dt<=0 then
 				mode="gameover"
@@ -329,17 +232,16 @@ function _update()
 				do
 					pc[se.."t"]=0
 				end
+				--reset the boss door
+				mset(83,44,21)
 				--revive base ents
 				for ei,e in ipairs(be) do
 					local ent=e.e
 					--remove existing
 					local hp=ent.hp or 1
-					--if hp>0 then
 					del(ents,ent)
-					--end
 					--alias any pot
 					local pot=ent.pot
-					--test=e
 					--remake ent
 					ent=makeenttyp(
 						e.ssp,e.sx,e.sy
@@ -357,7 +259,7 @@ function _update()
 				pc.dt-=1
 			end
 		end
-		--]]
+		
 	elseif mode=="map" then
 		if btnp(🅾️) or btnp(❎) then
 			mode="gameplay"
@@ -576,13 +478,6 @@ rin
 	return placed
 end--aoe()
 
---[[
-function stats()
-	print("cpu:" .. flr(stat(1)*100) .. "%",1,120,11)
-	print("mem:" .. flr(stat(0)) .. "kib",40,120,11)
-	print("fps:" .. stat(7),88,120,11)
-end
---]]
 -->8
 --player
 
@@ -600,7 +495,6 @@ function resetvis()
 	vis[8][8]=1
 	--for each line of sight
 	for li,l in ipairs(los) do
-		--test=li
 		--alias target tile coords
 		local btx=l[1].x
 		local bty=l[1].y
@@ -632,7 +526,6 @@ function resetvis()
 				end
 				--if opaque
 				if fget(t,1) then
-					--vis[ty+8][tx+8]=2
 					--mark subsequent
 					-- as not visible
 					for ci=2,#l do
@@ -693,7 +586,7 @@ function initplayer()
 		isely=0,
 		iselt=0,
 		gotitm=0,
-		g=100,
+		g=0,
 		--key items received
 		keys={
 			--[94]=makeitem(42),
@@ -701,7 +594,7 @@ function initplayer()
 			--[96]=makeitem(50),
 			--[97]=makeitem(46),
 			--[98]=makeitem(53),
-			--[99]=makeitem(48),
+			[99]=makeitem(53),
 			[0]=clock,--clock
 			--[101]=makeitem(26),--map
 			--none armor
@@ -728,15 +621,6 @@ function initplayer()
 		hpdrip=0,
 		--vision table
 		vis={},
-		--status effects + timers
-		--poison=0,--poisoned
-		--poisont=0,
-		--slow=0,--slowed
-		--slowt=0,
-		--confused=0,
-		--confusedt=0,--confused
-		--wkn=0,--weakness
-		--wknt=0,
 	}
 	for sei,se in ipairs(stfx) do
 		pc[se]=0
@@ -838,7 +722,7 @@ function drgotitm()
 	end
 end--drgotitm()
 
-function giveitem(iin)--,nosave)
+function giveitem(iin)
 	if (iin.sp==-1 and rint(10)>3)
 	or iin.sp==49 then
 		local prz=rint(#loot)
@@ -853,10 +737,10 @@ function giveitem(iin)--,nosave)
 				prz=49
 			end
 		end
-			--]]
+		
 		iin.sp=prz
 		if prz==49 then
-			pc.g+=5+rint(11)--(rint(8)+rint(8))
+			pc.g+=5+rint(11)
 		elseif prz==52 then
 			pc.food+=1
 			pcsetinv()
@@ -875,27 +759,14 @@ function giveitem(iin)--,nosave)
 			pc.keys[iin.id]=iin
 			pcsetinv()
 		end
-		--keys[iin.id].got=true
 	end
-	--save data
-	--if iin.id then
-		--local id=iin.id-1
-		--keys[id+1]=nil
-		--if not nosave then
-			--local byte=dget(id\8)
-			--byte+=2^(id%8)
-			--dset(id\8,byte)
-		--end
-	--end
-	--test=iin.sp--debug
-	--set gotitem
+	
 	if (iin.sp>0)	pc.gotitm=iin
 end
 
 
 function pcup()
 	local acted=0
-	--debugd---------------
 	--pc.hp=1000
 	
 	--handle some statfx
@@ -905,13 +776,11 @@ function pcup()
 	end
 	local inp=split("0,1,2,3,4,5")
 	if pc.confusedt>0 then
-	---[[
 		for i=1,pc.confused do
 			local a=rint(6)+1
 			local b=rint(6)+1
 			inp[a],inp[b]=inp[b],inp[a]
 		end
-		--]]
 	end
 	
 	
@@ -1100,7 +969,6 @@ function pcup()
 		end
 		
 		--do map collisions
-		---[[debugd-------------------
 		local nt=mgoob(nx,pc.y)
 		if fget(nt,0) and
 		not (fget(nt,4) and pc.inboat)
@@ -1113,7 +981,6 @@ function pcup()
 		then
 			ny=pc.y
 		end
-		--]]
 		--if actually moved
 		if nx!=pc.x or ny!=pc.y then
 			
@@ -1124,22 +991,9 @@ function pcup()
 			for ei,e in ipairs(ents) do
 				if e.x==nx and e.y==ny then
 					if e.isnpc then
-						local quips={
-							{"meow","mya"},
-							{"bark","wruf"},
-							{"snort"},
-							[20]={
-								"hi!",
-								"hello",
-								"whoa!",
-								"hey",
-								"watch out"
-							}
-						}
-						quips=quips[e.sp-67]
-						local qi=rint(#quips)+1
-						makeftxt(quips[qi],
-							10,e.x,e.y
+						makeftxt(--quips[qi],
+							e.q[1+rint(#e.q)],
+							12,e.x,e.y
 						)
 					elseif not pc.inboat
 					and not atked
@@ -1221,14 +1075,7 @@ function pcup()
 				elseif isp>=33
 				and isp<=37 then
 					aoe({isp-16,22})
---				elseif isp==34 then
---					aoe({18,22})
---				elseif isp==35 then
---					aoe({19,22})
---				elseif isp==36 then
---					aoe({20,22})
---				elseif isp==37 then
---					aoe({21,22})
+					
 				elseif isp==45 then
 					aoe({29,22,22,29})
 				elseif isp==39 then
@@ -1260,16 +1107,15 @@ function pcup()
 						ap_sendloc(55)
 						if pc.gotbolts then
 							local made=min(
-								20,pc.g
+								20-pc.bolts,pc.g
 							)
 							pc.bolts=made
 							pc.g-=made
 							sfx(51)
-							--pc.gotitm={sp=123}
 						end
 					else sfx(48)
 					end
-				elseif isp==67 then
+				elseif isp==55 then
 					if pc.cricketcd<=0 then
 						for i=0,20,10 do
 							makering(17+i,7,0-i)
@@ -1282,9 +1128,11 @@ function pcup()
 							 e.stun=10
 							 e.slp=min(e.slp,1)
 							 if e.sp==94 then
-							 	ents[ei]=makeenttyp(
-							 		87,e.x,e.y
+							 	e=makenpc(
+							 		e.x,e.y,71
 							 	)
+							 	e.q=split(quips[6])
+							 	ents[ei]=e
 							 end
 							end
 						end
@@ -1296,17 +1144,7 @@ function pcup()
 							15,0
 						)
 					end
-					--[[--reveal tiles
-					for ri=-9,9 do
-						local ty=pc.y+ri
-						for ci=-9,9 do
-							local tx=pc.x+ci
-							if not oob(tx,ty) then
-								sm[ty][tx]=1
-							end
-						end
-					end
-					--]]
+					
 				elseif i.eff then
 					i.eff()
 				end			
@@ -1365,7 +1203,6 @@ end--pcup()
 function drawhud()
 	local icols={12,9,8}
 	if pc.iopen then
-		---[[
 		local ity=0
 		for iti=0,#pc.inv-1	do
 			local it=pc.inv[iti+1]
@@ -1373,7 +1210,6 @@ function drawhud()
 				local i=it[
 					1+ii%#it
 				]
-				--test=i
 				local icol=icols[i.typ+1]
 				local ix=ii%5
 				local iy=(ii\5)+ity
@@ -1403,7 +1239,6 @@ function drawhud()
 			end
 			ity+=it.h or 0
 		end
-		--]]
 	else--if inv not open
 		for ii,i in ipairs(pc.ci) do
 			if i.sp!=44 then
@@ -1446,53 +1281,74 @@ end--drawhud()
 --entities
 
 ents={}
+
 function makeent(
-xin,yin,
-spin,hpin,
-apin,dpin,--atk/def power
-spdin,--speed
+xin,yin,spin,--basics
+hpin,apin,dpin,--hp/atk/def
+rngin,--range
+spdin,aspdin,--speeds
 slpin,--sleep
-upfin,--update function
-npcin--is npc?
+edin,dmgin,etin,--effects
+--functions
+upin,drin,--full overrides
+movin,atkin,firein--sub funcs
 )
+	local upm=upin or "upent"
+	local drm=drin or "drent"
+	local mvm=movin or "movent"
+	local atm=atkin or "entatk"
+	local frm=firein or "noup"
+	
 	local e={
+		--basics
 		x=xin,
 		y=yin,
-		--f=0,
-		sp=spin,--or 99
+		sp=spin,
+		--stats
 		mhp=hpin or 3,
 		hp=hpin or 3,
 		ap=apin or 2,
 		dp=dpin or 0,
+		--ranges
+		rng=rngin or 0,
+		--agr=agrin or 7,
+		--speeds
 		spd=spdin or 1,
+		aspd=aspdin or 1,
+		--sleep
 		slp=slpin or 0,
 		mslp=slpin or 0,
-		agr=7,
-		aspd=1,--
-		atkdt=0,--
-		rng=0,
-		at=0,
-		mt=0,
-		dr=drent,
-		up=upfin or upent,
-		mov=movent,
+		--effects
+		et=etin or "",
+		ed=edin or 0,
+		dmg=dmgin or 0,
+		--methods
+		dr=_ENV[drm],
+		up=_ENV[upm],
+		mov=_ENV[mvm],
+		atk=_ENV[atm],
+		fire=_ENV[frm],
+		--other stats
+		atkdt=0,--atk'd timer (anim)
+		at=0,--attack timer
+		mt=0,--move timer
 		stun=0,
-		atk=entatk,
 	}
-	
 	
 	return add(ents,e)
 end--makeent()
+
 
 function makenpc(xin,yin,spin)
 	local npc={
 		x=xin,
 		y=yin,
 		hp=1,
-		stun=0,
 		sp=spin,
 		up=upnpc,
 		dr=drent,
+		q=split(quips[spin-66]),
+		stun=0,
 		isnpc=true,
 		hx=xin,
 		hy=yin,
@@ -1512,20 +1368,10 @@ xin,yin
 		local edat=enttyps[spin-63]
 		local e=nil
 		if type(edat)=="table" then
-			---[[
-			e=makeent(xin,yin,spin)
-			for statname,val 
-			in pairs(edat) do
-				e[statname]=val
-				if statname=="slp" then
-					e.mslp=val
-				end
-			end
-			--[[
-			if edat.isnpc then
-				makenpc(e)
-			end
-			--]]
+			e=makeent(xin,yin,spin,
+				unpack(edat)
+			)
+			
 		else
 			e=edat(xin,yin,spin)
 		end
@@ -1536,18 +1382,17 @@ end--makeenttyp()
 function drent(ein,xin,yin)
 	local drx=xin or ein.x
 	local dry=yin or ein.y
---	local visx=drx-pc.x+8
-	--local visy=dry-pc.y+8
-	--local iv=pc.vis[visy] or {}
-	--iv=iv[visx] or 0
+	
 	local iv=isvis(drx,dry)
 	local lsp=ein.lsp
-	local fl=(frame\16)%2==1 and fget(ein.sp,7)
+	local os=(frame\16)%2
+	local fl=os==1 and fget(ein.sp,7)
 	if (ein.f) fl=ein.f>1
+	if (not fget(ein.sp,6)) os=0
 	if iv>0 then
 		local xo=0
 		if (ein.stun>0) xo=(frame%4)\2
-		spr(ein.sp,
+		spr(ein.sp+os*16,
 			getdrx(drx)+xo,
 			getdry(dry),
 			1,1,
@@ -1599,24 +1444,21 @@ function drkikku(kin)
 end--drkikku()
 
 function entatk(ein)
-	--if nxin==pc.x and nyin==pc.y 
-	--and ein.hp>0 then
+
 		local crit=(rint(10)+7)\8
 		local atk=max(0,
 			ein.ap*crit-(pc.dp+pc.ci[2].pow)
 		)
-		local eff=ein.et
-		if crit>1 and eff then
+		
+		if crit>1 and ein.et then--eff then
 			stateff(ein)
 		end
-		test=test..ein.sp..","
+		
 		pc.hp-=atk
 		local txt="miss"
 		if (crit>0) txt="-"..atk
 		makeftxt(txt)
-		--hitent=true
-		--return true
-	--end
+		
 end--entatk()
 
 function projatk(ein,dxin,dyin)
@@ -1624,8 +1466,23 @@ function projatk(ein,dxin,dyin)
 		ein.x+sgn(dxin),
 		ein.y+sgn(dyin)
 	)
-	--ein.at=ein.aspd or 3
 end--mushatk()
+
+function lwizatk(lwin,
+dxin,dyin
+)
+	local dx=sgn(dxin)
+	local dy=sgn(dyin)
+	local p=makeproj(
+		lwin.x+dx,lwin.y+dy,
+		1,dx,dy,
+		10,--dmg
+		121,--bubble spr
+		6,--lsp
+		uplwbub
+	)
+	p.et="weak"
+end--lwizatk()
 
 --dragonskull attack
 function dsklatk(dsin)
@@ -1659,7 +1516,7 @@ din,dxin,dyin
 		step+=1
 	until loshit>1 or step>=din
 	--if out of range
-	if din>ein.agr 
+	if din>7--ein.agr 
 	or loshit>1 then
 		--wait
 		dxin,dyin=0,0
@@ -1712,13 +1569,14 @@ din,dxin,dyin
 end--movent()
 
 function upent(ein)----------
-	--get distance to player
-	local d,dx,dy=dist(pc,ein)
+
 	--handle stun
 	if ein.stun>0 then
 		ein.stun-=1
 	--otherwise handle awake func
 	elseif ein.slp<=0 then
+		--get distance to player
+		local d,dx,dy=dist(pc,ein)
 		--alias range
 		local rng=ein.rng or 0
 		local haslos=false
@@ -1734,7 +1592,7 @@ function upent(ein)----------
 			 if d<rng+1.99 
 			 and ein.at<=0 
 			 and haslos then
-			 	ein:atk(dx,dy)
+			 	ein:atk(dx,dy,d)
 			 	--for axolotl
 			 	ein.atkdt=2
 					ein.at=ein.aspd
@@ -1746,11 +1604,9 @@ function upent(ein)----------
 	else--sleepin
 		local heard=false
 		for si,s in ipairs(snds) do
-			---[[
 			local dx=ein.x-s.x
 			local dy=ein.y-s.y
-			--]]
-			--local d=dist(s,ein)
+			
 			local vol=max(0,
 				s.int-(abs(dx)+abs(dy))
 			)
@@ -1795,27 +1651,28 @@ function explode(bin)
 		if powin>0 then
 			local ps=xin..","..yin
 			local t=mget(xin,yin)
-			if not ftin[ps] then
-				--add to tiles to destroy
-				add(toaoe,{xin,yin})
-				if not fget(t,1) then
+			if not fget(t,1) then
+				if not ftin[ps] then
 					--create projectile
 					local p=makeproj(xin,yin,
 						1,0,0,30,28,1
 					)
 				end
+				--expand explosion
+				for di=0,3 do
+					fill(ftin,
+						xin+dirtx(di),
+						yin+dirty(di),
+						powin-1
+					)
+				end
 				--mark it placed
 				ftin[ps]=true
 			end
-			--expand explosion
-			for di=0,3 do
-				fill(ftin,
-					xin+dirtx(di),
-					yin+dirty(di),
-					powin-1
-				)
-			end
-		end
+			--add to tiles to destroy
+			add(toaoe,{xin,yin})
+			
+		end--if pow>0
 	end
 	fill({},bin.x,bin.y,4)
 	
@@ -1839,6 +1696,7 @@ function upents()
 	for ei,e in ipairs(ents) do
 		e:up()
 	end
+	
 	--check for exploding bombs
 	local bombd=false
 	local boom=false
@@ -1896,10 +1754,9 @@ xin,yin,
 spin
 )
 	local c=makeent(
-		xin,yin,
-		81,100,
-		2,0,
-		.5,100
+		xin,yin,81,
+		100,17,2,
+		0,.5,1,9999
 	)
 	
 	c.up=upmimic
@@ -1916,11 +1773,12 @@ function makemimpot(
 xin,yin
 )
 	local mp=makeent(
-		xin,yin,
-		82,100,
-		2,0,
-		.5,2000
+		xin,yin,82,
+		60,17,0,--hp,ap,dp
+		0,.5,1,9999
 	)
+	
+	mp.aspd=2
 	return mp
 end--makemimpot()
 
@@ -1964,10 +1822,8 @@ xin,yin
 )
 
 	local ph=makeent(
-		xin,yin,
-		91,100,
-		20,2,
-		1,0
+		xin,yin,91,
+		100,20,2--,1,0
 	)
 	
 	ph.rad=5
@@ -1992,7 +1848,7 @@ function uphand(phin)
 		if phin.x==phin.bx
 		and phin.y==phin.by then
 			local d=dist(phin,pc)
-			if d<=phin.rad+1 then
+			if d<=phin.rad+2 then
 				--move and attack
 				local step=0
 				local hit=0
@@ -2003,8 +1859,7 @@ function uphand(phin)
 					d,dx,dy=dist(pc,phin)
 					dx=sgn(dx)
 					dy=sgn(dy)
-					--local dx=sgn(pc.x-phin.x)
-					--local dy=sgn(pc.y-phin.y)
+					
 					local nx=phin.x+dx
 					local ny=phin.y+dy
 					--base hit value
@@ -2059,8 +1914,7 @@ function drhand(phin)
 		phin.sp=91
 	end
 	local iv=drent(phin)
-	--local dx=phin.x-phin.bx
-	--local dy=phin.y-phin.by
+	
 	if iv>0 and phin.sp==107 then
 		--draw arm
 		for bi=0,1 do
@@ -2079,10 +1933,10 @@ function makeleaf(
 xin,yin
 )
 	local l=makeent(
-		xin,yin,
-		89,20,
-		5,0,
-		1,9999
+		xin,yin,89,
+		20,5,0,
+		0,1,1,
+		9999
 	)
 	l.dr=drleaf
 	
@@ -2090,7 +1944,7 @@ xin,yin
 		mget(xin,yin+1)
 	)
 	--move off map
-	l.x,l.y=-999,-999
+	l.x,l.y=-2,-2
 	
 	return l
 end--makeleaf()
@@ -2114,7 +1968,7 @@ function drleaf(lin)
 end--drleaf()
 
 function upnpc(ein)
-	--ein.stun=0
+	ein.stun=0
 	--update target
 	if ein.ntt<=0 then
 		ein.ntt=5+rint(5)
@@ -2122,17 +1976,19 @@ function upnpc(ein)
 			x=ein.hx,y=ein.hy
 		}
 		local d=dist(ein,home)
+		local rx=rint(7)-3
+		local ry=rint(7)-3
 		if d<10 then
-			ein.tx=ein.x+rint(9)-4
-			ein.ty=ein.y+rint(9)-4
+			ein.tx=ein.x+rx
+			ein.ty=ein.y+ry
 		else
-			ein.tx=ein.hx+rint(7)-3
-			ein.ty=ein.hy+rint(7)-3
+			ein.tx=ein.hx+rx
+			ein.ty=ein.hy+ry
 		end
 	else
 		ein.ntt-=1
 	end
-	--
+	
 	local ex,ey=ein.x,ein.y
 	local dx=sgn(ein.tx-ex)
 	local dy=sgn(ein.ty-ey)
@@ -2157,23 +2013,8 @@ function upnpc(ein)
 	if not hitent then
 		ein.x,ein.y=nx,ny
 	end
-end--upnpc()
-
-function makebigwiz()
-	local bw=makeent(
-		73,44,86,--x,y,sp
-		50,--hp
-		20,20--atk/def power
-		--1,--speed
-	)
 	
-	bw.item=makeitem(112)
-	bw.tpt=0
-	bw.aspd=3
-	bw.dr=drbigwiz
-	bw.up=upbigwiz
-	return bw
-end--makebigwiz()
+end--upnpc()
 
 function upslime(slin)
 	upent(slin)
@@ -2189,25 +2030,115 @@ function upslime(slin)
 	end
 end--upslime()
 
-function upbigwiz(bw)
+function makebigwiz()
+	bw=makeent(
+		73,44,86,--x,y,sp
+		50,20,17,--hp,ap,dp
+		11,1,5
+	)
+	
+	bw.item=makeitem(112)
+	bw.tpt=0
+	bw.php=bw.hp
+	bw.tgts={}
+	bw.smns={}
+	bw.mov=noup
+	bw.dr=drbigwiz
+	bw.up=upbigwiz
+	bw.atk=bwatk
+end--makebigwiz()
+
+--big wiz attack
+function bwatk(bwin,
+dxin,dyin,din
+)
+	if #bw.tgts<=0 then
+		--set some targets
+		if din<3 then
+			--melee-range explosion
+			for ri=39,49 do
+				for ci=71,81 do
+					if ri==bw.y-1
+					or ri==bw.y+1
+					or ci==bw.x-1
+					or ci==bw.x+1 then
+						add(bw.tgts,
+							{x=ci,y=ri,sp=28}
+						)
+					end
+				end
+			end
+			--close the door
+			mset(83,44,29)
+		else
+			local as=0
+			for si,s in ipairs(bw.smns)
+			do
+				as+=tonum(s.hp>0)
+			end
+			if as<=0 then
+				--summon
+				for si=0,1 do
+					local ssp={93,74,72,73}
+					ssp=ssp[1+rint(4)]
+					add(bw.tgts,
+						{
+							x=73+rint(9),
+							y=40+rint(9),
+							sp=ssp
+						}
+					)
+				end
+			else
+				lwizatk(bw,dxin,dyin)
+			end
+		end
+	else
+		--fire on those targets
+		for ti,t in ipairs(bw.tgts)
+		do
+			if t.sp==28 then
+				makeproj(t.x,t.y,
+					1,0,0,30,28,1
+				)
+			else
+				add(bw.smns,
+					makeenttyp(t.sp,t.x,t.y)
+				)
+			end
+		end
+		bw.tgts={}
+	end
+end--bwatk()
+
+function upbigwiz()
 	bw.stun=0
-	if bw.tpt<=0 then
+	--teleport timer
+	if bw.tpt<=0 
+	or bw.hp<bw.php then
 		bw.x=72+rint(9)
 		bw.y=40+rint(9)
 		bw.tpt=10+bw.hp\5
 	else
 		bw.tpt-=1
 	end
-	local cx,cy=bw.x,bw.y
+	
 	upent(bw)
-	bw.x,bw.y=cx,cy
 	--clear path to grave
 	if bw.hp<=0 then
 		aoe({30,0},69,44,3)
 	end
+	bw.php=bw.hp
 end--upbigwiz()
 
-function drbigwiz(bw)
+function drbigwiz()
+	for ti,t in ipairs(bw.tgts) do
+		spr(
+			120,
+			getdrx(t.x),
+			getdry(t.y)
+		)
+	end
 	if isvis(bw.x,bw.y)>0 then
 		local drx=getdrx(bw.x)
 		local dry=getdry(bw.y)
@@ -2247,7 +2178,6 @@ end--makeitem()
 function dropitm(iin,xin,yin)
 	iin.x=xin
 	iin.y=yin
-	if (iin.id) iin.sp=63
 	add(pkups,iin)
 end--dropitm()
 
@@ -2263,6 +2193,14 @@ function drpkups()
 			60+(p.x-vx)*8,
 			60+(p.y-vy)*8
 		)
+		--[[
+		if (p.pal) pal(p.pal)
+		spr(p.sp,
+			60+(p.x-vx)*8,
+			60+(p.y-vy)*8
+		)
+		pal()
+		--]]
 	end
 end--drpkups()
 
@@ -2274,7 +2212,7 @@ spdin,--dirin,
 dxin,dyin,
 dmgin,
 spin,
-lspin,--lifespan
+lifin,--lifespan
 effin
 )	
 
@@ -2282,12 +2220,12 @@ effin
 		x=xin or pc.x,
 		y=yin or pc.y,
 		spd=spdin or 1,
-		dx=dxin,--idx,
-		dy=dyin,--idy,
+		dx=dxin,
+		dy=dyin,
 		dmg=dmgin or 1,
 		eff=effin or dmgprj,
-		lsp=lspin or 1,
-		sp=spin or 125,--isp,
+		lif=lifin or 1,
+		sp=spin or 125,
 		up=upprj,
 	}
 
@@ -2304,14 +2242,14 @@ function dmgprj(pin,ein)
 		makeftxt("-"..dmg,8,
 			ein.x,ein.y
 		)
-		pin.lsp=0
+		pin.lif=0
 	end
 end--dmgprj()
 
 function drprjs()
 	for pi,p in ipairs(prjs) do
 		local flp=fget(p.sp,7)	and (frame%6)>3
-		spr(p.sp,--[1],
+		spr(p.sp,
 			getdrx(p.x),
 			getdry(p.y),
 			1,1,
@@ -2323,17 +2261,15 @@ end--drprjs()
 
 function upprj(pin)
 	for si=1,pin.spd do
-		if pin.lsp>0 then
-			--if dir>=0 then
-				local nx=pin.x+pin.dx
-				local ny=pin.y+pin.dy
-				local nt=mget(nx,ny)
-				if not fget(nt,1) then
-					pin.x,pin.y=nx,ny
-				else
-					pin.lsp=0
-				end
-			--end
+		if pin.lif>0 then
+			local nx=pin.x+pin.dx
+			local ny=pin.y+pin.dy
+			local nt=mget(nx,ny)
+			if not fget(nt,1) then
+				pin.x,pin.y=nx,ny
+			else
+				pin.lif=0
+			end
 			--collide with ents
 			for ei,e in ipairs(ents) do
 				if pin.x==e.x 
@@ -2347,7 +2283,7 @@ function upprj(pin)
 			end
 		end--if not done
 	end--for each step
-	pin.lsp-=1
+	pin.lif-=1
 end--upprj()
 
 function gusteff(pin,ein)
@@ -2376,29 +2312,16 @@ function makegust(dxin,dyin)
 	)
 end--makegust()
 
---[[
-function makebubble(
-ein,
-dxin,dyin
-)
-	local b=makeproj(
-		ein.x,ein.y,
-		2,dxin,dyin,
-		0,121,
-		12--lifespan
-	)
-	b.up=upbub
-end--makebubble()
 
-function upbub(bin)
-	upprj(bin)
-	--bin.spd-=1
-end--upbub()
---]]
-
+function uplwbub(pin,ein)
+	dmgprj(pin,ein)
+	stateff(pin,ein)
+end--uplwbub()
+	
 function bolteff(pin,ein)
 	if ein.stun>0 
-	and not ein.isnpc then
+	and not (ein.isnpc
+	or ein.sp==86) then
 		makeftxt("-"..ein.hp,8,
 			ein.x,ein.y
 		)
@@ -2406,9 +2329,9 @@ function bolteff(pin,ein)
 	else
 		dmgprj(pin,ein)
 	end
+	ein.slp=min(ein.slp,1)
 end--bolteff()
 
---spores={}
 function makespore(
 ein,xin,yin
 )
@@ -2416,26 +2339,25 @@ ein,xin,yin
 	local sp=makeproj(
 		xin,yin,
 		1,0,0,
-		ein.ap or 1,--epowin or 1,
+		ein.ap or 1,
 		124,
 		10,--lifespan
 		stateff
 	)	
 	
-	--et=etin or 1
-	sp.et=ein.et--stfx[et]
-	sp.ed=ein.ed or 10--edin or 10
-	--add(spores,sp)
+	sp.et=ein.et
+	sp.ed=ein.ed or 10
+	
 end--makespore()
 
 --status effect
 function stateff(pin,ein)
 	local e=ein or pc
 	if e==pc then
-		e[pin.et]=pin.dmg --or pin.ap
+		e[pin.et]=pin.dmg
 		e[pin.et.."t"]=pin.ed or 10
 		makeftxt(pin.et,13)
-		pin.lsp=0
+		pin.lif=0
 	end
 end--stateff()
 
@@ -2443,7 +2365,7 @@ function upprjs()
 	for pi=#prjs,1,-1 do
 		local p=prjs[pi]
 		p:up()
-		if p.lsp<=0 then
+		if p.lif<=0 then
 			deli(prjs,pi)
 		end
 	end
@@ -2514,7 +2436,7 @@ function drftxts()
 end--drftxts()
 
 function makering(
-lspin,colin,
+lifin,colin,
 radin,
 xin,yin
 )
@@ -2523,7 +2445,7 @@ xin,yin
 		y=yin or pc.y,
 		rad=radin or 1,
 		col=colin or 7,
-		at=lspin or 10,
+		at=lifin or 10,
 		dr=drring,
 	}
 	
@@ -2553,7 +2475,6 @@ function ap_getitems()
 			local byte=peek(gpio+10+ki\8)--dget(id\8)
 			local ibit=ki%8
 			if bit(byte,ibit) then
-				--test=test..ki..","
 				--idk why this is broken
 				--but heres a quick fix
 				if ki==54	then
@@ -2561,7 +2482,7 @@ function ap_getitems()
 					loot[9]=122
 					pc.bolts=20
 				end
-				giveitem(k)--,true)
+				giveitem(k)
 				k.got=true
 				--local ch=chex[ki+1]
 				--if ch then
@@ -2576,9 +2497,7 @@ end--loadsd()
 
 function ap_sendloc(locin)
 	local id=locin-1
-	if id==31 then
-		pc.gotitm=makeitem(rint(128))
-	end
+	
 	local adr=gpio+id\8
 	poke(adr,
 		peek(adr)|2^(id%8)
@@ -2611,78 +2530,78 @@ __gfx__
 008888000000a88a0000a99a0000abba0000acca0000a77a303003036000055000222200000011004070424006777600100001010006608d0000040000000400
 022222200000a88a0000a99a0000abba0000acca0000a77a616003150000006607022020000100104700042067777760010000100000d00d0000004000000040
 0440044000000aa000000aa000000aa000000aa000000aa036666ddd00000000320000220000000340000000994444400011110000000dd00000000400000004
-00009900000000000005000000000000094400000000000090000000600000000078860076660000000000000000000000000000000000000000000000000000
-000090000000000004515000000000000a944400000000000940000056000600060000d075000000030030000000000000000000070300300000000000078000
-0011110000760000055515000005555509a944400000000004d44000056060400dccccd070609490000300000005150000000000797030000065050007a887b0
-01dd1110006507605155100055155555009a944400900000004d544400560006077666606006004900030000005551500000050007003070066656500aa11bb0
-01d1111000000650551140000551555009aaa944444944440045d5d0000000600dddddd000494004000000300515511000001110030007970655555007c007e0
-011111100076000005500400005111000aa9a9449994949900045d0000000600067666600904090900300300551155110000000000300370066566500cc79ee0
-0111111000650000000000400001100000aaa944044449400004d00000000054067666d004004004000303035511111100000000303030000666615001199110
-00111100000000000000000405555550000aa940000000000004000000000022006ddd0000949490030303030115111001000000303030301115151100011000
-0000000000044000099f9f0000000000000000000505000500000000000000005050050000000090070700000000000080000080009988900000000000000000
-0088700000444000f9f9f990070070000909000905550050000000000000000050500505000000090a0a0000000000008eee0800088898890000000000000000
-08888800004444009f9f9ff07007066009990090075700500e0e000000bb000005055055090009090a0a00000000444007e7800e088898890000000000000000
-8788878800444400f9f9fd007007655607970090555550500eee00e00bb7bb0000555500907079090aaa0000707499948eeee88e8878000800000000000ccc00
-88878887045d440090ddd600087867700999909005555500ee7eee0080bbbb0055555555909049997aaa00006069444900ee000e788000980000000000c111c0
-7888d0004556d54400666600077677700999990005555500eeeeee00000bbb0000858500099994900aaa5000666949490eeeeeee88000090000000000c7171c0
-880d600000066000006666000507575709999900050050500eeeeee000bbb00b55080850099949000aaaaa5066d94994e00e0ee0800009890000c0000c1111c0
-0060060000600600006000600507575709009090050050500e0e00e000bbbbbb5000000590909040009959990ddd944000e0000e08000989000c1c0000cccc00
-0000000000000000007777000000000000060600000020000222000000600600000000000000000000ee00000999990000000000000222220000000077777700
-000ccc00000000000006600000000000000ddd00000220002022200000bbb000000000000bbbb0000e0e20009900099000000000002222000603630077600777
-0ccc1cc0000000000077770000000000000dd6000022250000222200007b700000777700bb3b0b000ee0e0009990009900000800277227726bb633bb67600770
-cc1111cc00444400077777700000000000dd6d0000225200022222000bbbb00007777770b3bb00b0e0a2e0009909000900000000008448008bb833bb56777600
-c171171c0444444007878780000000000ddd6d000222522022222220003b3b0007577570b3bb00b0e2312200990000090008000000999900bbbb333b55607766
-c111111c0229922008787870055550000dd6dd0002252220042222220b33300b00777760b3b000b0a00b0ae0909000990000000092277290bbb0333006000707
-cc1111cc042222400077770050000500dd666dd00052250000844800003333b00060006030000b00000c00200900999000088000022722007070333b00670070
-0cccccc00424424000700700555555500d606dd0005005000079970000b0b00007700770000bb00000c0300a000990000089980000222220000b00b000066667
-08888882004994400007770000550000000000002000000200777700000000000000000000000bb00000000099009990000090000777d7770000077777777700
-eeeeeee20707272400006770050050000d00000d220000220027722200000000700077000bb0b003000000000099999980098000766d76770000767777600777
-eeeeeee2088802220787760050005000dd0000dd25050222022272220000000077075770bb3bbb03000000000900999900897808675677570006775767677770
-7eee7ee2808888220080877058085000dd606ddd25555222022222200000000077077770bb37bb03000000009009999908979980765765650057600556700707
-22222ee2007878740000008050005000d7676ddd2865522002222200000000000760757073bbb3030000000090990099089799807657756d0057700005688989
-eeee2ee2044444400808087050000500d6666d0d08855200022222000000000000067760b3bb3003000000000090009089977988765767d70057670706000898
-2e2e2ee2042222400878770005000050066660000055000002222200000000000000060003b00030000000000090090089777988677577650005776500670070
-eeeeeee0042442400070070005555555006060000000000022222220000000000000770003000303000000000000000008979990066655500000555000066667
-07000000000700000000000000555500000000000000000000777700006666000000000000000000000700000000000000000000000000000000000000000000
-777e0e80006750000000060005800050000000000505020000277200060000600000000000cccc00006750000000000007000000000000000000000000000000
-0788e2280606050000070060500000500d606d00255552200222720060066006000000000c7700c0000600000880006000000700008888000000000000000000
-0eeee888000600000059667705080050d7676dd0286552200222220060600606000000000c700dc0000600000066667700000000089999800800000000000000
-0e88e228007950000005005005000050d6666ddd288552220222220060606606000000000c000dc0000600000880005000700007899977788980000080000000
-0088e280000500000000050050055500d6666ddd225500220222220060600006000000000c0dd0c0008680000000000000000000997777789998000098000000
-0008e800000000000000000005050000d060600d2000000202222200600666600000000000cccc00008080000000000007000000089977808880000080000000
-0000e000000000000000000005555500000000000000000022222220060000000000000000000000000000000000000000000700008888000000000000000000
+00009900000000000005000000000000094400000000000090000000000000000078860076660000000000000000000000000000000000000000000000000000
+000090000000000004515000000000000a944400000000000940000007007000060000d075000000030030000000000000000000070300300000000000078000
+0011110000760000055515000005555509a944400000000004d44000700706600dccccd07060949000030000000d1d0000000000797030000065050007a887b0
+01dd1110006507605155100055155555009a944400900000004d54447007655607766660600600490003000000ddd1d000000d0007003070066656500aa11bb0
+01d1111000000650551140000551555009aaa944444944440045d5d0087867700dddddd000494004000000300d1dd11000001110030007970655555007c007e0
+011111100076000005500400005111000aa9a9449994949900045d0007767770067666600904090900300300dd11dd110000000000300370066566500cc79ee0
+0111111000650000000000400001100000aaa944044449400004d00005075757067666d00400400400030303dd11111100000000303030000666615001199110
+00111100000000000000000405555550000aa940000000000004000005075757006ddd000094949003030303011d111001000000303030301115151100011000
+0000000000044000099f9f0000600600000000000505000500000000006006005050050000000090070700000000000080000080009988900000000000000000
+0088700000444000f9f9f99000bbb00009090009055500500000000000bbb00050500505000000090a0a0000000000008eee0800088898890000000000000000
+08888800004444009f9f9ff0007b709009990090075700500e0e0000007b700005055055090009090a0a00000000444007e7800e088898890000000000000000
+8788878800444400f9f9fd000bbbb04007970090555550500eee00e00bbbb00000555500907079090aaa0000707499948eeee88e8878000800000000000ccc00
+88878887045d440090ddd60000ff77400999909005555500ee7eee00003b3b0055555555909049997a7a00006069444900ee000e788000980000000000c111c0
+7888d0004556d5440066660007f7774b0999990005555500eeeeee000b33300b00858500099994900aaa5000767949490eeeeeee88000090000000000c7171c0
+880d6000000660000066660007f7734009999900050050500eeeeee0003333b055080850099949000aaaaa5066d94994e00e0ee0800009890000c0000c1111c0
+00600600006006000060006000f7770009009090050050500e0e00e000b0b0005000000590909040009959990ddd944000e0000e08000989000c1c0000cccc00
+0000000000000000007777000000000000060600000020000222000000000000000000000000000000ee00000999990000000000000222220000000077777700
+000ccc00000000000006600000000000000ddd00000220002022200000000000000000000bbbb0000e0e20009900099000000000002222000603630077600777
+0ccc1cc0000000000077770000000000000dd600002225000022220000bb000000777700bb3b0b000ee0e0009990009900000800277227726bb633bb67600770
+cc1111cc00444400077777700000000000dd6d0000225200022222000bb7bb0007777770b3bb00b0e0a2e0009909000900000000008448008bb833bb56777600
+c171171c0444444007878780000000000ddd6d00022252202222222080bbbb0007577570b3bb00b0e2312200990000090008000000999900bbbb333b55607766
+c111111c0229922008787870055550000dd6dd000225222004222222000bbb0000777760b3b000b0a00b0ae0909000990000000092277290bbb0333006000707
+cc1111cc042222400077770050000500dd666dd0005225000084480000bbb00b0060006030000b00000c00200900999000088000022722007070333b00670070
+0cccccc00424424000700700555555500d606dd0005005000079970000bbbbbb07700770000bb00000c0300a000990000089980000222220000b00b000066667
+08888882004994400007770000550000000000002000000200777700000000000000000000000bb06000000099009990000090000777d7770000077777777700
+eeeeeee20707272400006770050050000d00000d220000220027722200000000700077000bb0b003560006000099999980098000766d76770000767777600777
+eeeeeee2088802220787760050005000dd0000dd25050222022272220000000077075770bb3bbb03056060400900999900897808675677570006775767677770
+7eee7ee2808888220080877058085000dd606ddd25555222022222200000000077077770bb37bb03005600069009999908979980765765650057600556700707
+22222ee2007878740000008050005000d7676ddd2865522002222200000000000760757073bbb3030000006090990099089799807657756d0057700005688989
+eeee2ee2044444400808087050000500d6666d0d08855200022222000000000000067760b3bb3003000006000090009089977988765767d70057670706000898
+2e2e2ee2042222400878770005000050066660000055000002222200000000000000060003b00030000000540090090089777988677577650005776500670070
+eeeeeee0042442400070070005555555006060000000000022222220000000000000770003000303000000220000000008979990066655500000555000066667
+07000000000700000000000000555500000000000000000000777700006666000022220000000000000700000000000000000000000000000000000000000000
+777e0e80006750000000060005800050000000000505020000277200060000602000002000cccc00006750000000000007000000000000000000000000000000
+0788e2280606050000070060500000500d606d00255552200222720060066006008800020c7700c0000600000880006000000700008888000000000000000000
+0eeee888000600000059667705080050d7676dd0286552200222220060600606082000020c700dc0000600000066667700000000089999800800000000000000
+0e88e228007950000005005005000050d6666ddd288552220222220060606606082008020c000dc0000600000880005000700007899977788980000080000000
+0088e280000500000000050050055500d6666ddd225500220222220060600006088228000c0dd0c0008680000000000000000000997777789998000098000000
+0008e800000000000000000005050000d060600d2000000202222200600666600088800200cccc00008080000000000007000000089977808880000080000000
+0000e000000000000000000005555500000000000000000022222220060000002000002000000000000000000000000000000700008888000000000000000000
 20002000200020152000710020c020000020201600000000955050500000202000a5202020000000000000000420000000000000000000000000000020002000
 000020002000c32000c300d0d0d0200000a35050505050505050505050505050505050505050a39520f00050505000f020200000000000000050505050505050
-20002000710020002000207120000000202020202000c30000505050a30020202020200045000020002000202020002000202020202020202020000000000000
+2000c000710020002000207120000000202020202000c30000505050a30020202020200045000020002000202020002000202020202020202020000000000000
 0000000000000071000000b100d020b40000009550505050505050505050505050505050500000000000a300505050202020f00000c300f000000000c3000062
-200020f0202020002000200420002020200000952020000000005050500000202000000000000000c3450000200400000020840000000000842000c320002000
+200020c0202020002000200420002020200000952020000000005050500000202000000000000000c3450000200400000020840000000000842000c320002000
 000020002000b320000000d0d0d020202020000000a300c450505050505050505050505000000020202020202020202020202020202020202020202020200020
-200000000020000071002020200020201500a000c3310000000050505000002171000000150000000000000000000000002000200000c3200020b30000000000
+2000000000c0000071002020200020201500a000c3310000000050505000002171000000150000000000000000000000002000200000c3200020b30000000000
 0000000000b3b320f000f1d0d0d02020605050505050505050505050202020a3000000000020a320550000f00050505000000000040000200000000055200020
 20f0202000202000200071062000202020d300002020000000a3505050c3002020000000000000000000c3002000000000200000000000000020202020200000
-c300002020202020202020202020202020002020202020202020202020202020002000000000a32020000020000050502020202020200020f400b3c30000b300
-20202071717120c02020202020c32000202020202000000000505050a30020202020200000000020002000202020002000000000002000000020202020202020
+c300002020202020202020202020202020002020202020202020202020202020002000000000a32020000020000050502020202020c30020f400b3c30000b300
+20202071717120c020c0202020c32000202020202000000000505050a30020202020200000000020002000202020002000000000002000000020202020202020
 0020202070a30000157070707070707070007070707070707070707070707070302020000020002000001400000050500000f0f0202000202020c32020200020
 20f0857100000000000000c37100c30000202015000000000050505000002020a5002020200000000000000004200400c3200000000000000020008420707080
-808070707000a0a370707080808070707000000000957000700070000000707030202000000000200015000000555050000000f02000b30000000020f4202020
+808070707000a0a370707080808070707000000000957000700070000000707030202000000000200015000000555050000000f02000b3000000002005202020
 2020202020202020202020202020202000002020000000a350500000002020000000000020204120202020202020202020200020000000200000001520708080
 8080807070d300707080800000008080707000260025702500257025000000b130200000002000202000002000005050000000002020002020202020c3205520
 7070707070707070707070707070702020712020200000000000c395202020000000c300000000000020000000000000002000c3000000000020000020709580
 808095707000707080505050500000008070700070000000700000957000167020200000000000200000550000505050200000002000002000c300b300000020
 709000f0909090909090707090907070204120c320202000000020202000200020202000000000c3002000000020000000202020b320b1b12020202020702580
-8080257070e1708050505050008080800080707070b170250026002500000070200400000020002020202020205020202020000020000020b300b300b300b320
+8080257070e1708050505050008080800080707070b17025002600250000007020040000002000202020202020502020202000002000002000c3b3c3b300b320
 70900000909000f09090909090909070200020b1202020202020202020b1200020062095000600009520000000150000002020a5b30000000000002020707080
-8080707070e1705050005000800000008000707070b1707070707070707070702020000000000000a300009550505000002020002000b3000000b3c3b3b30020
+8080707070e1705050005000800000008000707070b1707070707070707070702020000000000000a300009550505000002020002000b3000000b3b3b3b30020
 7090909090900000909090900015007020c30000002020000000000000002000200020250000c300252000002020200000200000200024c30020000020707070
-807070e1e1e1705000800080000080008000807080808070707070707070707020202000000000200020a35050505000d4f020002000c320b300b305b300b320
+807070e1e1e1705000800080000080008000807080808070707070707070707020202000000000200020a35050505000d4f020002000c320b300b3c30000b320
 707090907070909090909090c3000070200020000000000620002020200020002000202020202020202000000020000000200000000000000000000020708570
-517000e1f0e1e150008065800080000080008051803580800000000000000070202000000000000000a350505000c400002020412020202000b3c3b3b3b30020
+517000e1f0e1e150008065800080000080008051803580800000000000000070202000000000000000a350505000c400002020412020202000b300b3b3b30020
 70709090707090909090909090909070202020200020200000000000200020000000c30000000000002000a50020000600200020202020202020200020700070
-0000007070707050008000800000800080008070808080707070707070700070200000002020000000a350500000002020205050502020200000c320b300c320
+0000007070707050008000800000800080008070808080707070707070700070200000002020000000a35050000000202020505050202020f4c30020b300c320
 70909090909090909090f000909090702015063000a500002020000000002000002000002000a5200020000000200000c320002020150045152020c320700070
 007000707070705050005000800000008000707070b17070707070707070007020a300202020200095505050c3f020205050a300c35050202020b30020000020
 7090f00090909090909000009090707020b12020002020000000000020c30000000095000000c300002000000020000000200020450000000000200020700000
-007000701570708050505050008080800080707070b170e500009090007000702000000020200000505050000020205000000000000000502020000020550020
+007000701570708050505050008080800080707070b170e500009090007000702000000020200000505050000020205000000000000000502020c30020550020
 709000c390909090909090909000c37020002000000000062000202020002095002006002000002000710000002000c30071002000c300240045200020707070
 707000700070707080505050500000008070700000000000000090900070007020200000000000005050d40000205000000000f000000000502000c320200020
 70909090909000009090909070f000702000000000202000000000000000202500000000c3000000007100060020000000200000000000000000000020700095
@@ -2690,7 +2609,7 @@ c300002020202020202020202020202020002020202020202020202020202020002000000000a320
 709090909090f0009090909000000070202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020700025
 00700070009500257070708080807070703500000000c39090009090007000703030202000000050505000002050c3000000000000000000a350200000200020
 70909090909090909090909090909070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070700026
-152600260025002600707070707070707070000000000090900000e5007070702030742000000050500000a32050000000000000000000000050200000205520
+152600260025002600707070707070707070000000000090900000e5007070702030752000000050500000a32050000000000000000000000050200000205520
 70c300909090909000f00090909000f000e6f500000000000000e6f500000000e6f500000000e6f500000000e6f500000000e6f5000000000000000070250025
 26250025252500260070d57070700000007070000000009090009090007070702020000000c3a350509500a32050a30000b50000000000c300502000c3200020
 70001570709090900000c390909000000000000000e6f5000000007000007000007000007000007000c370000070000070000070000000707000700070250000
@@ -2703,15 +2622,15 @@ c300002020202020202020202020202020002020202020202020202020202020002000000000a320
 0000950000002600957000700000007000b1950000000000d50000000000c37020a300a30000000050505050505020205050a300005050202000c30020000020
 70909090909000f0909070709090907000000000000000210000000000000000000000707070707070d6f50000c300e6f50000000000000000267070b5002695
 952525259595260025700070007070700070250000808080808080707000007020a30020c3000000a35050505050502020205050502020200400002020200020
-70909090709090909090707090909070c300000500c3007000009500009500009500c37000007000007070707070707070707070000000000000707025002525
+70909090709090909090707090909070c300000005c3007000009500000000009500c37000007000007070707070707070707070000000000000707025002525
 2525002625252500257000000070157085510000008000000000000070000070202020202020202000a350505050505050202050202020202020000020550020
-70909070707090909090909090909070000000000000007000002500002500002500007000000000007000000000000000007070707070707070707025950095
+70909070707090909090909090909070000005000000007000002500000000002500007000a500a5007000000000000000007070707070707070707025950095
 009595950000959525700070007000707070700000700000000000008095007070205020202020200000000050505050202050505000d4a31520000000000020
-7090909070909090909090909000c3110000000000950070000000c300950000000000700070e5700071007000e5000070007000000000000000007025252525
+7090909070909090909090909000c3110000000000950070000000c30095000000000070007000700071007000e5000070007000a40000a40000a47025252525
 2525252525252525257000700000007015707000007070808080808080d500507020000000c3002020002000c400002020f0005050500000f020202071202020
-70f0009090900000909090909000f07000250025002500700000d50000250000d500007000000000007000000000700070007000707000007070007070707070
+70f0009090900000909090909000f07000250025002500700000d50000250000d500007000000000007000e50000700070007000707000007070007070707070
 70707070707070707070007070707070007070000000000000d50000c300b5505100c395009500303000c30000f0002020a30050505050505020200000002020
-700000909090f00090909090909090700000000000000070000000000000000000c30031000070000070000014000000700041000000000000d500d500d50000
+700000909090f00090909090909090700000000000000070000000000000000000c30031000070000070000000000000700041000000a40000a400a400a40000
 0000000000850000000000000000000085707000000000000000000000002550702015251525152020200000202000c42020a300500000d35050200015002020
 70707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070707070
 707070707070707070707070707070707070707070707070707070707070707070202020202020202020202020202020202020f062a3a0006262202020202020
@@ -2846,41 +2765,41 @@ __label__
 11515111115151111151000000000000000051111151000000000000000000000000000000000000000010000010000000000000000010000010100000100000
 
 __gff__
-000303030011010300000105050300070007070707070005000d000100070300000000000000010000004000000040400000000100004000004000090000090080808000000000008000000000808080800400000000000000000000800000000000000000000000000000008003010000000000800000800000000080000000
+000303030011010300000105050300070007070707070005000d000100070300000000000000010000004000000040400000000100004000004000090000090080808000000000008000000000808080800400000000000000000000800000000000000040400000000000008003010000000000800000800000000080000000
 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
 __map__
 0202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020202020d020202020d0202020d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d0d020202020202020202020202020202060606020202020202020202020206060602020202020202020202
-02000002030200003c0202023d5905050000005900003a003c0000005902020000004800003c02020254003b00000000000000000202004802023a3a0d0000440003003a0003004400000d005700000d0c0c0c0c0c0d0202000000020202020000000202020202050505053a3c000a003c000a000e0e0e000a0200000a000202
-025102020000090900000002023a05003c510000000000005900003a020200003b00000000000000020000004800000202000000000000020200003d0d570000000d3d00460d510057000d570000000d3d0000003c0d02000049003c0002004900000002020202020205050505003a000a00003a0505053a00000a0000533e03
-0202025300000009000000530202055900003d0000000000003d00020200003c0002020202510000003b00000000000002024800020202020000003a0d000000000d46003a0d000000000d000000000d3a005700001700000000000000000000000000020200003c0202000505050a00003a0a0d0d1b0d0d0a00003a0a0d3a02
+02000002030200003c0202023d5905050000005900003a003c0000005902020000004800003c02020254003b00000000000000000202004802023a3a0d0000440003003a0003004400000d004700000d0c0c0c0c0c0d0202000000020202020000000202020202050505053a3c000a003c000a000e0e0e000a0200000a000202
+025102020000090900000002023a05003c510000000000005900003a020200003b00000000000000020000004800000202000000000000020200003d0d470000000d3d00460d510047000d470000000d3d0000003c0d02000049003c0002004900000002020202020205050505003a000a00003a0505053a00000a0000533e03
+0202025300000009000000530202055900003d0000000000003d00020200003c0002020202510000003b00000000000002024800020202020000003a0d000000000d46003a0d000000000d000000000d3a004700001700000000000000000000000000020200003c0202000505050a00003a0a0d0d1b0d0d0a00003a0a0d3a02
 020200000009000900090000000205053a000000593c02023b020202000002000048020002020000000202020200000000020202023a000000023a000d0d160d0c0d0b0b0b0d0d1d0d0c0d0d1d0d0c0d000000000017003c0200000049000000003b0002000000003c00000000050500003c000d0051000d0d1b0d1b0d0d5102
-02020000090000090000090000020202020202020202023a0000020300020202000002020200000002023c3b00000000000000003c0000003a0202003a3a003a3a3d3a003a3a3d003a3a3a3a003a3a3d00005700000d0202020200000000003c0000000000000002020202003c0505000d0d1b0d0000000000000000000d0d02
-023c000900000009003c00090000020505050505050505000a0002030002020200000000000048020200000000020200020200000002003a02020000003c000000000000000000000000000000000000003c0000000d02050505050505050059000000003c00020200480200000505000d00000000000d000d000d000d000d0d
-020000090000095309000009000017000502020202020200003d020200480002020248003c0202020000000202020202020202020000000202003a000000000000005700003a3a3a003a3a3d3a3c3a3a000000003a05050505050505050505050505000000000002023c02023b0e0e001300000d00000000000000005700000d
-020000090000000000000009003c02000502020202020202020202020200000000020202020200003c02020202543c0200000202020202023a00020200003a0000000000450d0c0d1d0d0d0c0d160d0d3a0000000505050505053a0005050505050505050000000002030200000505000d00000000000d000d000d000d000d0d
+02020000090000090000090000020202020202020202023a0000020300020202000002020200000002023c3b00000000000000003c0000003a0202003a3a003a3a3d3a003a3a3d003a3a3a3a003a3a3d00004700000d0202020200000000003c0000000000000002020202003c0505000d0d1b0d0000000000000000000d0d02
+023c000900000009003c00090000020505050505050505000a0002030002020200000000000048020200000000020200020200000002003a02020000003c000000000000000000000000000000000000003c0000000d02050505050505050059000000003c00020200480200000505000d00000000000d000d000d0000000d0d
+020000090000095309000009000017000502020202020200003d020200480002020248003c0202020000000202020202020202020000000202003a000000000000004700003a3a3a003a3a3d3a3c3a3a000000003a05050505050505050505050505000000000002023c02023b0e0e001300000d00000000000000004300000d
+020000090000000000000009003c02000502020202020202020202020200000000020202020200003c02020202543c0200000202020202023a00020200003a0000000000450d0c0d1d0d0d0c0d160d0d3a0000000505050505053a0005050505050505050000000002030200000505000d00000000000d000d000d0000000d0d
 0202000009003c000000090909020200050500000f0202020202540002023c00000000005402000002020200000000003b00003c540202020202020202020202003d000d0d0d000000000d000000000d0d000005050505000000004a0000003a05050505053a0000003b00003a0505000d0d1b0d0000000000000000000d0d02
-02020000000909090909090909020200000505000f02020000000002020202020000020000000002023c00000000003c00003b0000000002020200540202020202000017510d004400570d000057000d3d003a05050500004900000000000000000005050505050049000000050500000f0f000d0051000d0d1b1d1b0d0d0202
-02020253000009090900005302020251000505001b1b470002020000471713000000000002000202000000020202020202020000000000003c00000000000202023d000d0d0d000000000d000000000d0d44050505000000000000490002000000003a050505050500000005050000000000000d0d1b0d0d0d0000000d020202
+02020000000909090909090909020200000505000f02020000000002020202020000020000000002023c00000000003c00003b0000000002020200540202020202000017510d004400470d000047000d3d003a05050500004900000000000000000005050505050049000000050500000f0f000d0051000d0d1b1d1b0d0d0202
+02020253000009090900005302020251000505001b1b570002020000571713000000000002000202000000020202020202020000000000003c00000000000202023d000d0d0d000000000d000000000d0d44050505000000000000490002000000003a050505050500000005050000000000000d0d1b0d0d0d0000000d020202
 02020202000000000000000202020200000505020202020002000002020202020202020000000202003b020241003b0040020202020202020200000002003c0202003a003d0d0d0d0c0d0d0d0d0c0d0d3a0005053a00000000020000000000003b00000000050505050505050000003c003a050505053a0f0d005e000d000202
 02090902020200003c020202090902050505020200000202020000000202020202020200000202003c00030000005a000000004251000202000000020200000202000000003a3a3d003a00003d00003a0005050500000000000000000000000000000000000005050505053a3c00000000050505053a00000d0d1b0d0d000202
 020051000902020002020900510002020202020000000002000002020200020002001b510202540000020200020000005a0000000202020000410002003b0002023d3a00000000000000000000000000000505000049003b0000003a0000003a000000000000003a05050505050505050505050500000000000d000d00000002
-0200000000020900090200000000020500003c004700000000000000023c00000000020202003b0000024200005a00003b000202023c3b000000020200003c0202140d0b0b0b0b0b0b0b0b0b021702020205050000003a0505050505050505053a0000000049000000050505050505050505050000000000003c00003c000202
+0200000000020900090200000000020500003c005700000000000000023c00000000020202003b0000024200005a00003b000202023c3b000000020200003c0202140d0b0b0b0b0b0b0b0b0b021702020205050000003a0505050505050505053a0000000049000000050505050505050505050000000000003c00003c000202
 020505000002090009020000050502003b020202020202020202000202000002000002023c0000000002003b000002004102020000000202020202000000020202000d460000003c3b3a003d02000202020505053a0505050505050505050505050000000000000000000000003a000002000200020002000200020002020202
 020505050502093c090205050505020000000000000000000000003c00000000003c0202003b0200000202004000000002020000000202000000003c02020202023a0000003d00000000463a020902024c00050505050505050505050505050505053a0000000000000000000000000000000000003c00000002020202020202
-020000050502021102020505003c0200020202020202020202021702020000000000020200000200005402020202020202000000000200003b0000020254000002023b003a0045573d463a00020902023a0000050505050505050505050505000505050000000000000000000002020202020202020202020202020202020202
-020200000000000000000000000202000002000000003c0000000047020000020000020200000202003c00003b0000000000000002023b000002020200000000020202513c02020202020202020902514b0000050505050505050505053b00000005050505000002000200020002000200000f000000090909090909093c0002
+020000050502021102020505003c0200020202020202020202021702020000000000020200000200005402020202020202000000000200003b0000020254000002023b003a0045473d463a00020902023a0000050505050505050505050505000505050000000000000000000002020202020202020202020202020202020202
+020200000000000000000000000202000002000000003c0000000057020000020000020200000202003c00003b0000000000000002023b000002020200000000020202513c02020202020202020902514b0000050505050505050505053b00000005050505000002000200020002000200000f000000090909090909093c0002
 02020c02000000003c0000020c02000000020002020202020202170202000000000002023b00000200000000003b3b00003c000202003c000054000000000200003c0202020202020202020202090202000000050505050505050505053a00000005050505050000000000000000001700000000090909090909090000000002
 02513c020202000000020202000000003c02000200000000000000000000000000000202003c00020200003b00000202020202020000003b0000003c0002020200000202023c0000003b000202090202020000053a000505004e000505053a50000505050505050000020002000200020000090909090909090000000f000002
 020200000002000000020002000303030017001700020202020217020200000200000202000041000202020202020200003b00000002000202020000000202000002020200000202020002020209020200003a050049050500000000050505050505050505050505000000003a02020202020202020202020202020202020002
-0202003c003b00000009000000030f0300020002003c00000047000002000000000002020200000000003c540202000000000000020200000002023c00003b003c00000000000000005851020000024b000000053a050500004b00003a0505050505050505020205050500000000000f02025102510251025102550000003c02
-020200603b3b3c000009000f0003030300020002020202020202020002420200024202000202003b0000000202003c3b000000000000003c000002020000000202020200020202000202020200000202000000050505054e00000000000000500005050505020202050505000002000f020242025a0240024102000047020002
+0202003c003b00000009000000030f0300020002003c00000057000002000000000002020200000000003c540202000000000000020200000002023c00003b003c00000000000000005851020000024b000000053a050500004b00003a0505050505050505020205050500000000000f02025102510251025102550000003c02
+020200603b3b3c000009000f0003030300020002020202020202020002420200024202000202003b0000000202003c3b000000000000003c000002020000000202020200020202000202020200000202000000050505054e00000000000000500005050505020202050505000002000f020242025a0240024102000057020002
 023c003c003b0000000900003c00000000020000000000000000000002020200020202000002020000003b020000000002020202020200000000540200000202020202020200020202000000000f020000003b05050505004f4e000000000000003a050505050202020505050000003a02020002000200020002000200000002
-020f02020202023c02020202020202020202020202023c3c3b02020002020200020202020202021717170202000000020200000000020200003b00020002020251020202000000000000024a00020200000000050505053a003b0000505100004e00000505050502020505050502000002020002000200020000000000000002
-02580260170002000200000000000200000000000000003b3b3b000000000200000000000000000000000200000000025400003c0000020000000002000202000000020200020202020202020202000000000005050505050000000000000000004e000505050505050505050505053a0202000200020000003c020202020002
-02170202020017000200020f02000200020002003c0202020202020200000200020000000200000002000200513b0002003b000000410000000002020002020203020202000251000000480202024b0000003a050505050500004e000000004a004f000505050505050505050502050502020002003c00020002020047020202
-020017000200020202000247020002000047000002020200000002020200020000000000000000000000020000480002000200020000020000020202000202020302020212020202170202020202020000000505050202055900004a00004b003a003a0505050505050505050505000002020505000200000002000000000202
+020c02020202023c02020202020202020202020202023c3c3b02020002020200020202020202021717170202000000020200000000020200003b00020002020251020202000000000000024a00020200000000050505053a003b0000505100004e00000505050502020505050502000002020002000200020000000000000002
+02580260170002000200000000000c00000000000000003b3b3b000000000200000000000000000000000200000000025400003c0000020000000002000202000000020200020202020202020202000000000005050505050000000000000000004e000505050505050505050505053a0202000200020000003c020202020002
+02170202020017000c00021702000200020002003c0202020202020200000200020000000200000002000200513b0002003b000000410000000002020002020203020202000251000000480202024b0000003a050505050500004e000000004a004f000505050505050505050502050502020002003c00020002020057020202
+020017000200020202000257020002000057000002020200000002020200020000000000000000000000020000480002000200020000020000020202000202020302020212020202170202020202020000000505050202055900004a00004b003a003a0505050505050505050505000002020505000200000002000000000202
 023c0200020017000000021702000200020000020200003a000000000202020002000000020000000200020200000202510000020200000002023c00000000003c0000000000000000000000000000000000050502020205053a3a00004e000000050505050505050505050505023a000202000505050500003b000002005102
-02000200020002020202020017000200000002020000000005050000000202000000005a0202110202020202020202020202020202020202020200000000000000000000000000020202020202020202000005050202050505050505050505050505050505050505050505050500000002023c00000005050505020202020202
+0200020002000202020c020017000200000002020000000005050000000202000000005a0202110202020202020202020202020202020202020200000000000000000000000000020202020202020202000005050202050505050505050505050505050505050505050505050500000002023c00000005050505020202020202
 __sfx__
 0f0f800004b2404b1402b0404b043ea043ea633ca633aa533aa533aa4338a3336a3334a2332a1330a032c22620125101740a154081440612404114001043e0733e0633c0533a0533804338043380333603336033
 001000010912000100001000010000100001000010000100001000010000100001000010000100001000010000100001000010000100001000010000100001000010000100001000010000100001000010000100
