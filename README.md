@@ -25,6 +25,8 @@ PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam
 4. On the page that opens, each player will need to enter the port number and player name as they appear on the room page and press the submit button (no password needed unless one was set). The text fields should disappear and the server log should show the player connected.
 5. Once connected, press the triangular play button in the Pico-8 window and start playing! When a chest is opened you may not get an item, but the server should show a record of who opened which chest. If no record appears, or you don't seem to be receiving items, reload the page and repeat the steps to connect.
 
+*Note: The client is also hosted on [hauntedmachine.dev](https://hauntedmachine.dev/games/forged-curse/client/).*
+
 ## Project Structure
 - `client/`
     - `img/` Images for the client and compendium
