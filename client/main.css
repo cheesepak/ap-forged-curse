@@ -10,9 +10,12 @@
     --dark-green: #008751;
     --brown: #AB5236;
     --dark-grey: #5F574F;
+    --light-grey:  	#C2C3C7;
     --lavender: #83769C;
     --white: #FFF1E8;
     --red: #FF004D;
+    --green: #00E436;
+    --blue: #29ADFF;
     --primary-color: #1D2B53;
     --bg-color: #000000;
     --text-color: #FFF1E8;
@@ -20,6 +23,7 @@
 
 html, body {
     font-family: Pico-8, monospace;
+    font-size: 16px;
     text-transform: lowercase;
     background: var(--bg-color) url("img/bg.png") repeat center/auto fixed;
     color: var(--text-color);
@@ -36,7 +40,7 @@ h1 {
     padding-top: 32px;
 }
 
-h2, h3 {
+h2, h3, h4 {
     color: #29ADFF;
 }
 
@@ -107,7 +111,22 @@ footer {
 }
 
 aside {
+    color: var(--light-grey);
+    font-size: 14px;
     margin-bottom: 16px;
+
+}
+
+ol li {
+    margin: 0 0 0 10px;
+}
+
+ol li::marker {
+    color: var(--blue)
+}
+
+ol li span {
+    color: var(--green)
 }
 
 .submit-wrapper {
