@@ -602,7 +602,7 @@ function initplayer()
 		g=0,
 		--key items received
 		keys={
-			--[94]=makeitem(42),
+			[94]=makeitem(42),
 			--[95]=makeitem(51),
 			--[96]=makeitem(50),
 			--[97]=makeitem(46),
@@ -1487,7 +1487,8 @@ dxin,dyin
 	local dx=sgn(dxin)
 	local dy=sgn(dyin)
 	local p=makeproj(
-		lwin.x+dx,lwin.y+dy,
+		lwin.x,--+dx,
+		lwin.y,--+dy,
 		1,dx,dy,
 		10,--dmg
 		121,--bubble spr
@@ -2273,26 +2274,24 @@ end--drprjs()
 function upprj(pin)
 	for si=1,pin.spd do
 		if pin.lif>0 then
-			--if dir>=0 then
-				local nx=pin.x+pin.dx
-				local ny=pin.y+pin.dy
-				local nt=mget(nx,ny)
-				if not fget(nt,1) then
-					pin.x,pin.y=nx,ny
-				else
-					pin.lif=0
+			local nx=pin.x+pin.dx
+			local ny=pin.y+pin.dy
+			local nt=mget(nx,ny)
+			if not fget(nt,1) then
+				pin.x,pin.y=nx,ny
+				--collide with ents
+				for ei,e in ipairs(ents) do
+					if pin.x==e.x 
+					and pin.y==e.y then
+						pin:eff(e)
+					end
 				end
-			--end
-			--collide with ents
-			for ei,e in ipairs(ents) do
-				if pin.x==e.x 
-				and pin.y==e.y then
-					pin:eff(e)
+				if pin.x==pc.x
+				and pin.y==pc.y then
+					pin:eff(pc)
 				end
-			end
-			if pin.x==pc.x
-			and pin.y==pc.y then
-				pin:eff(pc)
+			else
+				pin.lif=0
 			end
 		end--if not done
 	end--for each step
@@ -2332,6 +2331,7 @@ function uplwbub(pin,ein)
 end--uplwbub()
 	
 function bolteff(pin,ein)
+	test=ein
 	if ein.stun>0 
 	and not ein.isnpc then
 		makeftxt("-"..ein.hp,8,
