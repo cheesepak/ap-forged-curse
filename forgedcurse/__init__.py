@@ -50,25 +50,25 @@ json_world = {
                 ["crowbar", "blink rod"],
             ],
             "pigcube den": [
-                ["blue key"],
-                ["blink rod"],
+                ["blue key", "wooden sword", "leather armor"],
+                ["blink rod", "wooden sword", "leather armor"],
             ],
             "kobold village": [
                 ["orange key", "grappling hook", "crowbar"],
                 #["blink rod"],
             ],
             "forge storage": [["blink rod"]],
-            "sealed halls": [["crossbow", "arrows", "cricket", "white key"]],
+            "sealed halls": [["crossbow", "arrows", "cricket", "white key", "iron sword", "iron armor"]],
         },
         "dwarven halls": {
-            "new moon rotunda": [
-                ["red key"],
-                ["blink rod"],
+            "new moon rotunda entrance": [
+                ["crowbar"], 
+                ["bombs"],
             ],
             #"grapple closet": [["boat", "blink rod"],],
             "pigcube den": [
-                ["blue key", "crowbar"],
-                ["blink rod", "crowbar"]
+                ["blue key", "crowbar", "wooden sword", "leather armor"],
+                ["blink rod", "crowbar", "wooden sword", "leather armor"]
             ],
             "kobold village": [
                 ["green key", "crowbar"],
@@ -76,6 +76,12 @@ json_world = {
             ],
             #"waxing moon rotunda": [["blink rod"],],
             #"gibbous cleric grave": [["blink rod"],],
+        },
+        "new moon rotunda entrance": {
+            "new moon rotunda": [
+                ["red key", "wooden sword"],
+                ["blink rod", "wooden sword"],
+            ],
         },
         "new moon rotunda": {
             "grapple closet": [
@@ -122,8 +128,8 @@ json_world = {
         },
         "kobold village": {
             "temple": [
-                ["push rod"],
-                ["grappling hook"],
+                ["push rod", "wooden sword", "leather armor"],
+                ["grappling hook", "wooden sword", "leather armor"],
                 ["boat"],
                 #["blink rod"],
             ],
@@ -141,9 +147,9 @@ json_world = {
         },
         "temple": {
             "fortress grounds": [
-                ["grappling hook"],
-                ["boat"],
-                ["blink rod"],
+                ["grappling hook", "wooden sword", "leather armor"],
+                ["boat", "wooden sword", "leather armor"],
+                ["blink rod", "wooden sword", "leather armor"],
             ],
             "kobold village": [
                 #["push rod"],
@@ -153,7 +159,7 @@ json_world = {
         },
         "fortress grounds": {
             "river fortress": [
-                ["crowbar", "grappling hook"],
+                ["crowbar", "grappling hook", "wooden sword", "leather armor"],
                 #["blink rod"],
             ],
             "riverbank": [
@@ -192,12 +198,12 @@ json_world = {
         },
         "fortress exit": {
             "river fortress": [
-                ["boat"],
+                ["boat", "wooden sword", "leather armor"],
             ],
             "full moon rotunda": [
-                ["blue key", "boat"],
-                ["blue key", "grappling hook"],
-                ["blue key", "blink rod"],
+                ["blue key", "boat", "iron sword", "iron armor"],
+                ["blue key", "grappling hook", "iron sword", "iron armor"],
+                ["blue key", "blink rod", "iron sword", "iron armor"],
                 #["boat", "blink rod"]
             ],
             "riverbank": [
@@ -207,10 +213,13 @@ json_world = {
         },
         "secret storage": {
             "sealed depths": [
-                ["white key", "boat"],
+                ["white key", "boat", "iron sword", "iron armor"],
                 #["blink rod"]
             ],
-            "riverbank": [["bombs"]],
+            "riverbank": [
+                ["bombs"],
+                ["boat", "blink rod"]
+                ],
         },
         "sealed halls": {
             "grappling hook room": [["grappling hook"]],
@@ -243,10 +252,10 @@ json_world = {
                 ["blink rod"]
             ],
             "waning moon rotunda": [
-                ["green key", "white key"],
-                ["green key", "blink rod"],
-                ["blue key", "blink rod"],
-                ["red key", "blink rod"]
+                ["green key", "white key", "gold sword"],
+                ["green key", "blink rod", "gold sword"],
+                ["blue key", "blink rod", "gold sword"],
+                ["red key", "blink rod", "gold sword"]
             ],
             "secret storage": [
                 ["boat","white key"],
@@ -258,7 +267,7 @@ json_world = {
 
     "location_map": {
         "main": {
-            "riverside chest": None,
+            "riverside chest": ["wooden sword"],
             "kikku chest": None,
             "wooden sword chest": None,
             "leather armor chest": None,
@@ -274,10 +283,10 @@ json_world = {
                 ["bombs"],
                 ["blink rod"],
             ],
-            "slime island chest": [["boat"]],
+            "slime island chest": [["boat", "iron sword", "leather armor"]],
             "secret ingredient mimic": [
-                ["boat"],
-                ["bombs", "blink rod"]
+                ["boat", "wooden sword"],
+                ["bombs", "blink rod", "wooden sword"]
             ],
             "gold armor chest": [
                 ["bombs"],
@@ -289,7 +298,7 @@ json_world = {
             ],
         },
         "dwarven halls": {
-            "orange key chest": None,
+            "orange key chest": [["crowbar"], ["bombs"]],
             "nmr left chest": [
                 ["grappling hook"],
                 ["boat"],
@@ -315,7 +324,7 @@ json_world = {
             "eclipse knight sanctuary chest": None,
         },
         "waxing moon rotunda": {
-            "waxing moon mimic": None,
+            "waxing moon mimic": ["wooden sword"],
             "waxing moon chest": None,
         },
         "gibbous cleric grave": {
@@ -432,21 +441,21 @@ json_world = {
             "orange key",
             "white key",
             "skeleton key",
-            "cricket"
-        ],
-        "useful_items": [
+            "cricket",
             "wooden sword",
             "iron sword",
             "gold sword",
             "leather armor",
             "iron armor",
-            "gold armor",
+        ],
+        "useful_items": [
             "blink heart gem",
             "riverside heart gem",
             "pigcube heart gem",
             "storage heart gem",
             "fortress closet heart gem",
             "map",
+            "gold armor",
         ],
         "filler_items": [
             "kobold's loot",
