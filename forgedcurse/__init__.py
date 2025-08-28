@@ -174,7 +174,6 @@ json_world = {
         },
         "riverbank": {
             "secret storage": [["bombs"]],
-            "river fortress": [["boat"]],#, "grappling hook"]],
             "fortress exit": [
                 ["boat"],
                 ["blink rod"],
@@ -299,6 +298,8 @@ json_world = {
         },
         "dwarven halls": {
             "orange key chest": [["crowbar"], ["bombs"]],
+        },
+        "new moon rotunda entrance": {
             "nmr left chest": [
                 ["grappling hook"],
                 ["boat"],
