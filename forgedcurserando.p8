@@ -593,8 +593,8 @@ function initplayer()
 			--[95]=makeitem(51),
 			--[96]=makeitem(50),
 			--[97]=makeitem(46),
-			--[98]=makeitem(53),
-			[99]=makeitem(53),
+			--[98]=makeitem(39),
+			--[99]=makeitem(54),
 			[0]=clock,--clock
 			--[101]=makeitem(26),--map
 			--none armor
@@ -2267,19 +2267,19 @@ function upprj(pin)
 			local nt=mget(nx,ny)
 			if not fget(nt,1) then
 				pin.x,pin.y=nx,ny
+				--collide with ents
+				for ei,e in ipairs(ents) do
+					if pin.x==e.x 
+					and pin.y==e.y then
+						pin:eff(e)
+					end
+				end
+				if pin.x==pc.x
+				and pin.y==pc.y then
+					pin:eff(pc)
+				end
 			else
 				pin.lif=0
-			end
-			--collide with ents
-			for ei,e in ipairs(ents) do
-				if pin.x==e.x 
-				and pin.y==e.y then
-					pin:eff(e)
-				end
-			end
-			if pin.x==pc.x
-			and pin.y==pc.y then
-				pin:eff(pc)
 			end
 		end--if not done
 	end--for each step
