@@ -399,6 +399,8 @@ json_world = {
         },
         "dwarven halls": {
             "orange key chest": [["crowbar"], ["bombs"]],
+        },
+        "new moon rotunda entrance": {
             "nmr left chest": [
                 ["grappling hook"],
                 ["boat"],
