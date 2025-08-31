@@ -4,8 +4,9 @@ A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles 
 
 This version of The Forged Curse is shipped with AP integration and has been modified to use the GPIO layer to communicate with archipelago.js. The game has 54 checks: 52 chests, the map check, and the forge check. The client includes a compendium with maps, tips, and a vanilla walkthrough to help you learn the game if needed. The original game is included in the` vanilla/` folder and you can play it in-browser on [itch.io](https://chairodactyl.itch.io/the-forged-curse).
 
-- GPIO implementation and AP web client based on [AP Air Delivery by qwint](https://github.com/qwint/ap-air-delivery) and [AP MetroCUBEvania](https://github.com/ap-metrocubevania)
-- [pico8-gpio-listener](https://github.com/benwiley4000/pico8-gpio-listener) | [archipelago.js](https://www.npmjs.com/package/archipelago.js) 
+- GPIO implementation and AP web client based on [AP Air Delivery by qwint](https://github.com/qwint/ap-air-delivery) and [AP MetroCUBEvania by Amazia](https://github.com/ap-metrocubevania)
+- [pico8-gpio-listener](https://github.com/benwiley4000/pico8-gpio-listener) 
+- [archipelago.js](https://www.npmjs.com/package/archipelago.js) 
 
 PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam/ssjparty) ![Cubepig gif](client/img/cubepig.gif)  
 
