@@ -4,10 +4,17 @@ A lone dwarf follows a peculiar white cricket through dark tunnels and stumbles 
 
 This version of The Forged Curse is shipped with AP integration and has been modified to use the GPIO layer to communicate with archipelago.js. The game has 54 checks: 52 chests, the map check, and the forge check. The client includes a compendium with maps, tips, and a vanilla walkthrough to help you learn the game if needed. The original game is included in the` vanilla/` folder and you can play it in-browser on [itch.io](https://chairodactyl.itch.io/the-forged-curse).
 
-![Cubepig gif](client/img/cubepig.gif) PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam/ssjparty) 
+PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam/ssjparty) ![Cubepig gif](client/img/cubepig.gif)  
 
 - GPIO implementation and AP web client based on [AP Air Delivery by qwint](https://github.com/qwint/ap-air-delivery) and [AP MetroCUBEvania](https://github.com/ap-metrocubevania)
 - [pico8-gpio-listener](https://github.com/benwiley4000/pico8-gpio-listener) | [archipelago.js](https://www.npmjs.com/package/archipelago.js) 
+
+---
+
+Features we would like to add at some point:
+- Deathlink
+- Progressive Armor and Swords
+- Items visible in your world are the correct items (instead of it being the Archipelago logo for everything)
 
 ## ![archipelago logo](client/img/ap-logo.png) How To Play Archipelago / Randomizer
 ### Generate a Game / Setup
@@ -26,7 +33,7 @@ This version of The Forged Curse is shipped with AP integration and has been mod
 - *If you're playing a single player randomizer, you are considered the host.*
 - *The client is also hosted on [hauntedmachine.dev](https://hauntedmachine.dev/games/forged-curse/client/).*
 
-## Project Structure ![bat gif](client/img/bat.gif)
+## ![bat gif](client/img/bat.gif) Project Structure 
 - `client/`
     - `img/` Images for the client and compendium
     - `vanilla/` Exported files of vanilla version of the game
