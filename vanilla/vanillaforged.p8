@@ -602,7 +602,7 @@ function initplayer()
 		g=0,
 		--key items received
 		keys={
-			[94]=makeitem(42),
+			--[94]=makeitem(42),
 			--[95]=makeitem(51),
 			--[96]=makeitem(50),
 			--[97]=makeitem(46),
