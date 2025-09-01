@@ -43,8 +43,6 @@ function _init()
 		eq.id=id
 		keys[id]=eq
 	end
-	--record length of keys table
-	keysl=#keys
 	
 	--forge fire entity
 	fire=makeent(76,33,92)
@@ -226,8 +224,9 @@ function _update()
 				music(0,300)
 				pc.x=64
 				pc.y=31
-				pc.hp=100
+				pc.hp=pc.mhp
 				pc.dt=40
+				pc.hsshot=false
 				for sei,se in ipairs(stfx)
 				do
 					pc[se.."t"]=0
@@ -2479,7 +2478,8 @@ end--drring()
 
 --load saved data
 function loadsd()
-	for ki,k in ipairs(keys) do
+	for ki=1,55 do
+		local k=keys[ki]
 		local id=ki-1
 		local byte=dget(id\8)
 		local ibit=id%8
