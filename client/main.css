@@ -11,11 +11,15 @@
     --brown: #AB5236;
     --dark-grey: #5F574F;
     --light-grey:  	#C2C3C7;
-    --lavender: #83769C;
     --white: #FFF1E8;
     --red: #FF004D;
+    --orange: #FFA300;
+    --yellow: #FFEC27;
     --green: #00E436;
     --blue: #29ADFF;
+    --lavender: #83769C;
+    --pink: #FF77A8;
+    --light-peach: #FFCCAA;
     --primary-color: #1D2B53;
     --bg-color: #000000;
     --text-color: #FFF1E8;
@@ -348,6 +352,38 @@ canvas {
 
 .btn-primary:hover {
     background-color: #FFA300;
+}
+
+.progressive {
+    color: var(--green);
+}
+
+.useful {
+    color: var(--yellow)
+}
+
+.gems {
+    color: var(--pink)
+}
+
+.other-checks {
+    color: var(--light-peach)
+}
+
+.red-key {
+    color: var(--red);
+}
+.orange-key {
+    color: var(--orange);
+}
+.green-key {
+    color: var(--green);
+}
+.blue-key {
+    color: var(--blue);
+}
+.white-key {     
+    color: var(--light-grey); 
 }
 
 @media screen and (max-width:1100px) {
