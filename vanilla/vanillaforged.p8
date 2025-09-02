@@ -81,9 +81,9 @@ function _init()
 	be={}
 	chex={}
 	local ki=1
-	for ri=0,63 do
+	for ri=-1,65 do
 		local row={}
-		for ci=0,127 do
+		for ci=-1,129 do
 			row[ci]=0
 			--convert tiles to ents
 			local t=mget(ci,ri)
@@ -100,7 +100,7 @@ function _init()
 					--count up key index
 					ki+=1
 				else--save restore data
-					add(be,{e=made,
+					made.bl=add(be,{e=made,
 						sx=ci,sy=ri,
 						ssp=made.sp
 					})
@@ -741,8 +741,8 @@ function giveitem(iin,nosave)
 		prz=loot[prz+1] 
 		if prz==123 then
 			if pc.bolts<20 then
-				pc.bolts=max(
-					pc.bolts+1+rint(3),
+				pc.bolts=min(
+					pc.bolts+1+rint(4)\3,
 					20
 				)
 			else
@@ -913,7 +913,7 @@ function pcup()
 			--blink rod
 				tx+=dx
 				ty+=dy
-				local tt=mget(tx,ty)
+				local tt=mgoob(tx,ty)
 				if not fget(tt,0) 
 				and tt!=81 then
 					pc.x,pc.y=tx,ty
@@ -1143,11 +1143,14 @@ function pcup()
 							 e.stun=10
 							 e.slp=min(e.slp,1)
 							 if e.sp==94 then
+							 	local ebl=e.bl
 							 	e=makenpc(
 							 		e.x,e.y,71
 							 	)
 							 	e.q=split(quips[6])
 							 	ents[ei]=e
+							 	ebl.e=e
+							 	ebl.ssp=71
 							 	deli(ents,#ents)
 							 end
 							end
