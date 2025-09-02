@@ -43,11 +43,14 @@ json_world = {
             "dwarven halls": [
                 ["red key"],
                 ["crowbar"],
+                ["bombs"],
                 ["blink rod"],
             ],
             "waxing moon rotunda": [
                 ["crowbar", "orange key"],
                 ["crowbar", "blink rod"],
+                ["bombs", "orange key"],
+                ["bombs", "blink rod"],
             ],
             "pigcube den": [
                 ["blue key", "wooden sword", "leather armor"],
@@ -63,6 +66,7 @@ json_world = {
             ],
             "kobold village": [
                 ["orange key", "grappling hook", "crowbar"],
+                ["orange key", "grappling hook", "bombs"],
                 #["blink rod"],
             ],
             "forge storage": [["blink rod"]],
@@ -85,7 +89,9 @@ json_world = {
             #],
             "kobold village": [
                 ["green key", "crowbar"],
-                ["blink rod", "crowbar"]
+                ["blink rod", "crowbar"],
+                ["green key", "bombs"],
+                ["blink rod", "bombs"]
             ],
             #"waxing moon rotunda": [["blink rod"],],
             #"gibbous cleric grave": [["blink rod"],],
@@ -103,6 +109,7 @@ json_world = {
         "new moon rotunda": {
             "grapple closet": [
                 ["crowbar"],
+                ["bombs"],
                 ["blink rod"],
             ],
             #"eclipse knight sanctuary": [["blink rod", "boat"],]
@@ -114,6 +121,7 @@ json_world = {
             ],
             "new moon rotunda": [
                 ["crowbar"],
+                ["bombs"],
                 ["blink rod"],
             ],
             "dwarven halls": [["blink rod", "boat"]]
@@ -140,6 +148,7 @@ json_world = {
         "pigcube den": {
             "forge storage": [
                 ["crowbar"],
+                ["bombs"],
                 ["blink rod"],
             ],
         },
@@ -172,6 +181,7 @@ json_world = {
             ],
             "dwarven halls": [
                 ["green key", "crowbar"],
+                ["green key","bombs"],
                 ["green key", "blink rod"],
             ],
             "eclipse knight sanctuary": [
@@ -225,6 +235,15 @@ json_world = {
                 ["crowbar", "grappling hook", "gold sword", "leather armor"],
                 ["crowbar", "grappling hook", "gold sword", "iron armor"],
                 ["crowbar", "grappling hook", "gold sword", "gold armor"],
+                ["bombs", "grappling hook", "wooden sword", "leather armor"],
+                ["bombs", "grappling hook", "wooden sword", "iron armor"],
+                ["bombs", "grappling hook", "wooden sword", "gold armor"],
+                ["bombs", "grappling hook", "iron sword", "leather armor"],
+                ["bombs", "grappling hook", "iron sword", "iron armor"],
+                ["bombs", "grappling hook", "iron sword", "gold armor"],
+                ["bombs", "grappling hook", "gold sword", "leather armor"],
+                ["bombs", "grappling hook", "gold sword", "iron armor"],
+                ["bombs", "grappling hook", "gold sword", "gold armor"],
                 #["blink rod"],
             ],
             "riverbank": [
@@ -315,12 +334,14 @@ json_world = {
         "grappling hook room": {
             "mini maze": [
                 ["red key", "orange key", "green key", "blue key", "crowbar"],
+                ["red key", "orange key", "green key", "blue key", "bombs"],
                 ["blink rod"]
             ],
         },
         "mini maze": {
             "grappling hook room":[
                 ["red key", "orange key", "green key", "blue key", "crowbar"],
+                ["red key", "orange key", "green key", "blue key", "bombs"],
                 ["blink rod"]
             ],
             "sealed depths": [
