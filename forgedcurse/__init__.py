@@ -574,6 +574,7 @@ json_world = {
             "gold sword",
             "leather armor",
             "iron armor",
+            "gold armor",
         ],
         "useful_items": [
             "blink heart gem",
@@ -582,7 +583,6 @@ json_world = {
             "storage heart gem",
             "fortress closet heart gem",
             "map",
-            "gold armor",
         ],
         "filler_items": [
             "kobold's loot",
