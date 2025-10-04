@@ -610,7 +610,7 @@ json_world = {
             "storage left loot",
             "storage right loot",
             # filler loot
-            "loot",
+            # "loot",
         ],
     },
     "base_id": 99117114115101, # "curse" in decimal (99 117 114 115 101)
