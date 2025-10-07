@@ -2050,7 +2050,7 @@ function makebigwiz()
 	bw=makeent(
 		73,44,86,--x,y,sp
 		50,20,17,--hp,ap,dp
-		11,1,50
+		11,1,5
 	)
 	
 	bw.item=makeitem(112)
