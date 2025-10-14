@@ -8,7 +8,7 @@ This version of The Forged Curse is shipped with AP integration and has been mod
 - [pico8-gpio-listener](https://github.com/benwiley4000/pico8-gpio-listener) 
 - [archipelago.js](https://www.npmjs.com/package/archipelago.js) 
 
-PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam/ssjparty) ![Cubepig gif](client/img/cubepig.gif)  
+![Cubepig gif](client/img/cubepig.gif) PIGSquad [Summer Slow Jam July 2025: Party Games Submission](https://itch.io/jam/ssjparty) 
 
 ---
 
