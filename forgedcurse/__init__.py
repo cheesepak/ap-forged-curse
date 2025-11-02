@@ -8,6 +8,8 @@ from worlds.LauncherComponents import (
 from typing import Any, Callable
 from collections import defaultdict
 
+from .Options import FCOptions
+
 json_world = {
     "regions": [
         "Menu",
@@ -671,9 +673,10 @@ class FCWorld(World):
     """
     game = json_world["game_name"]
     # web = FCWeb()
+    options_dataclass = FCOptions
     location_name_to_id = {name: json_world["base_id"]+location_list.index(name) for name in location_list}
     item_name_to_id = {name: json_world["base_id"]+item_list.index(name) for name in item_list}
-    #item_name_groups = {name: set(items) for name, items in json_world["item_name_groups"].items()}
+    # item_name_groups = {name: set(items) for name, items in json_world["item_name_groups"].items()}
 
     # ut_can_gen_without_yaml = True
 
@@ -718,7 +721,7 @@ class FCWorld(World):
         current black box to set and setup victory condition,
         run after all region/locations have been created (but currently before items)
         """
-        #victory = self.get_location("victory")
+        # victory = self.get_location("victory")
         victory = self.multiworld.get_location("victory", self.player)
         victory.address = None
         victory.place_locked_item(FCItem("victory", ItemClassification.progression, None, self.player))
@@ -793,3 +796,9 @@ class FCWorld(World):
     def create_item(self, name: str) -> "Item":
         item_class = self.get_item_classification(name)
         return FCItem(name, item_class, self.item_name_to_id.get(name, None), self.player)
+    
+    def fill_slot_data(self):
+        return {
+            "SkipsLogic": self.options.skips_logic.value,
+            "DeathLink": self.options.death_link.value,
+        }
