@@ -262,8 +262,6 @@ canvas {
 .info-section {
     display: flex;
     flex-direction: row;
-
-
     flex-wrap: wrap;
     margin: 20px 0;
     max-width: 1200px;
@@ -298,8 +296,9 @@ canvas {
     height: auto; 
 }
 
-.center-text {
-    text-align: center;
+.item-list {
+    column-count: 3;
+    font-size: 12px;
 }
 
 /* pico-8 specific */
@@ -352,6 +351,12 @@ canvas {
 
 .btn-primary:hover {
     background-color: #FFA300;
+}
+
+/* misc */
+
+.center-text {
+    text-align: center;
 }
 
 .progressive {
