@@ -64,8 +64,8 @@ Forged Curse:
     minimal: 0
     # Minimal must be the only option set (everything else 0) for Disabled Blink Rod plando (see plando_items)
 
-  skips_logic:
-    # Adds unintended blink rod skips and tanking spikes logic.
+  blink_rod_skips:
+    # Adds unintended blink rod skips to logic.
     # Note: currently in development, does not function.
     'false': 50
     'true': 0
