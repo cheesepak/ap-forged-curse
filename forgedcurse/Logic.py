@@ -39,7 +39,7 @@ json_world = {
                     ["bombs"],
                     ["blink rod"],   
                 ],
-                "blink rod": [
+                "blink rod skips": [
                     ["red key"],
                     ["crowbar"],
                     ["bombs"],
