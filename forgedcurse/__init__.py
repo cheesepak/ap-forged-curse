@@ -89,22 +89,42 @@ class FCWorld(World):
         Parser method to convert the region definitions in the json_world object
         into a list of connection entries formatted as (parent_region_name, target_region_name, rule)
         """
+        mode = "default"
+        if self.options.blink_rod_skips:
+            mode = "blink rod skips"
+        
         return [
             (region1, region2, rule)
-            for region1, connections in json_world["region_map"].items()
-            for region2, rule in connections.items()
-        ]
+            for region1, connections in json_world["region_map"].items() 
+            for region2, rule in connections[mode].items() or connections.items()
+
+        ] 
+        #return [
+        #    (region1, region2, rule)
+        #    for region1, connections in json_world["region_map"].items()
+        #    for region2, rule in connections.items()
+        #]
 
     def get_location_map(self) -> list[tuple[str, str, Any | None]]:
         """
         Parser method to convert the location definitions in the json_world object
         into a list of location entries formatted as (parent_region_name, location_name, rule)
         """
+
+        mode = "default"
+        if self.options.blink_rod_skips:
+            mode = "blink rod skips"
+
         return [
             (region, location, rule)
             for region, placements in json_world["location_map"].items()
-            for location, rule in placements.items()
+            for location, rule in placements[mode].items() or placements.items()
         ]
+        #return [
+        #    (region, location, rule)
+        #    for region, placements in json_world["location_map"].items()
+        #    for location, rule in placements.items()
+        #]
 
 # black box methods
     def set_victory(self) -> None:
@@ -152,6 +172,7 @@ class FCWorld(World):
     def create_regions(self) -> None:
         # create a local map of get_region_list names to region object
         # for referencing in create_regions and adding those regions to the multiworld
+
         regions = {region: None for region in self.get_region_list()}
         for region in regions.keys():
             regions[region] = Region(region, self.player, self.multiworld)
