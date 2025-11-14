@@ -94,11 +94,11 @@ class FCWorld(World):
             mode = "blink rod skips"
         
         return [
-            (region1, region2, rule)
-            for region1, connections in json_world["region_map"].items() 
-            for region2, rule in connections[mode].items() or connections.items()
-
-        ] 
+            (region1, region2, rule[mode]if isinstance(rule, dict) else rule)
+            for region1, connections in json_world["region_map"].items()
+            for region2, rule in connections.items()
+        ]
+    
         #return [
         #    (region1, region2, rule)
         #    for region1, connections in json_world["region_map"].items()
@@ -111,15 +111,15 @@ class FCWorld(World):
         into a list of location entries formatted as (parent_region_name, location_name, rule)
         """
 
-        mode = "default"
         if self.options.blink_rod_skips:
             mode = "blink rod skips"
 
         return [
-            (region, location, rule)
+            (region, location, rule[mode] if isinstance(rule, dict) else rule)
             for region, placements in json_world["location_map"].items()
-            for location, rule in placements[mode].items() or placements.items()
+            for location, rule in placements[mode] or placements.items()
         ]
+
         #return [
         #    (region, location, rule)
         #    for region, placements in json_world["location_map"].items()
@@ -212,5 +212,5 @@ class FCWorld(World):
     def fill_slot_data(self):
         return {
             "BlinkRodSkips": self.options.blink_rod_skips.value,
-            # "DeathLink": self.options.death_link.value,
+            "DeathLink": self.options.death_link.value,
         }
