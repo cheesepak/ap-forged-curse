@@ -94,7 +94,7 @@ class FCWorld(World):
             mode = "blink rod skips"
         
         return [
-            (region1, region2, rule[mode]if isinstance(rule, dict) else rule)
+            (region1, region2, rule[mode]if isinstance(rule, dict) and mode in rule else rule)
             for region1, connections in json_world["region_map"].items()
             for region2, rule in connections.items()
         ]
@@ -110,14 +110,14 @@ class FCWorld(World):
         Parser method to convert the location definitions in the json_world object
         into a list of location entries formatted as (parent_region_name, location_name, rule)
         """
-
+        mode = "default"
         if self.options.blink_rod_skips:
             mode = "blink rod skips"
 
         return [
-            (region, location, rule[mode] if isinstance(rule, dict) else rule)
+            (region, location, rule[mode] if isinstance(rule, dict) and mode in rule else rule)
             for region, placements in json_world["location_map"].items()
-            for location, rule in placements[mode] or placements.items()
+            for location, rule in placements.items()
         ]
 
         #return [
