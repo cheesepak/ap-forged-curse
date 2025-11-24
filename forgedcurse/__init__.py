@@ -94,7 +94,7 @@ class FCWorld(World):
             mode = "blink rod skips"
         
         return [
-            (region1, region2, rule[mode]if isinstance(rule, dict) and mode in rule else rule)
+            (region1, region2, rule[mode] if isinstance(rule, dict) and mode in rule else rule)
             for region1, connections in json_world["region_map"].items()
             for region2, rule in connections.items()
         ]
