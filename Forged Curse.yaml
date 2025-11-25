@@ -66,6 +66,12 @@ Forged Curse:
 
   blink_rod_skips:
     # Adds unintended blink rod skips to logic.
+    # Note: currently in development.
+    'false': 50
+    'true': 0
+
+  damage_boost:
+    # Adds logic for taking damage from enemies and spikes to access certain checks
     # Note: currently in development, does not function.
     'false': 50
     'true': 0

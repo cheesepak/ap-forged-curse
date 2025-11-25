@@ -89,42 +89,42 @@ class FCWorld(World):
         Parser method to convert the region definitions in the json_world object
         into a list of connection entries formatted as (parent_region_name, target_region_name, rule)
         """
-        mode = "default"
+        blink_mode, boost_mode = "", ""
+
         if self.options.blink_rod_skips:
-            mode = "blink rod skips"
+            blink_mode = "blink rod skips"
+        if self.options.damage_boost:
+            boost_mode = "damage boost"
         
         return [
-            (region1, region2, rule[mode] if isinstance(rule, dict) and mode in rule else rule)
+            (region1, region2, rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
+            else rule[boost_mode] if isinstance(rule, dict) and boost_mode in rule
+            else rule["default"] if isinstance(rule, dict) and "default" in rule  
+            else rule)
             for region1, connections in json_world["region_map"].items()
             for region2, rule in connections.items()
         ]
-    
-        #return [
-        #    (region1, region2, rule)
-        #    for region1, connections in json_world["region_map"].items()
-        #    for region2, rule in connections.items()
-        #]
 
     def get_location_map(self) -> list[tuple[str, str, Any | None]]:
         """
         Parser method to convert the location definitions in the json_world object
         into a list of location entries formatted as (parent_region_name, location_name, rule)
         """
-        mode = "default"
+        blink_mode, boost_mode = "", ""
+
         if self.options.blink_rod_skips:
-            mode = "blink rod skips"
+            blink_mode = "blink rod skips"
+        if self.options.damage_boost:
+            boost_mode = "damage boost"
 
         return [
-            (region, location, rule[mode] if isinstance(rule, dict) and mode in rule else rule)
+            (region, location, rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
+            else rule[boost_mode] if isinstance(rule, dict) and boost_mode in rule
+            else rule["default"] if isinstance(rule, dict) and "default" in rule 
+            else rule)
             for region, placements in json_world["location_map"].items()
             for location, rule in placements.items()
         ]
-
-        #return [
-        #    (region, location, rule)
-        #    for region, placements in json_world["location_map"].items()
-        #    for location, rule in placements.items()
-        #]
 
 # black box methods
     def set_victory(self) -> None:
