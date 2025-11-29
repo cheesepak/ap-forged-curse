@@ -91,8 +91,8 @@ class FCWorld(World):
         """
         blink_mode, boost_mode = "", ""
 
-        if self.options.blink_rod_skips:
-            blink_mode = "blink rod skips"
+        if self.options.barrier_skip:
+            blink_mode = "barrier skip"
         if self.options.damage_boost:
             boost_mode = "damage boost"
         
@@ -112,8 +112,8 @@ class FCWorld(World):
         """
         blink_mode, boost_mode = "", ""
 
-        if self.options.blink_rod_skips:
-            blink_mode = "blink rod skips"
+        if self.options.barrier_skip:
+            blink_mode = "barrier skip"
         if self.options.damage_boost:
             boost_mode = "damage boost"
 
@@ -211,6 +211,7 @@ class FCWorld(World):
     
     def fill_slot_data(self):
         return {
-            "BlinkRodSkips": self.options.blink_rod_skips.value,
+            "BarrierSkip": self.options.barrier_skip.value,
+            "DamageBoost": self.options.damage_boost.value,
             "DeathLink": self.options.death_link.value,
         }
