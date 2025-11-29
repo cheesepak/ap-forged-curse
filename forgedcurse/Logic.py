@@ -59,9 +59,30 @@ json_world = {
                     ["orange key", "grappling hook", "crowbar"],
                     ["orange key", "grappling hook", "bombs"],
                 ],
-                "damage boost": [
-                    ["orange key", "crowbar"],
-                    ["orange key", "bombs"],
+                "damage boost": [ 
+                    ["orange key", "grappling hook", "crowbar"],
+                    ["orange key", "grappling hook", "bombs"],
+                    # orange key + break boarded passage + any three heart gems
+                    ["orange key", "crowbar", "blink heart gem", "riverside heart gem", "pigcube heart gem",],
+                    ["orange key", "crowbar", "blink heart gem", "riverside heart gem", "storage heart gem",],
+                    ["orange key", "crowbar", "blink heart gem", "riverside heart gem", "fortress closet heart gem",],
+                    ["orange key", "crowbar", "blink heart gem", "pigcube heart gem", "storage heart gem",],
+                    ["orange key", "crowbar", "blink heart gem", "pigcube heart gem", "fortress closet heart gem",],
+                    ["orange key", "crowbar", "blink heart gem", "storage heart gem", "fortress closet heart gem",],
+                    ["orange key", "crowbar", "riverside heart gem", "pigcube heart gem", "storage heart gem"],
+                    ["orange key", "crowbar", "riverside heart gem", "pigcube heart gem", "fortress closet heart gem",],
+                    ["orange key", "crowbar", "riverside heart gem", "storage heart gem", "fortress closet heart gem",],
+                    ["orange key", "crowbar", "pigcube heart gem", "storage heart gem", "fortress closet heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "riverside heart gem", "pigcube heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "riverside heart gem", "storage heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "riverside heart gem", "fortress closet heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "pigcube heart gem", "storage heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "pigcube heart gem", "fortress closet heart gem",],
+                    ["orange key", "bombs", "blink heart gem", "storage heart gem", "fortress closet heart gem"],
+                    ["orange key", "bombs", "riverside heart gem", "pigcube heart gem", "storage heart gem"],
+                    ["orange key", "bombs", "riverside heart gem", "pigcube heart gem", "fortress closet heart gem",],
+                    ["orange key", "bombs", "riverside heart gem", "storage heart gem", "fortress closet heart gem"],
+                    ["orange key", "bombs", "pigcube heart gem", "storage heart gem", "fortress closet heart gem",],
                     ["blink rod"],
                 ]
             },
@@ -99,8 +120,6 @@ json_world = {
                 ["green key", "bombs"],
                 ["blink rod", "bombs"]
             ],
-            #"waxing moon rotunda": [["blink rod"],],
-            #"gibbous cleric grave": [["blink rod"],],
         },
         "new moon rotunda entrance": {
             "new moon rotunda": [
@@ -241,25 +260,124 @@ json_world = {
                     ["bombs", "grappling hook", "gold sword", "iron armor"],
                     ["bombs", "grappling hook", "gold sword", "gold armor"],
                 ],
-                "damage boost": [
-                    ["crowbar", "wooden sword", "leather armor"],
-                    ["crowbar", "wooden sword", "iron armor"],
-                    ["crowbar", "wooden sword", "gold armor"],
-                    ["crowbar", "iron sword", "leather armor"],
-                    ["crowbar", "iron sword", "iron armor"],
-                    ["crowbar", "iron sword", "gold armor"],
-                    ["crowbar", "gold sword", "leather armor"],
-                    ["crowbar", "gold sword", "iron armor"],
-                    ["crowbar", "gold sword", "gold armor"],
-                    ["bombs", "wooden sword", "leather armor"],
-                    ["bombs", "wooden sword", "iron armor"],
-                    ["bombs", "wooden sword", "gold armor"],
-                    ["bombs", "iron sword", "leather armor"],
-                    ["bombs", "iron sword", "iron armor"],
-                    ["bombs", "iron sword", "gold armor"],
-                    ["bombs", "gold sword", "leather armor"],
-                    ["bombs", "gold sword", "iron armor"],
-                    ["bombs", "gold sword", "gold armor"],
+                "damage boost": [ #if crowbar or bombs, one heart gem required to tank spikes
+                    ["crowbar", "wooden sword", "leather armor", "blink heart gem",],
+                    ["crowbar", "wooden sword", "leather armor", "riverside heart gem",],
+                    ["crowbar", "wooden sword", "leather armor", "pigcube heart gem",],
+                    ["crowbar", "wooden sword", "leather armor", "storage heart gem",],
+                    ["crowbar", "wooden sword", "leather armor", "fortress closet heart gem",],
+
+                    ["crowbar", "wooden sword", "iron armor", "blink heart gem",],
+                    ["crowbar", "wooden sword", "iron armor", "riverside heart gem",],
+                    ["crowbar", "wooden sword", "iron armor", "pigcube heart gem",],
+                    ["crowbar", "wooden sword", "iron armor", "storage heart gem",],
+                    ["crowbar", "wooden sword", "iron armor", "fortress closet heart gem",],
+
+                    ["crowbar", "wooden sword", "gold armor", "blink heart gem",],
+                    ["crowbar", "wooden sword", "gold armor", "riverside heart gem",],
+                    ["crowbar", "wooden sword", "gold armor", "pigcube heart gem",],
+                    ["crowbar", "wooden sword", "gold armor", "storage heart gem",],
+                    ["crowbar", "wooden sword", "gold armor", "fortress closet heart gem",],
+
+                    ["crowbar", "iron sword", "leather armor", "blink heart gem",],
+                    ["crowbar", "iron sword", "leather armor", "riverside heart gem",],
+                    ["crowbar", "iron sword", "leather armor", "pigcube heart gem",],
+                    ["crowbar", "iron sword", "leather armor", "storage heart gem",],
+                    ["crowbar", "iron sword", "leather armor", "fortress closet heart gem",],
+
+                    ["crowbar", "iron sword", "iron armor", "blink heart gem",],
+                    ["crowbar", "iron sword", "iron armor", "riverside heart gem",],
+                    ["crowbar", "iron sword", "iron armor", "pigcube heart gem",],
+                    ["crowbar", "iron sword", "iron armor", "storage heart gem",],
+                    ["crowbar", "iron sword", "iron armor", "fortress closet heart gem",],
+
+                    ["crowbar", "iron sword", "gold armor", "blink heart gem",],
+                    ["crowbar", "iron sword", "gold armor", "riverside heart gem",],
+                    ["crowbar", "iron sword", "gold armor""pigcube heart gem",],
+                    ["crowbar", "iron sword", "gold armor", "storage heart gem",],
+                    ["crowbar", "iron sword", "gold armor", "fortress closet heart gem",],
+
+                    ["crowbar", "gold sword", "leather armor", "blink heart gem",],
+                    ["crowbar", "gold sword", "leather armor", "riverside heart gem",],
+                    ["crowbar", "gold sword", "leather armor", "pigcube heart gem",],
+                    ["crowbar", "gold sword", "leather armor", "storage heart gem",],
+                    ["crowbar", "gold sword", "leather armor", "fortress closet heart gem",],
+
+                    ["crowbar", "gold sword", "iron armor", "blink heart gem",],
+                    ["crowbar", "gold sword", "iron armor", "riverside heart gem",],
+                    ["crowbar", "gold sword", "iron armor", "pigcube heart gem",],
+                    ["crowbar", "gold sword", "iron armor", "storage heart gem",],
+                    ["crowbar", "gold sword", "iron armor", "fortress closet heart gem",],
+
+                    ["crowbar", "gold sword", "gold armor", "blink heart gem",],
+                    ["crowbar", "gold sword", "gold armor", "riverside heart gem",],
+                    ["crowbar", "gold sword", "gold armor", "pigcube heart gem",],
+                    ["crowbar", "gold sword", "gold armor", "storage heart gem",],
+                    ["crowbar", "gold sword", "gold armor", "fortress closet heart gem",],
+
+                    ["bombs", "wooden sword", "leather armor", "blink heart gem",],
+                    ["bombs", "wooden sword", "leather armor", "riverside heart gem",],
+                    ["bombs", "wooden sword", "leather armor", "pigcube heart gem",],
+                    ["bombs", "wooden sword", "leather armor", "storage heart gem",],
+                    ["bombs", "wooden sword", "leather armor", "fortress closet heart gem",],
+
+                    ["bombs", "wooden sword", "iron armor", "blink heart gem",],
+                    ["bombs", "wooden sword", "iron armor", "riverside heart gem",],
+                    ["bombs", "wooden sword", "iron armor", "pigcube heart gem",],
+                    ["bombs", "wooden sword", "iron armor", "storage heart gem",],
+                    ["bombs", "wooden sword", "iron armor", "fortress closet heart gem",],
+
+                    ["bombs", "wooden sword", "gold armor", "blink heart gem",],
+                    ["bombs", "wooden sword", "gold armor", "riverside heart gem",],
+                    ["bombs", "wooden sword", "gold armor", "pigcube heart gem",],
+                    ["bombs", "wooden sword", "gold armor", "storage heart gem",],
+                    ["bombs", "wooden sword", "gold armor", "fortress closet heart gem",],
+
+                    ["bombs", "iron sword", "leather armor", "blink heart gem",],
+                    ["bombs", "iron sword", "leather armor", "riverside heart gem",],
+                    ["bombs", "iron sword", "leather armor", "pigcube heart gem",],
+                    ["bombs", "iron sword", "leather armor", "storage heart gem",],
+                    ["bombs", "iron sword", "leather armor", "fortress closet heart gem",],
+
+                    ["bombs", "iron sword", "iron armor", "blink heart gem",],
+                    ["bombs", "iron sword", "iron armor", "riverside heart gem",],
+                    ["bombs", "iron sword", "iron armor", "pigcube heart gem",],
+                    ["bombs", "iron sword", "iron armor", "storage heart gem",],
+                    ["bombs", "iron sword", "iron armor", "fortress closet heart gem",],
+
+                    ["bombs", "iron sword", "gold armor", "blink heart gem",],
+                    ["bombs", "iron sword", "gold armor", "riverside heart gem",],
+                    ["bombs", "iron sword", "gold armor", "pigcube heart gem",],
+                    ["bombs", "iron sword", "gold armor", "storage heart gem",],
+                    ["bombs", "iron sword", "gold armor", "fortress closet heart gem",],
+
+                    ["bombs", "gold sword", "leather armor", "blink heart gem",],
+                    ["bombs", "gold sword", "leather armor", "riverside heart gem",],
+                    ["bombs", "gold sword", "leather armor", "pigcube heart gem",],
+                    ["bombs", "gold sword", "leather armor", "storage heart gem",],
+                    ["bombs", "gold sword", "leather armor", "fortress closet heart gem",],
+
+                    ["bombs", "gold sword", "iron armor", "blink heart gem",],
+                    ["bombs", "gold sword", "iron armor", "riverside heart gem",],
+                    ["bombs", "gold sword", "iron armor", "pigcube heart gem",],
+                    ["bombs", "gold sword", "iron armor", "storage heart gem",],
+                    ["bombs", "gold sword", "iron armor", "fortress closet heart gem",],
+
+                    ["bombs", "gold sword", "gold armor", "blink heart gem",],
+                    ["bombs", "gold sword", "gold armor", "riverside heart gem",],
+                    ["bombs", "gold sword", "gold armor", "pigcube heart gem",],
+                    ["bombs", "gold sword", "gold armor", "storage heart gem",],
+                    ["bombs", "gold sword", "gold armor", "fortress closet heart gem",],
+
+                    ["blink rod", "wooden sword", "leather armor"],
+                    ["blink rod", "wooden sword", "iron armor"],
+                    ["blink rod", "wooden sword", "gold armor"],
+                    ["blink rod", "iron sword", "leather armor"],
+                    ["blink rod", "iron sword", "iron armor"],
+                    ["blink rod", "iron sword", "gold armor"],
+                    ["blink rod", "gold sword", "leather armor"],
+                    ["blink rod", "gold sword", "iron armor"],
+                    ["blink rod", "gold sword", "gold armor"],
                 ]
             },
             "riverbank": [
@@ -540,7 +658,6 @@ json_world = {
         "fortress exit": {
             "fortress exit chest": None,
         },
-        #"full moon rotunda": {},
         "apogee mage grave": {
             "apogee mage grave chest": None,
         },
@@ -554,8 +671,20 @@ json_world = {
             "pot maze right chest": None,
         },
         "grappling hook room": {
-            "ghr center chest": None,
-            "ghr north chest": None,
+            "default": {
+                "ghr center chest": None,
+            },
+            "damage boost": { # -160HP total, -100HP longest stretch
+                "ghr center chest": [
+                    ["blink rod"],
+                    ["blink heart gem"], 
+                    ["riverside heart gem"], 
+                    ["pigcube heart gem"], 
+                    ["storage heart gem"], 
+                    ["fortress closet heart gem"]
+                ]
+            },
+            "ghr north chest": None, # damage boost: -80HP, easy to tank
         },
         "sealed depths": {
             "mini maze center": None,
@@ -599,13 +728,13 @@ json_world = {
             "leather armor",
             "iron armor",
             "gold armor",
-        ],
-        "useful_items": [
             "blink heart gem",
             "riverside heart gem",
             "pigcube heart gem",
             "storage heart gem",
             "fortress closet heart gem",
+        ],
+        "useful_items": [
             "map",
         ],
         "filler_items": [
