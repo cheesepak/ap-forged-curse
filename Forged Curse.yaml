@@ -65,7 +65,7 @@ Forged Curse:
     # Minimal must be the only option set (everything else 0) for Disabled Blink Rod plando (see plando_items)
 
   barrier_skip:
-    # Adds unintended blink rod skips to logic.
+    # Adds logic to use the Blink Rod or Grappling Hook and the White Key to access the Sealed Halls.
     # Note: currently in development.
     'false': 50
     'true': 0
