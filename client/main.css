@@ -226,6 +226,13 @@ canvas {
 } */
 
 /* --- */
+#apworld {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 20px 0;
+    max-width: 1200px;
+}
 
 .footer-main {
     display: flex;
