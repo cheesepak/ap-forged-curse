@@ -66,13 +66,11 @@ Forged Curse:
 
   barrier_skip:
     # Adds logic to use the Blink Rod or Grappling Hook and the White Key to access the Sealed Halls.
-    # Note: currently in development.
     'false': 50
     'true': 0
 
   damage_boost:
     # Adds logic for taking damage from enemies and spikes to access certain checks
-    # Note: currently in development, does not function.
     'false': 50
     'true': 0
 
