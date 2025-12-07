@@ -118,12 +118,19 @@ json_world = {
                 ],
                 "damage boost": None
             },
+            #"grapple closet": [["boat", "blink rod"],],
+            #"pigcube den": [
+            #    ["blue key", "crowbar", "wooden sword", "leather armor"],
+            #    ["blink rod", "crowbar", "wooden sword", "leather armor"]
+            #],
             "kobold village": [
                 ["green key", "crowbar"],
                 ["blink rod", "crowbar"],
                 ["green key", "bombs"],
                 ["blink rod", "bombs"]
             ],
+            #"waxing moon rotunda": [["blink rod"],],
+            #"gibbous cleric grave": [["blink rod"],],
         },
         "new moon rotunda entrance": {
             "new moon rotunda": [
@@ -141,6 +148,7 @@ json_world = {
                 ["bombs"],
                 ["blink rod"],
             ],
+            #"eclipse knight sanctuary": [["blink rod", "boat"],]
         },
         "grapple closet": {
             "eclipse knight sanctuary": [
@@ -165,6 +173,14 @@ json_world = {
                 ["blink rod"],
             ]
         },
+        #"gibbous cleric grave": {
+            #"dwarven halls": [["blink rod"]],
+            #"waxing moon rotunda": [
+            #    ["green key"],
+            #    ["blink rod"],
+            #]
+        #},
+        #"forge storage": {},
         "pigcube den": {
             "forge storage": [
                 ["crowbar"],
@@ -193,8 +209,10 @@ json_world = {
                 ["grappling hook", "gold sword", "iron armor"],
                 ["grappling hook", "gold sword", "gold armor"],
                 ["boat"],
+                #["blink rod"],
             ],
             "fortress grounds": [
+                #["grappling hook"],
                 ["boat"]
             ],
             "dwarven halls": [
@@ -243,7 +261,7 @@ json_world = {
             ] # imagine if this happened...
         },
         "fortress grounds": {
-            "river fortress": {
+                        "river fortress": {
                 "default": [
                     ["crowbar", "grappling hook", "wooden sword", "leather armor"],
                     ["crowbar", "grappling hook", "wooden sword", "iron armor"],
@@ -396,12 +414,14 @@ json_world = {
         },
         "riverbank": {
             "secret storage": [["bombs"]],
+            #"river fortress": [["boat"]],#, "grappling hook"]],
             "fortress exit": [
                 ["boat"],
                 ["blink rod"],
             ]
         },
         "river fortress": {
+            #"apogee mage grave": [["boat", "blink rod"]],
             "river fortress exit": [
                 ["push rod", "grappling hook"],
                 ["push rod", "boat"]
@@ -441,6 +461,7 @@ json_world = {
                 ["blue key", "blink rod", "iron sword", "gold armor"],
                 ["blue key", "blink rod", "gold sword", "iron armor"],
                 ["blue key", "blink rod", "gold sword", "gold armor"],
+                #["boat", "blink rod"]
             ],
             "riverbank": [
                 ["boat"],
@@ -453,6 +474,7 @@ json_world = {
                 ["white key", "boat", "iron sword", "gold armor"],
                 ["white key", "boat", "gold sword", "iron armor"],
                 ["white key", "boat", "gold sword", "gold armor"],
+                #["blink rod"]
             ],
             "riverbank": [
                 ["bombs"],
@@ -506,11 +528,6 @@ json_world = {
     },
     "location_map": {
         "main": {
-            #"riverside chest": [
-            #    ["wooden sword"],
-            #    ["iron sword"],
-            #    ["gold sword"],
-            #],
             "riverside chest": {
                 "default": [
                     ["wooden sword"],
@@ -641,6 +658,10 @@ json_world = {
             "temple south chest": None,
             "unknown priest grave chest": [["bombs", "push rod", "blink rod"]],
         },
+        #"fortress grounds": {
+            # already listed under main
+            #"slime island chest": [["boat"]],
+        #},
         "riverbank": {
             "lower riverbank chest": None,
         },
@@ -675,11 +696,9 @@ json_world = {
             "pot maze right chest": None,
         },
         "grappling hook room": {
-            "default": {
-                "ghr center chest": None,
-            },
-            "damage boost": { # -160HP total, -100HP longest stretch
-                "ghr center chest": [
+            "ghr center chest": {
+                "default": None,
+                "damage boost": [
                     ["blink rod"],
                     ["blink heart gem"], 
                     ["riverside heart gem"], 
@@ -695,7 +714,6 @@ json_world = {
             "mini maze right": None,
             "monty hall door chest": [
                 ["white key"],
-                #["blink rod"],
             ],
         },
         "waning moon rotunda": {
@@ -1177,7 +1195,6 @@ og_json_world = {
             ],
             "gold armor chest": [
                 ["bombs"],
-                #["blink rod"],
             ],
             "mushroom cave": [
                 ["bombs"],
@@ -1191,12 +1208,10 @@ og_json_world = {
             "nmr left chest": [
                 ["grappling hook"],
                 ["boat"],
-                #["blink rod"]
             ],
             "nmr right chest": [
                 ["grappling hook"],
                 ["boat"],
-                #["blink rod"]
             ],
             "pigcube hideaway chest": [
                 ["push rod"],
@@ -1282,7 +1297,6 @@ og_json_world = {
         "fortress exit": {
             "fortress exit chest": None,
         },
-        #"full moon rotunda": {},
         "apogee mage grave": {
             "apogee mage grave chest": None,
         },
@@ -1304,7 +1318,7 @@ og_json_world = {
             "mini maze right": None,
             "monty hall door chest": [
                 ["white key"],
-                #["blink rod"],
+
             ],
         },
         "waning moon rotunda": {
