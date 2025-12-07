@@ -105,11 +105,9 @@ Forged Curse:
     # Forces these items to be outside their native world.
     []
 
-  # Commented out because it throws an error with seed generation if plando is enabled. 
-  # Uncomment if you want to use start_inventory.
-  # start_inventory:
+  start_inventory:
     # Start with these items.
-    # []
+    {}
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
