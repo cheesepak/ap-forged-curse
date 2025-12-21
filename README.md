@@ -12,7 +12,11 @@ This version of The Forged Curse is shipped with AP integration and has been mod
 
 ---
 
-Features we would like to add at some point:
+Archipelago Options
+- **Barrier Skip**: Adds logic to use the Blink Rod or Grappling Hook and the White Key to access the Sealed Halls.
+- **Damage Boosting**: Adds logic for tanking snails at the beginning of the game and tanking spikes (often in conjunction with the Blink Rod) to get to areas normally requiring other items (mostly the grappling hook). 
+
+Archipelago features we would like to add at some point:
 - Deathlink
 - Progressive Armor and Swords
 - Items visible in your world are the correct items (instead of it being the Archipelago logo for everything)
