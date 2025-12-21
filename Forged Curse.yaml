@@ -107,6 +107,7 @@ Forged Curse:
 
   start_inventory:
     # Start with these items.
+    # Currently only able to start with one item.
     # **Example: Map**
     # Map auto-fills as you explore and is a great starting item for new players.
     #
