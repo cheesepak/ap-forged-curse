@@ -188,6 +188,7 @@ function _update()
 		end
 		if clrt>100 then
 			clearsd()
+			--fixed this
 			run()--_init()
 			clrmsg="save cleared"
 		end
