@@ -96,6 +96,16 @@ nav a {
     margin: 0 10px;
 }
 
+hr {
+    height: 4px;
+    color: var(--text-color);
+    background: var(--text-color);
+    margin: 40px 0;
+    font-size: 0;
+    border: 0;
+    opacity: 1.0;
+}
+
 main {
     margin: 20px;
 }
@@ -230,7 +240,7 @@ canvas {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-    margin: 20px 0;
+    margin: 40px 0 20px 0;
     max-width: 1200px;
 }
 
@@ -368,34 +378,48 @@ canvas {
 
 .progressive {
     color: var(--green);
+    text-transform: lowercase;
 }
 
 .useful {
-    color: var(--yellow)
+    color: var(--yellow);
+    text-transform: lowercase;
 }
 
 .gems {
-    color: var(--pink)
+    color: var(--pink);
+    text-transform: lowercase;
+}
+
+.loot {
+    color: var(--lavender);
+    text-transform: lowercase;
 }
 
 .other-checks {
-    color: var(--light-peach)
+    color: var(--light-peach);
+    text-transform: lowercase;
 }
 
 .red-key {
     color: var(--red);
+    text-transform: lowercase;
 }
 .orange-key {
     color: var(--orange);
+    text-transform: lowercase;
 }
 .green-key {
     color: var(--green);
+    text-transform: lowercase;
 }
 .blue-key {
     color: var(--blue);
+    text-transform: lowercase;
 }
 .white-key {     
     color: var(--light-grey); 
+    text-transform: lowercase;
 }
 
 @media screen and (max-width:1100px) {
