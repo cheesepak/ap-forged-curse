@@ -64,6 +64,22 @@ Forged Curse:
     minimal: 0
     # Minimal must be the only option set (everything else 0) for Disabled Blink Rod plando (see plando_items)
 
+  barrier_skip:
+    # Adds logic to use the Blink Rod or Grappling Hook and the White Key to access the Sealed Halls.
+    'false': 50
+    'true': 0
+
+  damage_boost:
+    # Adds logic for taking damage from enemies and spikes to access certain checks
+    'false': 50
+    'true': 0
+
+  death_link:
+    # When you die, everyone dies. Of course the reverse is true too.
+    # Note: currently in development, does not function.
+    'false': 50
+    'true': 0   
+
   # Item & Location Options
   plando_items:
   # **Disable Blink Rod**
@@ -89,11 +105,13 @@ Forged Curse:
     # Forces these items to be outside their native world.
     []
 
-  # Commented out because it throws an error with seed generation if plando is enabled. 
-  # Uncomment if you want to use start_inventory.
-  # start_inventory:
+  start_inventory:
     # Start with these items.
-    # []
+    # **Example: Map**
+    # Map auto-fills as you explore and is a great starting item for new players.
+    #
+    # map: 1
+    {}
 
   start_hints:
     # Start with these item's locations prefilled into the ``!hint`` command.
