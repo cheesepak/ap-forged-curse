@@ -563,10 +563,12 @@
       // sending information to the pico8 will trigger this function sending all checks to ap again
       // if you always send information to the pico8 when the gpio updates, that can cause an infinite loop
       gpio.subscribe(function (newIndices) {
-        if (options.DeathLink !== 0 && (gpio[7] & 16) !== 0) {
+        if (options.DeathLink !== 0 && (gpio[7] & 0B00011000) !== 0) {
           console.log("Death");
           gpio[7] = gpio[7] & 0B11100111; //unsure if bit 4 or 5 / endian-ness
+          //client.send({ cmd: CLIENT_PACKET_TYPE.DEATHLINK, source: thisPlayer});
           client.send({ cmd: CLIENT_PACKET_TYPE.BOUNCE, tags: COMMON_TAGS.DEATH_LINK, data: {"source": thisPlayer}});
+          client.send({ cmd: CLIENT_PACKET_TYPE.SAY, text: thisPlayer + " sent deathlink"}); //sends a bunch of times rn
         }
         /*
         if (options.DeathLink !== 0 && (gpio[25] & 2) !== 0) {
