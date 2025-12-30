@@ -222,7 +222,9 @@ function _update()
 		vx,vy=pc.x,pc.y
 		
 		if pc.hp<=0 then
-			ap_sendloc(60)--deathlink
+			if pc.hp<9999 then
+				ap_sendloc(60)--deathlink
+			end
 			if pc.dt<=0 then
 				mode="gameover"
 				music(0,300)
@@ -298,6 +300,7 @@ function _draw()
  end
  --]]
  if mode=="title" then
+ ---[[
  	print("the",58,24,tcol)
  	print("\^w\^tforged curse",
  		16,32,tcol
@@ -313,7 +316,7 @@ function _draw()
 	 		mid(2,9,tcol)
 	 	)
 	 end
-	 	
+	 	--]]
  elseif mode=="gameplay" then
 	 
 	 local drx,dry=vx-8,vy-8
@@ -2498,7 +2501,7 @@ function ap_getitems()
 					pc.bolts=20
 				end
 				if ki==60 then
-					pc.hp=-1
+					pc.hp=-10000
 					makeftxt("death link",8)
 					poke(adr,byte&0b11111011)
 				else
