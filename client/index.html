@@ -368,8 +368,13 @@
       let thisPlayer = 0;
       let players = {};
 
+      /* bytes 0-9 = checks (out to mw)
+         bytes 10-19 = items (in from mw)
+         byte 7, bit 5 = died, send deathlink
+         byte 17, bit 5 = received deathlink, kill player */
+      
       let DeathLink_Amnesty = 0;
-
+      /*
       function message_pico8(message) {
         let index = 37;
         //let log = "";
@@ -378,6 +383,7 @@
           index++;
         }
       }
+        */
 
       // Set up event listeners
       client.addListener(SERVER_PACKET_TYPE.CONNECTED, (packet) => {
@@ -408,7 +414,7 @@
         if (options.ExtraChecks) {
           optionsByte += 16;
         }
-        gpio[20] = optionsByte;
+        //gpio[20] = optionsByte;
 
         client.send({ cmd: CLIENT_PACKET_TYPE.SYNC });
       });
@@ -463,14 +469,15 @@
             }
           }
         }
-      });
+      }); //End addListener(SERVER_PACKET_TYPE.RECEIVED_ITEMS
 
+      // Handling received deathlink
       client.addListener(SERVER_PACKET_TYPE.BOUNCED, (packet) =>{
         console.log("Bounced ", packet);
         if (packet.tags === COMMON_TAGS.DEATH_LINK && options.DeathLink !== 0 && packet.data.source !== thisPlayer) {
-          gpio[25] = gpio[25] | 1;
-          DeathLink_Amnesty += 1;
-          if (packet.data.source) {
+          gpio[17] = gpio[17] | 0B00011000 ; //unsure if bit 4 or 5 / endian-ness
+          //DeathLink_Amnesty += 1;
+          /*if (packet.data.source) {
             if (players[packet.data.source].alias === ""){
               message_pico8(`deathlinked by ${players[packet.data.source].name}`.toLowerCase());
             } else {
@@ -478,12 +485,12 @@
             }
           } else {
             message_pico8("deathlinked");
-          }
+          }*/
         }
       });
 
       //add location info listener to give game sent item text
-      client.addListener(SERVER_PACKET_TYPE.LOCATION_INFO, (packet, message) => {
+      /*client.addListener(SERVER_PACKET_TYPE.LOCATION_INFO, (packet, message) => {
         console.log("Location Info: ", packet);
         for (let i=0; i<packet.locations.length; i++){
           let location = packet.locations[i];
@@ -496,7 +503,7 @@
             }
           }
         }
-      });
+      });*/
 
       // Connect to the Archipelago server
       form.addEventListener("submit", (event) => {
@@ -556,18 +563,25 @@
       // sending information to the pico8 will trigger this function sending all checks to ap again
       // if you always send information to the pico8 when the gpio updates, that can cause an infinite loop
       gpio.subscribe(function (newIndices) {
+        if (options.DeathLink !== 0 && (gpio[7] & 16) !== 0) {
+          console.log("Death");
+          gpio[7] = gpio[7] & 0B11100111; //unsure if bit 4 or 5 / endian-ness
+          client.send({ cmd: CLIENT_PACKET_TYPE.BOUNCE, tags: COMMON_TAGS.DEATH_LINK, data: {"source": thisPlayer}});
+        }
+        /*
         if (options.DeathLink !== 0 && (gpio[25] & 2) !== 0) {
           console.log("Death");
           gpio[25] = gpio[25] - 2;
-              DeathLink_Amnesty -= 1;
-              if (DeathLink_Amnesty === 0){
+          DeathLink_Amnesty -= 1;
+          if (DeathLink_Amnesty === 0){
             DeathLink_Amnesty = options.DeathLink_Amnesty;
             client.send({ cmd: CLIENT_PACKET_TYPE.BOUNCE, tags: COMMON_TAGS.DEATH_LINK, data: {"source": thisPlayer}});
             if (options.DeathLink_Amnesty > 1) {
               message_pico8("sent deathlink")
             }
-              }
+          }
         }
+        */
         for (let loc in loc_flags) {
           if ((gpio[Math.floor(loc_flags[loc][0] / 8)] & 2 ** (loc_flags[loc][0] % 8)) !== 0) { // loc_flags[loc][0]
             if (loc === "victory") {
