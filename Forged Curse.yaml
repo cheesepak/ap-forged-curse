@@ -74,14 +74,15 @@ Forged Curse:
     'false': 50
     'true': 0
 
-  death_link:
+  # death_link:
     # When you die, everyone dies. Of course the reverse is true too.
     # Note: currently in development, does not function.
-    'false': 50
-    'true': 0   
+    # 'false': 50
+    # 'true': 0   
 
   # Item & Location Options
-  plando_items:
+
+  # plando_items:
   # **Disable Blink Rod**
   # Forces blink rod and some loot into the two checks that require the blink rod.
   # Enable if you don't want blink rod in logic (e.g. you are unfamiliar with the map and having difficulty).
@@ -107,7 +108,7 @@ Forged Curse:
 
   start_inventory:
     # Start with these items.
-    # Currently only able to start with one item.
+    # Currently only able to start with one item. Adding more than one will break the game logic.
     # **Example: Map**
     # Map auto-fills as you explore and is a great starting item for new players.
     #
