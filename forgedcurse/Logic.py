@@ -595,16 +595,18 @@ json_world = {
         "new moon rotunda": {
             "blink chest": [["bombs", "blink rod"]],
             "nmr left chest": {
-                "default": [ # this isn't the ideal way of handling this             
+                "default": [ 
                     ["boat", "red key"], 
+                    ["grappling hook", "red key"],
                 ],
-                "blink rod logic": [["blink rod"]]
+                "damage boost": [["blink rod"]]
             },
             "nmr right chest": {
-                "default": [ # this isn't the ideal way of handling this                
+                "default": [         
                     ["boat", "red key"],
+                    ["grappling hook", "red key"],
                 ],
-                "blink rod logic": [["blink rod"]]
+                "damage boost": [["blink rod"]]
             },
         },
         "grapple closet": {
