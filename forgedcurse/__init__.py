@@ -76,10 +76,11 @@ class FCWorld(World):
     def get_region_list(self) -> list[str]:
         """
         Parser method to return the list of all regions to be created.
-        Currently flattens region_map to create all regions with a connection in or out
+        Currently flattens region_map to create a list of all regions with a connection in or out.
+        Identifies regions only named in a connection.
         """
         ret = {
-            r for connections in json_world["region_map"].values()
+            r for connections in json_world["region_map"].values() 
             for r in connections.keys()
         }.union(json_world["region_map"].keys())
         return ret
@@ -95,9 +96,11 @@ class FCWorld(World):
             blink_mode = "barrier skip"
         if self.options.damage_boost:
             boost_mode = "damage boost"
-        
+
+        # Returning current region, region to access, and the rules
         return [
-            (region1, region2, rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
+            (region1, region2, 
+            rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
             else rule[boost_mode] if isinstance(rule, dict) and boost_mode in rule
             else rule["default"] if isinstance(rule, dict) and "default" in rule  
             else rule)
@@ -118,7 +121,8 @@ class FCWorld(World):
             boost_mode = "damage boost"
 
         return [
-            (region, location, rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
+            (region, location, 
+            rule[blink_mode] if isinstance(rule, dict) and blink_mode in rule 
             else rule[boost_mode] if isinstance(rule, dict) and boost_mode in rule
             else rule["default"] if isinstance(rule, dict) and "default" in rule 
             else rule)
